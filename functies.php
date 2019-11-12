@@ -33,4 +33,14 @@ mysqli_stmt_bind_param($stmt, 'is', $nummer, $functie);
 return db_exec($stmt, $conn);
 }
 
+function productenLijst($limit){
 
+    $conn = db_connect();
+
+    $sql = "SELECT StockItemName FROM stockitems LIMIT " . "$limit";
+
+    
+
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
+}
