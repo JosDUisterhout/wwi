@@ -1,11 +1,12 @@
 <?php
 include('includes.php');
-$producten = productenLijst(25);
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
 
@@ -18,7 +19,10 @@ $producten = productenLijst(25);
         <?php
         if(isset($_GET['submit'])) {
             $zoek = $_GET["zoek"];
-            zoekProduct($zoek);
+            $producten = zoekProduct($zoek);
+        }
+        else{
+            $producten = productenLijst(25);
         }
         ?>
     </table>
