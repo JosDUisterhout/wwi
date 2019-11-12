@@ -51,6 +51,9 @@ function productenLijst($limit){
 
 
 
+<<<<<<< Updated upstream
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
+=======
+>>>>>>> Stashed changes

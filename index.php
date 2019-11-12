@@ -1,5 +1,10 @@
 <?php
+<<<<<<< Updated upstream
 include('includes.php');
+=======
+
+include('include.php');
+>>>>>>> Stashed changes
 
 ?>
 
