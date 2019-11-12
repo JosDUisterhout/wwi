@@ -49,11 +49,6 @@ function productenLijst($limit){
 
     $sql = "SELECT StockItemName FROM stockitems LIMIT " . "$limit";
 
-
-
-<<<<<<< Updated upstream
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
-=======
->>>>>>> Stashed changes
