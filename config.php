@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$databasename = "cursus";
+$databasename = "wideworldimporters";
 $user = "root";
 $pass = ""; //eigen password invullen
 $port = 3306;
