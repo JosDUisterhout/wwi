@@ -10,6 +10,13 @@ include('include.php');
 </head>
 <body>
 
+<script type="application/javascript">
+
+    function doeIets(){
+        alert("je hebt op een item geklikt!");
+    }
+</script>
+
     <form method="get">
         <input type="text" name="zoek" placeholder="Zoeken" />
         <input type="submit" name="submit" />
@@ -31,11 +38,11 @@ include('include.php');
 
     foreach($producten as $product){
         $id = $product["StockItemID"];
-//        <a class=\"nav-link\" href=\"gerechten/bon.php?id=$id\">Bon uitprinten</a>
     print('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' . $product["StockItemName"] . '</div>');
     }
      ?>
 </div>
+
 
 </body>
 </html>
