@@ -1,7 +1,9 @@
 <?php
 include('include.php');
 
+$producten = productenLijst();
 $categorie = categorieLijst();
+//$categorieclothing = categorieClothing();
 ?>
 <html>
 <style>
@@ -50,11 +52,14 @@ $categorie = categorieLijst();
 <div id="myBtnContainer">
     <button class="btn active" onclick="filterSelection('all')">Overzicht</button>
     <?php foreach($categorie as $naam){
-    print("<button class=\"btn\" onclick=\"filterSelection('all')\">" .  $naam['StockGroupName']. "</button>");
+    print("<button class=\"btn\" onclick=\"filterSelection(".  $naam['StockGroupName']. ")>" .  $naam['StockGroupName']. "</button>");
     } ?>
+    <button class="btn active" onclick="filterSelection('Clothing')">Clothing</button>
 </div>
 
 <div class="container">
+
+
     <div class="filterDiv cars">BMW</div>
     <div class="filterDiv colors fruits">Orange</div>
     <div class="filterDiv cars">Volvo</div>

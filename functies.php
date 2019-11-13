@@ -44,11 +44,11 @@ function zoekProduct($zoek){
 }
 
 
-function productenLijst($limit){
+function productenLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems LIMIT " . "$limit";
+    $sql = "SELECT StockItemName, StockGroupID FROM stockitems SI JOIN stockitemstockgroups SISG ON SI.StockItemID = SISG.StockItemID";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
@@ -58,6 +58,17 @@ function categorieLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT StockGroupName FROM stockgroups";
+    $sql = "SELECT StockGroupName, StockGroupID FROM stockgroups";
+    
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
+}
+function categorieClothing($categorie)
+{
+
+    $conn = db_connect();
+
+    $sql = "select distinct StockGroupName, StockItemName from stockgroups SG JOIN stockitemstockgroups SISG ON SG.StockGroupID = SISG.StockGroupID JOIN stockitems SI ON SI.StockItemID = SISG.StockItemID WHERE StockGroupName = " . $categorie ." ORDER BY StockGroupName, StockItemName;";
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
+
