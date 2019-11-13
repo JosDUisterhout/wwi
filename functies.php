@@ -37,10 +37,16 @@ function zoekProduct($zoek){
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems WHERE StockItemName LIKE '%$zoek%' or SearchDetails LIKE '%$zoek%' or StockItemId = '$zoek'";
+    $validate = valideerZoeken($zoek);
 
-//    var_dump(mysqli_query($conn, $sql));
-    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+    if($validate){
+        $sql = "SELECT * FROM stockitems WHERE StockItemName LIKE '%$zoek%' or SearchDetails LIKE '%$zoek%' or StockItemId = '$zoek'";
+        return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+    }else{
+        $sql = "SELECT * FROM stockitems LIMIT 25";
+
+        return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+    }
 }
 
 function productenLijst($limit){
@@ -51,4 +57,14 @@ function productenLijst($limit){
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
+}
+
+function valideerZoeken($zoek){
+
+    $validate = true;
+    if(strpos($zoek, "'") !== false || strpos($zoek, "\\") !== false || strpos($zoek, ";") !== false){
+        print("voer iets fatsoenlijks in");
+        $validate = false;
+    }
+    return $validate;
 }
