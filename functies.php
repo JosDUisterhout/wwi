@@ -43,6 +43,7 @@ function zoekProduct($zoek){
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
 
+
 function productenLijst($limit){
 
     $conn = db_connect();
@@ -51,4 +52,12 @@ function productenLijst($limit){
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
+}
+
+function categorieLijst(){
+
+    $conn = db_connect();
+
+    $sql = "SELECT StockGroupName FROM stockgroups";
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
