@@ -47,7 +47,7 @@ function productenLijst($limit){
 
     $conn = db_connect();
 
-    $sql = "SELECT StockItemName FROM stockitems LIMIT " . "$limit";
+    $sql = "SELECT * FROM stockitems LIMIT " . "$limit";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
