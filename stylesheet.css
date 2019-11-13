@@ -10,11 +10,14 @@
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    cursor: pointer;
 }
 
 /* For mobile phones: */
 .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    column-gap: 5px;
+    row-gap: 5px;
 }
 
 @media only screen and (min-width: 600px) {
