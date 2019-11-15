@@ -37,7 +37,7 @@ include('functies.php');
     </div>
 
     <div class="mobielzoek">
-    <form method="get" >
+    <form method="get" class="mobielzoek">
         <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
         <button type="submit" name="submit" class="zoekbtn">
             <i class="fa fa-search"></i>
