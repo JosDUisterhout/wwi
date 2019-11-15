@@ -1,17 +1,19 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color:#fff7f7;
 }
 
 
 .grid-container {
     display: grid;
     /*grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));*/
-    background-color: #2196F3;
+    background-color: #fff7f7;
     padding: 10px;
 }
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #dadada;
+    border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -22,7 +24,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #204969;
 }
 
 .topnav a {
@@ -74,9 +76,13 @@ body {
     }
 
     .mobielzoek {
+        background-color:#2196F3;
         margin-left: auto;
         margin-right: auto;
-        width: max-content;
+        width:100%;
+        position: fixed;
+        bottom:0;
+        padding-left:12px;
     }
 
     .zoek {display:none;}
@@ -85,6 +91,14 @@ body {
         margin-left: auto;
         margin-right: auto;
         width: 60%;
+        position:relative;
+    }
+
+    .zoekbtn {
+        padding: 12px 20px;
+        margin: 2px 0;
+        width:20%;
+        box-sizing: padding-box;
     }
 
     .topnav.responsive {position: relative;}
@@ -103,9 +117,10 @@ body {
 
 /* For mobile phones: */
 .grid-container {
+    margin:2%;
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    column-gap: 5px;
-    row-gap: 5px;
+    column-gap: 2%;
+    row-gap: 1%;
 }
 
 @media only screen and (min-width: 600px) {
@@ -128,7 +143,8 @@ body {
 
 @media only screen and (min-width: 768px) {
     .grid-container{
-        grid-template-columns: repeat(auto-fill, minmax(33%, 3fr));
+        grid-template-columns: repeat(auto-fill, minmax(24%, 3fr));
+
     }
 
     .zoek {

@@ -7,6 +7,8 @@ include('functies.php');
 
 ?>
 
+<!--TODO: onderstaande in layout.php-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,12 +36,14 @@ include('functies.php');
         </a>
     </div>
 
-    <form method="get" class="mobielzoek">
+    <div class="mobielzoek">
+    <form method="get" >
         <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
         <button type="submit" name="submit" class="zoekbtn">
             <i class="fa fa-search"></i>
         </button>
     </form>
+    </div>
 
     <?php
     if(isset($_GET['submit'])) {

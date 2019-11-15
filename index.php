@@ -1,6 +1,8 @@
 <?php
 include('include.php');
 
+global $producten;
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +17,10 @@ include('include.php');
     <?php
         foreach($producten as $product){
             $id = $product["StockItemID"];
-            print('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' . $product["StockItemName"] . '</div>');
+            $foto = $product["Photo"];
+            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' . $product["StockItemName"] . '<br>
+            <img alt="test" src="data:image/png;base64,' . base64_encode($foto) . '"> 
+            </div>');
         }
     ?>
 </div>
