@@ -68,13 +68,15 @@ function valideerZoeken($zoek){
         $validate = false;
     }
     return $validate;
+
 }
+
 function categorieLijst(){
 
     $conn = db_connect();
 
     $sql = "SELECT StockGroupName, StockGroupID FROM stockgroups";
-
+    
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
