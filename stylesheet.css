@@ -125,8 +125,8 @@ body {
 /* For mobile phones: */
 .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    column-gap: 2%;
-    row-gap: 1%;
+    column-gap: 30px;
+    row-gap: 20px;
 }
 
 @media only screen and (min-width: 600px) {
