@@ -9,8 +9,13 @@ include('include.php');
 
 </head>
 <body>
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>WWI</h1>
 
 
+    </div>
+</div>
 <div class="grid-container">
     <?php
         foreach($producten as $product){

@@ -34,6 +34,7 @@ include('functies.php');
         </a>
     </div>
 
+
     <form method="get" class="mobielzoek">
         <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
         <button type="submit" name="submit" class="zoekbtn">
