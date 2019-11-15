@@ -20,9 +20,6 @@ include('include.php');
 <style>
 
 
-
-
-
 /*    */
 /*    */
 /*STYLE VOOR AFBEELDING EN VERGROOTING------STYLE VOOR AFBEELDING EN VERGROOTING------STYLE VOOR AFBEELDING EN VERGROOTING     */
@@ -296,8 +293,18 @@ include('include.php');
         dots[slideIndex-1].className += " active";
         captionText.innerHTML = dots[slideIndex-1].alt;
     }
-</script>
 
+</script>
+<?php
+$conn = db_connect();
+$sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_GET['id'] ;
+$result = mysqli_query($conn, $sql);
+
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+    $naam = $row["RecommendedRetailPrice"];
+    print(ceil($naam). " euro" . "<br>");
+}
+?>
 </body>
 </html>
 
