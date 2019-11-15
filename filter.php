@@ -2,8 +2,18 @@
 include('include.php');
 
 $producten = productenLijst();
-$categorie = categorieLijst();
-//$categorieclothing = categorieClothing();
+$categorieen = categorieLijst();
+
+if(isset($_GET['get'])){
+    foreach($categorieen as $categorie){
+        if(isset($_GET[$categorie['StockGroupName']])){
+            $cat= $_GET[$categorie['StockGroupName']];
+            $categorieclothing = categorieClothing($_GET[$cat]);
+        }
+    }
+}
+
+
 ?>
 <html>
 <style>
@@ -49,13 +59,13 @@ $categorie = categorieLijst();
 
 <h2>Filter DIV Elements</h2>
 
-<div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection('all')">Overzicht</button>
-    <?php foreach($categorie as $naam){
-    print("<button class=\"btn\" onclick=\"filterSelection(".  $naam['StockGroupName']. ")>" .  $naam['StockGroupName']. "</button>");
+<form action="">
+    <button class="btn active" type="submit" name="overzicht">Overzicht</button>
+    <?php foreach($categorieen as $categorie){
+        print("<button class=\"btn\" onclick=\"filterSelection(" .  $categorie['StockGroupName']. ")\" type=\"submit\" name=\"" . $categorie['StockGroupName'] ."\">" .  $categorie['StockGroupName'] . "</button>");
     } ?>
-    <button class="btn active" onclick="filterSelection('Clothing')">Clothing</button>
-</div>
+    <input type="hidden" name="get">
+</form>
 
 <div class="container">
 
