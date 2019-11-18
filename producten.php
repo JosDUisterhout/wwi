@@ -3,6 +3,12 @@ include('include.php');
 
 global $producten;
 
+$producten = productenItem($_GET['id']);
+$productNaam = $producten[0]['StockItemName'];
+$productPrijs = $producten[0]['RecommendedRetailPrice'];
+$productdails = $producten[0] ["SearchDetails"];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -219,8 +225,8 @@ global $producten;
    productnaam  {
         position: absolute;
         top: 15px;
-        right: 595px;
-        width: 200px;
+        right: 345px;
+        width: 450px;
         height: 50px;
         border: 0px solid black;
        font-size: 20px;
@@ -273,7 +279,9 @@ global $producten;
 
 <div class="absolute">
     <productnaam>
-         Naam Product
+        <?php
+        print("$productNaam<br>");
+        ?>
     </productnaam>
     <div class="row">
         <div class="column">
@@ -288,20 +296,19 @@ global $producten;
             <prijs>
 
                 <?php
-                $producten = productenItem($_GET['id']);
-                $productNaam = $producten[0]['StockItemName'];
-                $productPrijs = $producten[0]['RecommendedRetailPrice'];
 
-                print("$productNaam<br>");
+
                 print("€ ".ceil($productPrijs). " euro" . "<br>");
                 ?>
             </prijs>
             <div class="relative">
-                Informatie product
-
+                <?php
+                print $productdails.'<br>'.'<br>';
+                ?>
+                <a href="https://www.youtube.com/results?search_query=<?php echo$productNaam?>" target="_blank">YouTube</a>
             </div>
 <relatedproduct>
-
+    Gerelateerde producten
 </relatedproduct>
 
 
