@@ -49,11 +49,11 @@ function zoekProduct($zoek){
     }
 }
 
-function productenLijst($limit){
+function productenLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems LIMIT " . "$limit";
+    $sql = "SELECT * FROM stockitems ";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 

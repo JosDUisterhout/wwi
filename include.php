@@ -51,7 +51,7 @@ include('functies.php');
         $producten = zoekProduct($zoek);
     }
     else{
-        $producten = productenLijst(25);
+        $producten = productenLijst();
     }
     ?>
 
