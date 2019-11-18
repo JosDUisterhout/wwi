@@ -51,8 +51,6 @@ function zoekProduct($zoek){
 
 function productenLijst(){
 
-function productenLijst(){
-
     $conn = db_connect();
 
     $sql = "SELECT * FROM stockitems ";
