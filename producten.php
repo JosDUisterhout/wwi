@@ -1,5 +1,8 @@
 <?php
 include('include.php');
+
+global $producten;
+
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +78,8 @@ include('include.php');
     .modal-content, img{
         max-width: 1200px;
         max-height:800px;
+        min-height: 170px;
+        min-width: 450px;
     }
 
     /* The Close Button */
@@ -181,13 +186,55 @@ include('include.php');
     /*    */
 
 
+    div.relative {
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        width: 200px;
+        height: 200px;
+        border: 3px solid black;
+    }
 
+    div.absolute {
+        position: absolute;
+        top: 80px;
+        right: 330px;
+        width: 900px;
+        height: 700px;
+        border: 48px solid #fff7f7;
+        padding: 3px;
+    }
 
+    prijs {
+        position: absolute;
+        top: 15px;
+        right: 80px;
+        width: 200px;
+        height: 200px;
+        font-size: 30px;
+        color: lawngreen;
+        text-shadow: 3px 2px black;
+    }
 
+   productnaam  {
+        position: absolute;
+        top: 15px;
+        right: 595px;
+        width: 200px;
+        height: 50px;
+        border: 0px solid black;
+       font-size: 20px;
+    }
 
-
-
-
+    relatedproduct  {
+        position: absolute;
+        top: 500px;
+        right: 40px;
+        width: 800px;
+        height: 120px;
+        border: 3px solid black;
+        font-size: 20px;
+    }
 
 
 
@@ -198,133 +245,157 @@ include('include.php');
     /*    */
     /*    */
 </style>
+
+
+
 <body>
 
-<h2 s
+<h2
+<div class="relative">
+    <div class="absolute">
 
-<div class="row">
-    <div class="column">
-        <img src="../handig/af1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+
 
     </div>
 
-    <div id="myModal" class="modal">
-        <span class="close cursor" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-
-            <div class="mySlides">
-                <div class="numbertext">1 / 3</div>
-                <img src="../handig/af1.jpg" style="max-width:800px; max-height:800px;">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">2 / 3</div>
-                <img src="../handig/af3.jpg" style="width:800px">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">3 / 3</div>
-                <img src="../handig/af4.jpg" style="width:800px">
-
-
-
-
-            </div>
-
-
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <div class="caption-container">
-            <p id="caption"></p>
-        </div>
-
-
-        <div class="column">
-            <img class="demo cursor" src="../handig/af1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Putin">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="../handig/af3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Donald">
-        </div>
-        <div class="column">
-            <img class="demo cursor" src="../handig/af4.jpg" style="width:100%" onclick="currentSlide(3)" alt="Kim">
-        </div>
-
-    </div>
 </div>
 
-<script>
 
-    function openModal() {
-        document.getElementById("myModal").style.display = "block";
-    }
 
-    function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-    }
 
-    var slideIndex = 1;
-    showSlides(slideIndex);
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
+</h2>
+<!---->
+<!---->
+<!--PAGINA INDELING------PAGINA INDELING------PAGINA INDELING------PAGINA INDELING------PAGINA INDELING-->
+<!---->
+<!---->
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
+<div class="absolute">
+    <productnaam>
+         Naam Product
+    </productnaam>
+    <div class="row">
+        <div class="column">
+            <br><br><br>
+            <img src="../wwi/af1.jpg" style="max-width:100px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" >
 
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            <!---->
+            <!---->
+            <!--PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE-->
+            <!---->
+            <!---->
+            <prijs>
+
+                <?php
+                $producten = productenItem($_GET['id']);
+                $productNaam = $producten[0]['StockItemName'];
+                $productPrijs = $producten[0]['RecommendedRetailPrice'];
+
+                print("$productNaam<br>");
+                print("€ ".ceil($productPrijs). " euro" . "<br>");
+                ?>
+            </prijs>
+            <div class="relative">
+                Informatie product
+
+            </div>
+<relatedproduct>
+
+</relatedproduct>
+
+
+
+
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="../wwi/af1.jpg" style="max-width:800px; max-height:800px;">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="../wwi/af3.jpg" style="width:800px">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="../wwi/af4.jpg" style="width:800px">
+
+
+
+
+                </div>
+
+
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+
+            <div class="column">
+                <img class="demo cursor" src="../wwi/af1.jpg" style="width:100%" onclick="currentSlide(1)" alt="product">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="../wwi/af3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Werking">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="../wwi/af4.jpg" style="width:100%" onclick="currentSlide(3)" alt="Effect">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
         }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        captionText.innerHTML = dots[slideIndex-1].alt;
-    }
 
-</script>
-<?php
-$conn = db_connect();
-$sql = "SELECT StockItemName FROM stockitems WHERE stockItemID =".$_GET['id'] ;
-$result = mysqli_query($conn, $sql);
+        var slideIndex = 1;
+        showSlides(slideIndex);
 
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-    $naam = $row["StockItemName"];
-    print($naam. "<br>");
-}
-mysqli_free_result($result);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
 
-$sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_GET['id'] ;
-$result = mysqli_query($conn, $sql);
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
 
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-    $naam = $row["RecommendedRetailPrice"];
-    print(ceil($naam). " euro" . "<br>");
-}
-mysqli_free_result($result);
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
 
-$sql = "SELECT MarketingComments FROM stockitems WHERE stockItemID =".$_GET['id'] ;
-$result = mysqli_query($conn, $sql);
+    </script>
 
-while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-    $naam = $row["MarketingComments"];
-    print($naam. "<br>");
-}
-mysqli_free_result($result);
-?>
 </body>
 </html>
-
 

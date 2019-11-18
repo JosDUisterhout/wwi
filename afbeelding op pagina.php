@@ -181,9 +181,35 @@ include('include.php');
 /*    */
 
 
+div.relative {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+width: 200px;
+height: 200px;
+border: 3px solid black;
+}
 
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 330px;
+    width: 900px;
+    height: 700px;
+    border: 48px solid #001110;
+    padding: 3px;
+}
 
-
+prijs {
+    position: absolute;
+    top: 15px;
+    right: 80px;
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    color: lawngreen;
+    text-shadow: 3px 2px black;
+}
 
 
 
@@ -198,33 +224,81 @@ include('include.php');
 /*    */
 /*    */
 </style>
+
+
+
 <body>
 
-<h2 s
+<h2
+        <div class="relative">
+            <div class="absolute">
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </h2>
+<!---->
+<!---->
+<!--PAGINA INDELING------PAGINA INDELING------PAGINA INDELING------PAGINA INDELING------PAGINA INDELING-->
+<!---->
+<!---->
+
+<div class="absolute">
 
 <div class="row">
     <div class="column">
-        <img src="../handig/af1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        <img src="../wwi/af1.jpg" style="width:500px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+
+        <!---->
+        <!---->
+        <!--PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE-->
+        <!---->
+        <!---->
+        <prijs>
+            <?php $conn = db_connect();
+            $sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_GET['id'] ;
+            $result = mysqli_query($conn, $sql);
+
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $naam = $row["RecommendedRetailPrice"];
+             print(ceil($naam). " euro" . "<br>");
+}
+?>
+        </prijs>
+        <div class="relative">
+BLA BLA
 
     </div>
 
+
+
+
+
+</div>
     <div id="myModal" class="modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
         <div class="modal-content">
 
             <div class="mySlides">
                 <div class="numbertext">1 / 3</div>
-                <img src="../handig/af1.jpg" style="max-width:800px; max-height:800px;">
+                <img src="../wwi/af1.jpg" style="max-width:800px; max-height:800px;">
             </div>
 
             <div class="mySlides">
                 <div class="numbertext">2 / 3</div>
-                <img src="../handig/af3.jpg" style="width:800px">
+                <img src="../wwi/af3.jpg" style="width:800px">
             </div>
 
             <div class="mySlides">
                 <div class="numbertext">3 / 3</div>
-                <img src="../handig/af4.jpg" style="width:800px">
+                <img src="../wwi/af4.jpg" style="width:800px">
 
 
 
@@ -243,19 +317,19 @@ include('include.php');
 
 
         <div class="column">
-            <img class="demo cursor" src="../handig/af1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Putin">
+            <img class="demo cursor" src="../wwi/af1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Putin">
         </div>
         <div class="column">
-            <img class="demo cursor" src="../handig/af3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Donald">
+            <img class="demo cursor" src="../wwi/af3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Donald">
         </div>
         <div class="column">
-            <img class="demo cursor" src="../handig/af4.jpg" style="width:100%" onclick="currentSlide(3)" alt="Kim">
+            <img class="demo cursor" src="../wwi/af4.jpg" style="width:100%" onclick="currentSlide(3)" alt="Kim">
         </div>
 
     </div>
 </div>
 
-<script>
+        <script>
 
     function openModal() {
         document.getElementById("myModal").style.display = "block";
@@ -307,5 +381,4 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 ?>
 </body>
 </html>
-
 
