@@ -1,17 +1,19 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color:#fff7f7;
 }
 
 
 .grid-container {
     display: grid;
     /*grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));*/
-    background-color: #2196F3;
+    background-color: #fff7f7;
     padding: 10px;
 }
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #dadada;
+    border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -22,7 +24,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #204969;
 }
 
 .topnav a {
@@ -74,9 +76,13 @@ body {
     }
 
     .mobielzoek {
+        background-color:#2196F3;
         margin-left: auto;
         margin-right: auto;
-        width: max-content;
+        width:100%;
+        position: fixed;
+        bottom:0;
+        padding-left:12px;
     }
 
     .zoek {display:none;}
@@ -85,6 +91,14 @@ body {
         margin-left: auto;
         margin-right: auto;
         width: 60%;
+        position:relative;
+    }
+
+    .zoekbtn {
+        padding: 12px 20px;
+        margin: 2px 0;
+        width:20%;
+        box-sizing: padding-box;
     }
 
     .topnav.responsive {position: relative;}
@@ -103,9 +117,10 @@ body {
 
 /* For mobile phones: */
 .grid-container {
+    margin:2%;
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    column-gap: 5px;
-    row-gap: 5px;
+    column-gap: 2%;
+    row-gap: 1%;
 }
 
 @media only screen and (min-width: 600px) {
@@ -128,7 +143,8 @@ body {
 
 @media only screen and (min-width: 768px) {
     .grid-container{
-        grid-template-columns: repeat(auto-fill, minmax(33%, 3fr));
+        grid-template-columns: repeat(auto-fill, minmax(24%, 3fr));
+
     }
 
     .zoek {
@@ -141,4 +157,263 @@ body {
     .zoeken {
         width: 55%;
     }
+}
+
+/*    */
+/*    */
+/*STYLE VOOR AFBEELDING EN VERGROOTING------STYLE VOOR AFBEELDING EN VERGROOTING------STYLE VOOR AFBEELDING EN VERGROOTING     */
+/*    */
+/*    */
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row > .column {
+    padding: 0 8px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+
+    margin: auto;
+    padding: 0;
+    width: 90%;
+
+}
+.modal-content, img{
+    max-width: 1200px;
+    max-height:800px;
+    min-height: 170px;
+    min-width: 450px;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: black;
+
+}
+
+.mySlides {
+    display: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
+
+.caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+}
+
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+img.hover-shadow {
+    transition: 0.3s;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*    */
+/*    */
+/*HIER BEGINT DE STYLE VOOR DE PAGINA------HIER BEGINT DE STYLE VOOR DE PAGINA------HIER BEGINT DE STYLE VOOR DE PAGINA */
+/*    */
+/*    */
+
+
+div.relative {
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    width: 200px;
+    height: 200px;
+    border: 3px solid black;
+}
+
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 330px;
+    width: 900px;
+    height: 700px;
+    border: 48px solid #fff7f7;
+    padding: 3px;
+}
+
+prijs {
+    position: absolute;
+    top: 15px;
+    right: 80px;
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    color: lawngreen;
+    text-shadow: 3px 2px black;
+}
+
+productnaam  {
+    position: absolute;
+    top: 15px;
+    right: 345px;
+    width: 450px;
+    height: 50px;
+    border: 0px solid black;
+    font-size: 20px;
+}
+
+relatedproduct  {
+    position: absolute;
+    top: 460px;
+    right: 40px;
+    width: 800px;
+    height: 160px;
+    border: 3px solid black;
+    font-size: 20px;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+
+    margin-top: 20px;
+}
+
+.container ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.container ul li{
+    float:left;
+    list-style: none;
+    width:20%;
+    height:50px;
+    margin :20px 0px 20px 55px;
+    border:2px solid black;
+    box-sizing: border-box;
+}
+.container ul li:hover{
+    opacity: 0.8;
+}
+
+.container ul li .bottom{
+    width: 100%;
+    height:50px;
+    line-height: 50px;
+    background: black;
+    text-align: center;
+    color:white;
+    font-size: 20px;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
 }

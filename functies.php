@@ -49,11 +49,11 @@ function zoekProduct($zoek){
     }
 }
 
-function productenLijst($limit){
+function productenLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems LIMIT " . "$limit";
+    $sql = "SELECT * FROM stockitems ";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
@@ -67,4 +67,18 @@ function valideerZoeken($zoek){
         $validate = false;
     }
     return $validate;
+}
+
+function productenItem($id){
+    $conn = db_connect();
+
+    $sql = "SELECT * FROM stockitems WHERE stockItemID = $id";
+
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+//                $result = mysqli_query($conn, $sql);
+
+//                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+//                    $naam = $row["RecommendedRetailPrice"];
+//                    print("€ ".ceil($naam). " euro" . "<br>");
+//                }
 }
