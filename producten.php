@@ -234,10 +234,10 @@ $productdails = $producten[0] ["SearchDetails"];
 
     relatedproduct  {
         position: absolute;
-        top: 500px;
+        top: 460px;
         right: 40px;
         width: 800px;
-        height: 120px;
+        height: 160px;
         border: 3px solid black;
         font-size: 20px;
     }
@@ -286,7 +286,7 @@ $productdails = $producten[0] ["SearchDetails"];
     <div class="row">
         <div class="column">
             <br><br><br>
-            <img src="../wwi/af1.jpg" style="max-width:100px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" >
+            <img src="../wwi/af1.png" style="max-width:100px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" >
 
             <!---->
             <!---->
@@ -321,17 +321,17 @@ $productdails = $producten[0] ["SearchDetails"];
 
                 <div class="mySlides">
                     <div class="numbertext">1 / 3</div>
-                    <img src="../wwi/af1.jpg" style="max-width:800px; max-height:800px;">
+                    <img src="../wwi/af1.png" style="max-width:800px; max-height:800px;">
                 </div>
 
                 <div class="mySlides">
                     <div class="numbertext">2 / 3</div>
-                    <img src="../wwi/af3.jpg" style="width:800px">
+                    <img src="../wwi/af3.png" style="width:800px">
                 </div>
 
                 <div class="mySlides">
                     <div class="numbertext">3 / 3</div>
-                    <img src="../wwi/af4.jpg" style="width:800px">
+                    <img src="../wwi/af4.png" style="width:800px">
 
 
 
@@ -350,13 +350,13 @@ $productdails = $producten[0] ["SearchDetails"];
 
 
             <div class="column">
-                <img class="demo cursor" src="../wwi/af1.jpg" style="width:100%" onclick="currentSlide(1)" alt="product">
+                <img class="demo cursor" src="../wwi/af1.png" style="width:100%" onclick="currentSlide(1)" alt="product">
             </div>
             <div class="column">
-                <img class="demo cursor" src="../wwi/af3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Werking">
+                <img class="demo cursor" src="../wwi/af3.png" style="width:100%" onclick="currentSlide(2)" alt="Werking">
             </div>
             <div class="column">
-                <img class="demo cursor" src="../wwi/af4.jpg" style="width:100%" onclick="currentSlide(3)" alt="Effect">
+                <img class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
             </div>
 
         </div>
