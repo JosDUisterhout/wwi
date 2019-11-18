@@ -67,6 +67,9 @@ body {
     cursor: pointer;
     height: 300px;
 }
+.grid-item:hover{
+    box-shadow: 5px 10px 5px #B86B6A;
+}
 
 .topnav {
     overflow: hidden;

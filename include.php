@@ -47,16 +47,6 @@ $categorieen = categorieLijst();
     </form>
     </div>
 
-    <div class="m0a">
-        <form action="">
-            <button class="btn active" type="submit" name="overzicht">Overzicht</button>
-            <?php foreach($categorieen as $categorie){
-                print("<button class=\"btn\" type=\"submit\" name=\"categorieen[]\"  value=\"" . $categorie['StockGroupName'] . "\">" .  $categorie['StockGroupName'] . "</button>");
-            } ?>
-            <input type="hidden" name="get">
-        </form>
-    </div>
-
     <?php
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
