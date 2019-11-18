@@ -3,6 +3,7 @@
 include('config.php');
 include('functies.php');
 
+$categorieen = categorieLijst();
 
 
 ?>
@@ -31,6 +32,7 @@ include('functies.php');
                 </button>
             </div>
         </form>
+
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -45,10 +47,26 @@ include('functies.php');
     </form>
     </div>
 
+    <div class="m0a">
+        <form action="">
+            <button class="btn active" type="submit" name="overzicht">Overzicht</button>
+            <?php foreach($categorieen as $categorie){
+                print("<button class=\"btn\" type=\"submit\" name=\"categorieen[]\"  value=\"" . $categorie['StockGroupName'] . "\">" .  $categorie['StockGroupName'] . "</button>");
+            } ?>
+            <input type="hidden" name="get">
+        </form>
+    </div>
+
     <?php
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
         $producten = zoekProduct($zoek);
+    }
+    elseif(isset($_GET['categorieen'])){
+        foreach($_GET['categorieen'] as $cat){
+
+            $producten = categorieClothing($cat);
+        }
     }
     else{
         $producten = productenLijst(25);

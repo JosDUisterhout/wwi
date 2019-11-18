@@ -2,16 +2,8 @@
 include('include.php');
 
 $producten = productenLijst();
-$categorieen = categorieLijst();
 
-if(isset($_GET['get'])){
-    foreach($categorieen as $categorie){
-        if(isset($_GET[$categorie['StockGroupName']])){
-            $cat= $_GET[$categorie['StockGroupName']];
-            $categorieclothing = categorieClothing($_GET[$cat]);
-        }
-    }
-}
+
 
 
 ?>
@@ -62,27 +54,19 @@ if(isset($_GET['get'])){
 <form action="">
     <button class="btn active" type="submit" name="overzicht">Overzicht</button>
     <?php foreach($categorieen as $categorie){
-        print("<button class=\"btn\" onclick=\"filterSelection(" .  $categorie['StockGroupName']. ")\" type=\"submit\" name=\"" . $categorie['StockGroupName'] ."\">" .  $categorie['StockGroupName'] . "</button>");
+        print("<button class=\"btn\" onclick=\"filterSelection(" .  $categorie['StockGroupName']. ")\" type=\"submit\" name=\"categorieen[]\"  value=\"" . $categorie['StockGroupName'] . "\">" .  $categorie['StockGroupName'] . "</button>");
     } ?>
     <input type="hidden" name="get">
 </form>
 
 <div class="container">
-
-
-    <div class="filterDiv cars">BMW</div>
-    <div class="filterDiv colors fruits">Orange</div>
-    <div class="filterDiv cars">Volvo</div>
-    <div class="filterDiv colors">Red</div>
-    <div class="filterDiv cars animals">Mustang</div>
-    <div class="filterDiv colors">Blue</div>
-    <div class="filterDiv animals">Cat</div>
-    <div class="filterDiv animals">Dog</div>
-    <div class="filterDiv fruits">Melon</div>
-    <div class="filterDiv fruits animals">Kiwi</div>
-    <div class="filterDiv fruits">Banana</div>
-    <div class="filterDiv fruits">Lemon</div>
-    <div class="filterDiv animals">Cow</div>
+<?php
+if(isset($categorieclothing)){
+foreach($categorieclothing as $cat){
+    print("<div class=\"filterDiv\">" . $cat['StockItemName'] . "</div>");
+}
+}
+?>
 </div>
 
 <script>

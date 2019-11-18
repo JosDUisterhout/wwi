@@ -54,7 +54,7 @@ function productenLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT StockItemName, StockGroupID FROM stockitems SI JOIN stockitemstockgroups SISG ON SI.StockItemID = SISG.StockItemID";
+    $sql = "SELECT * FROM stockitems";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
@@ -75,8 +75,8 @@ function categorieLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT StockGroupName, StockGroupID FROM stockgroups";
-    
+    $sql = "SELECT StockGroupName, StockGroupID FROM stockgroups WHERE StockGroupID IN (SELECT StockGroupID FROM stockitemstockgroups)";
+
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
@@ -85,7 +85,8 @@ function categorieClothing($categorie)
 
     $conn = db_connect();
 
-    $sql = "select distinct StockGroupName, StockItemName from stockgroups SG JOIN stockitemstockgroups SISG ON SG.StockGroupID = SISG.StockGroupID JOIN stockitems SI ON SI.StockItemID = SISG.StockItemID WHERE StockGroupName = " . $categorie ." ORDER BY StockGroupName, StockItemName;";
+    $sql = "SELECT * FROM stockitems WHERE StockItemID IN (SELECT StockItemID FROM stockitemstockgroups WHERE StockGroupID IN(SELECT StockGroupID FROM stockgroups WHERE StockGroupName = '" . $categorie . "'))";
+
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
 
