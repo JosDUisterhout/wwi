@@ -103,9 +103,9 @@ $productdails = $producten[0] ["SearchDetails"];
 <relatedproduct>
     <div class="container">
         <ul>
-            <li> <a href="http://localhost/wwi/producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
-            <li> <a href="http://localhost/wwi/producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
-            <li><a href="http://localhost/wwi/producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo'product' ?></a> </li>
+            <li> <a href="producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
+            <li> <a href="producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
+            <li> <a href="producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
         </ul>
     </div>
 </relatedproduct>
