@@ -1,19 +1,65 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color:#fff7f7;
+}
+
+.m0a{
+    width:100%;
+}
+
+.m0a, form{
+    text-align: center;
+}
+
+.filterDiv {
+    float: left;
+    background-color: #2196F3;
+    color: #ffffff;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 2px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.container {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.btn.active {
+    background-color: #666;
+    color: white;
 }
 
 
 .grid-container {
     display: grid;
     /*grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));*/
-    background-color: #fff7f7;
+    background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(black, white);
     padding: 10px;
 }
 .grid-item {
-    background-color: #dadada;
-    border-radius: 7px;
+    background-color:  rgb(255, 255, 255);
+
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
@@ -21,10 +67,18 @@ body {
     cursor: pointer;
     height: 300px;
 }
+.grid-item:hover{
+    box-shadow: 5px 10px 5px #B86B6A;
+}
 
 .topnav {
     overflow: hidden;
-    background-color: #204969;
+    background-color: black;
+    /*opacity: .4;*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .topnav a {
@@ -35,6 +89,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+
 }
 
 .topnavright {
@@ -47,7 +102,7 @@ body {
 }
 
 .topnav a.active {
-    background-color: #2196F3;
+    background-color: #c80c0a;
     color: white;
 }
 
@@ -70,6 +125,7 @@ body {
 
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {display: none;}
+    .hero-image {display: none;}
     .topnav a.icon {
         float: right;
         display: block;
@@ -117,10 +173,9 @@ body {
 
 /* For mobile phones: */
 .grid-container {
-    margin:2%;
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    column-gap: 2%;
-    row-gap: 1%;
+    column-gap: 30px;
+    row-gap: 20px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -157,6 +212,41 @@ body {
     .zoeken {
         width: 55%;
     }
+}
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(200, 12, 10, 0.66)), url("Black-Friday-Sale.jpg");
+
+    /* Set a specific height */
+    height: 60%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: 100% 100%;
+    margin-top: 40px;
+    max-width: 100%;
+
+
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    opacity: 0%;
+    font-size: 60px;
+
 }
 
 /*    */

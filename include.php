@@ -3,6 +3,7 @@
 include('config.php');
 include('functies.php');
 
+$categorieen = categorieLijst();
 
 
 ?>
@@ -31,13 +32,14 @@ include('functies.php');
                 </button>
             </div>
         </form>
+
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
 
     <div class="mobielzoek">
-    <form method="get" >
+    <form method="get" class="mobielzoek">
         <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
         <button type="submit" name="submit" class="zoekbtn">
             <i class="fa fa-search"></i>
@@ -49,6 +51,12 @@ include('functies.php');
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
         $producten = zoekProduct($zoek);
+    }
+    elseif(isset($_GET['categorieen'])){
+        foreach($_GET['categorieen'] as $cat){
+
+            $producten = categorieClothing($cat);
+        }
     }
     else{
         $producten = productenLijst();
