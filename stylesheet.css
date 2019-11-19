@@ -68,8 +68,8 @@ body {
     height: 300px;
 }
 .grid-item:hover{
+    opacity:90%;
     box-shadow: 5px 10px 5px #c80c0a;
-    opacity: 90%;
 }
 
 .topnav {

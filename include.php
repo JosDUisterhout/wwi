@@ -21,7 +21,6 @@ $categorieen = categorieLijst();
 
     <div class="topnav" id="myTopnav">
         <a href="index.php" class="active">Home</a>
-        <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#login" class="topnavright">Login</a>
         <form method="get" class="zoek">

@@ -3,6 +3,25 @@ include('include.php');
 
 global $producten;
 global $categorieen;
+if(isset($_GET['aantal'])){
+    $max = 30 * $_GET['perPagina'];
+}
+else{$max = 30;}
+
+if(isset($_GET['paginaNummer'])){
+
+    foreach($_GET['paginaNummer'] as $pnr){
+
+
+    $huidigeLijst = array_slice($producten, ($pnr -1) * $max, $max);
+
+
+}
+}
+else{
+    $huidigeLijst = array_slice($producten, 0, $max);
+
+}
 
 ?>
 
@@ -21,26 +40,63 @@ global $categorieen;
 </div>
 
 <div class="m0a">
-    <form action="#zoek">
-        <button class="btn active" type="submit" name="overzicht">Overzicht</button>
+    <form action="">
+        <button class="btn active" >Overzicht</button>
         <?php foreach($categorieen as $categorie){
             print("<button class=\"btn\" type=\"submit\" name=\"categorieen[]\"  value=\"" . $categorie['StockGroupName'] . "\">" .  $categorie['StockGroupName'] . "</button>");
         } ?>
-        <input type="hidden" name="get">
     </form>
 </div>
 
+<form id="nummering">
+    <?php
+
+    $aantal = aantalPaginas(count($producten), $max);
+    $huidig = 0;
+
+    while($huidig < $aantal){
+
+        $huidig++;
+        print("<button class='button' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+    }
+
+    ?>
+</form>
+
+<form >
+    <select  name="perPagina" >
+        <option value="1"><?php print(30)?></option>
+        <option value="2"><?php print(60)?></option>
+        <option value="3"><?php print(90)?></option>
+    </select>
+
+    <input name="aantal" value="opslaan" type="submit">
+</form>
+
 <div class="grid-container">
     <?php
-        foreach($producten as $product){
+        foreach($huidigeLijst as $product){
             $id = $product["StockItemID"];
             $foto = $product["Photo"];
-            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' . $product["StockItemName"] . '<br>
-            </div>');
+            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' . $product["StockItemName"] . '<br></div>');
         }
     ?>
 </div>
 
+<form id="nummering">
+    <?php
+
+       $aantal = aantalPaginas(count($producten), $max);
+       $huidig = 0;
+
+       while($huidig < $aantal){
+
+           $huidig++;
+           print("<button class='button' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+       }
+
+    ?>
+</form>
 
 
 

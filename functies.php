@@ -43,7 +43,7 @@ function zoekProduct($zoek){
         $sql = "SELECT * FROM stockitems WHERE StockItemName LIKE '%$zoek%' or SearchDetails LIKE '%$zoek%' or StockItemId = '$zoek'";
         return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
     }else{
-        $sql = "SELECT * FROM stockitems LIMIT 25";
+        $sql = "SELECT * FROM stockitems";
 
         return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
     }
@@ -103,3 +103,7 @@ function categorieClothing($categorie)
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
 
+function aantalPaginas($aantal, $perPagina){
+
+ return(ceil($aantal/$perPagina));
+}
