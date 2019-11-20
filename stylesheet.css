@@ -31,6 +31,30 @@ body {
     overflow: hidden;
 }
 
+.button {
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.delete_button {
+    background-color: #c80c0a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 /* Style the buttons */
 .btn {
     border: 1px solid #9f9f9f;
@@ -470,6 +494,42 @@ relatedproduct  {
     height: 160px;
     border: 3px solid black;
     font-size: 20px;
+}
+
+.cartbtn {
+    margin-top: 50px;
+    margin-left: 1100px;
+}
+
+.cartrow {
+    /*background-color: blue;*/
+    width: 100%;
+    height: 200px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart_image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+    min-width: 50px;
+    min-height: 20px;
+    margin-left: 20px;
+}
+
+.cart_naam {
+    margin-right: 20px;
+    max-width: 40%;
+    min-width: 40%;
+}
+
+.cart_prijs {
+    margin-right: 20px;
 }
 
 .container{

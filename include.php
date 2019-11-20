@@ -31,6 +31,10 @@ $_SESSION['categorie'] = 'Clothing';
         <a href="index.php" class="active">Home</a>
         <a href="#contact">Contact</a>
         <a href="#login" class="topnavright">Login</a>
+        <a href="cart.php" class="topnavright"><i class="fa fa-shopping-cart"></i></a>
+
+
+
         <form method="get" class="zoek">
             <div class="">
                 <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />

@@ -113,6 +113,30 @@ function aantalPaginas($aantal, $perPagina){
  return(ceil($aantal/$perPagina));
 }
 
+function toevoegenProductWinkelmand($id, $toevoegen){
+
+    session_start();
+    if($toevoegen){
+        if(isset($_SESSION["cart"])){
+            if (!in_array($id, $_SESSION["cart"])) {
+                $array1 = $_SESSION["cart"];
+                $array2 = array($id);
+                $_SESSION["cart"] = array_merge($array1, $array2);
+            }
+        }else{
+            $_SESSION["cart"] = array($id);
+        }
+    }
+}
+
+function verwijdenProductWinkelwagen($id){
+    if(isset($_SESSION["cart"])){
+        if (in_array($id, $_SESSION["cart"])) {
+            $key = array_search($id, $_SESSION["cart"]);
+            unset($_SESSION["cart"][$key]);
+        }
+    }
+}
 function utf8($text){
     return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
 }

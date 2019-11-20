@@ -4,7 +4,7 @@ include('include.php');
 global $producten;
 
 $producten = productenItem($_GET['id']);
-$productid = $producten[0]["StockItemID"];
+$productID = $producten[0]['StockItemID'];
 $productNaam = $producten[0]['StockItemName'];
 $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
@@ -48,6 +48,13 @@ $productdails = $producten[0] ["SearchDetails"];
 
 
 <body>
+
+<div class="cartbtn">
+    <form method="post" action="cart.php">
+        <input type="hidden" name="productID" value='<?php print($productID);?>'>
+        <button type="submit" name="cart" class="button">In winkelmandje</button>
+    </form>
+</div>
 
 <h2
 <div class="relative">
@@ -101,6 +108,8 @@ $productdails = $producten[0] ["SearchDetails"];
                 ?>
                 <a href="https://www.youtube.com/results?search_query=<?php echo$productNaam?>" target="_blank">YouTube</a>
             </div>
+
+
 <relatedproduct>
     <div class="container">
         <ul>
