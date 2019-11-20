@@ -69,7 +69,7 @@ body {
     font-size: 30px;
     text-align: center;
     cursor: pointer;
-    height: 300px;
+
 }
 .grid-item:hover{
     opacity:90%;
