@@ -78,7 +78,8 @@ else{
         foreach($huidigeLijst as $product){
             $id = $product["StockItemID"];
             $foto = $product["Photo"];
-            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' . $product["StockItemName"] . '<br></div>');
+            $naam = $product['StockItemName'];
+            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' .  $naam  . '<br></div>');
         }
     ?>
 </div>

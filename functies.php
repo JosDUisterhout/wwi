@@ -7,7 +7,12 @@ function db_connect(){
     global $databasename;
     global $port;
 
-    return mysqli_connect($host, $user, $pass, $databasename, $port);
+    $conn = mysqli_connect($host, $user, $pass, $databasename, $port);
+
+    mysqli_set_charset($conn, 'utf8mb4');
+
+    return $conn;
+
 
 }
 
@@ -106,4 +111,8 @@ function categorieClothing($categorie)
 function aantalPaginas($aantal, $perPagina){
 
  return(ceil($aantal/$perPagina));
+}
+
+function utf8($text){
+    return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
 }
