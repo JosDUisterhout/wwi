@@ -85,7 +85,7 @@ else{
             $foto = $product["Photo"];
             $naam = $product['StockItemName'];
             echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' .  $naam  . "
-                  <img src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br></div>');
+                  <img src='plaatjeswwi/id$id.jpg' class='grid-picture' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br></div>');
         }
     ?>
 </div>

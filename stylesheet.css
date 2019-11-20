@@ -71,6 +71,10 @@ body {
     cursor: pointer;
 
 }
+.grid-picture{
+    max-heigt: 100%;
+    max-width: 100%;
+}
 .grid-item:hover{
     opacity:90%;
     box-shadow: 5px 10px 5px #c80c0a;
