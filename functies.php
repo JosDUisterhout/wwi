@@ -68,7 +68,7 @@ function valideerZoeken($zoek){
 
     $validate = true;
     if(strpos($zoek, "'") !== false || strpos($zoek, "\\") !== false || strpos($zoek, ";") !== false){
-        print("voer iets fatsoenlijks in");
+        print("<h1 class = alert>Voer iets fatsoenlijks in</h1>");
         $validate = false;
     }
     return $validate;
