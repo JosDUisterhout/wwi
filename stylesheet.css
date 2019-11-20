@@ -33,14 +33,15 @@ body {
 
 /* Style the buttons */
 .btn {
-    border: black;
+    border: 1px solid #9f9f9f;
+
     outline: none;
     padding: 12px 16px;
     background-color: #480f16;
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: white;
+    color: #9f9f9f;
 }
 
 .btn:hover{
@@ -517,20 +518,38 @@ a:hover{
     text-decoration: underline;
     background-color: white;
 }
-
 .alert{
-    background-color:Tomato;
-    margin-top:48px;
-    margin-bottom:-40px;
+    background-color: Tomato;
+    margin-top: 48px;
+    margin-bottom: 40px;
 }
 .pagina-buttons{
-    background-color: rgba(0, 0, 0, 0);
-    border: rgba(0, 0, 0, 0);
-    color: #c80c0a;
- 
-    margin-left: 10px;
-    margin-right: 10px;
+    background-color:#480f16;
+    border: 1px solid #0000b7;
+    outline: none;
+    padding: 12px 16px;
+
+    cursor: pointer;
+    -webkit-transition-duration: 0.1s;
+    transition-delay: 0.1s;
+    color: #0000b7;
 }
-.pagina-submit{
-    background-color:rgba(0, 0, 0, 0);
+.pagina-buttons:hover{
+    text-decoration: underline;
+    background-color: #9d1c36;
 }
+.pagina-opslaan{
+    border: black;
+    margin-top:1px;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #480f16;
+    cursor: pointer;
+    color:MediumSeaGreen ;
+    border: 1px solid mediumseagreen;
+}
+.pagina-opslaan:hover{
+    text-decoration: underline;
+    background-color: #9d1c36;
+}
+
