@@ -33,21 +33,25 @@ body {
 
 /* Style the buttons */
 .btn {
-    border: none;
+    border: black;
     outline: none;
     padding: 12px 16px;
-    background-color: #f1f1f1;
+    background-color: #480f16;
     cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #ddd;
-}
-
-.btn.active {
-    background-color: #666;
+    -webkit-transition-duration: 0.1s;
+    transition-delay: 0.1s;
     color: white;
 }
+
+.btn:hover{
+    background-color: #9d1c36;
+    color: black;
+}
+
+/*.btn.active {*/
+/*    background-color: #6c1120;*/
+/*    color: white;*/
+/*}*/
 
 
 .grid-container {
@@ -507,4 +511,5 @@ a{
 
 a:hover{
     text-decoration: underline;
+    background-color: white;
 }

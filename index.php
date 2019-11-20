@@ -40,15 +40,17 @@ else{
 </div>
 
 <div class="m0a">
-    <form action="">
+    <form action="" style = "background-image : linear-gradient(rgb(137, 18, 17), rgba(95,16,16,0.98))">
+
         <button class="btn active" >Overzicht</button>
         <?php foreach($categorieen as $categorie){
-            print("<button class=\"btn\" type=\"submit\" name=\"categorieen[]\"  value=\"" . $categorie['StockGroupName'] . "\">" .  $categorie['StockGroupName'] . "</button>");
+            print("<button class=\"btn active\" type=\"submit\" name=\"categorieen[]\" value=\"" . $categorie['StockGroupName'] . "\" >" .  $categorie['StockGroupName'] . "</button>");
         } ?>
+
     </form>
 </div>
 
-<form id="nummering">
+<form id="nummering" style = "background-image : linear-gradient(rgba(95,16,16,0.98), #3a0a0a)">
     <?php
 
     $aantal = aantalPaginas(count($producten), $max);
@@ -57,20 +59,20 @@ else{
     while($huidig < $aantal){
 
         $huidig++;
-        print("<button class='button' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+        print("<button class='btn active' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
     }
 
     ?>
 </form>
 
-<form >
-    <select  name="perPagina" >
+<form style = "background-image : linear-gradient(#3a0a0a, black)">
+    <select  name="perPagina" class = 'btn active'>
         <option value="1"><?php print(30)?></option>
         <option value="2"><?php print(60)?></option>
         <option value="3"><?php print(90)?></option>
     </select>
 
-    <input name="aantal" value="opslaan" type="submit">
+    <input class= 'btn active' name="aantal" value="opslaan" type="submit">
 </form>
 
 <div class="grid-container">
