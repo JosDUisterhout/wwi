@@ -4,10 +4,10 @@ include('include.php');
 global $producten;
 
 $producten = productenItem($_GET['id']);
+$productid = $producten[0]["StockItemID"];
 $productNaam = $producten[0]['StockItemName'];
 $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
-
 
 ?>
 
@@ -79,8 +79,9 @@ $productdails = $producten[0] ["SearchDetails"];
     <div class="row">
         <div class="column">
             <br><br><br>
-            <img src="../wwi/af1.png" style="max-width:100px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" >
-
+            <?php
+            print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:100px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+            ?>
             <!---->
             <!---->
             <!--PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE-->
@@ -120,7 +121,9 @@ $productdails = $producten[0] ["SearchDetails"];
 
                 <div class="mySlides">
                     <div class="numbertext">1 / 3</div>
-                    <img src="../wwi/af1.png" style="max-width:800px; max-height:800px;">
+                    <?php
+                    print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
+                    ?>
                 </div>
 
                 <div class="mySlides">
@@ -149,7 +152,9 @@ $productdails = $producten[0] ["SearchDetails"];
 
 
             <div class="column">
-                <img class="demo cursor" src="../wwi/af1.png" style="width:100%" onclick="currentSlide(1)" alt="product">
+                <?php
+                print("<img class='demo cursor' src='plaatjeswwi/id$productid.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                ?>
             </div>
             <div class="column">
                 <img class="demo cursor" src="../wwi/af3.png" style="width:100%" onclick="currentSlide(2)" alt="Werking">
@@ -201,7 +206,6 @@ $productdails = $producten[0] ["SearchDetails"];
         }
 
     </script>
-
 </body>
 </html>
 
