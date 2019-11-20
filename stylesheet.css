@@ -522,11 +522,13 @@ a:hover{
 .pagina-buttons{
     background-color: rgba(0, 0, 0, 0);
     border: rgba(0, 0, 0, 0);
-    color: #c80c0a;
+    color: DodgerBlue;
  
     margin-left: 10px;
     margin-right: 10px;
 }
 .pagina-submit{
-    background-color:rgba(0, 0, 0, 0);
+    background-color:rgba(255, 0, 0, 0);
+    color: DodgerBlue;
+
 }
