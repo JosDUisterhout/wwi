@@ -69,13 +69,13 @@ else{
 </form>
 
 <form style = "background-image : linear-gradient(#3a0a0a, black)">
-    <select  name="perPagina" class = 'btn active'>
+    <select class="pagina-opslaan"  name="perPagina" class = 'btn active'>
         <option value="1"><?php print(30)?></option>
         <option value="2"><?php print(60)?></option>
         <option value="3"><?php print(90)?></option>
     </select>
 
-    <input class= "pagina-submit" name="aantal" value="opslaan" type="submit">
+    <input class= 'pagina-opslaan' name="aantal" value="opslaan" type="submit">
 </form>
 
 <div class="grid-container">
@@ -98,9 +98,9 @@ else{
 
     while($huidig < $aantal){
 
-        $huidig++;
-        print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
-    }
+           $huidig++;
+           print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+       }
 
     ?>
 </form>
