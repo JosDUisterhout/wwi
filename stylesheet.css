@@ -508,3 +508,20 @@ a{
 a:hover{
     text-decoration: underline;
 }
+
+.alert{
+    background-color:Tomato;
+    margin-top:48px;
+    margin-bottom:-40px;
+}
+.pagina-buttons{
+    background-color: rgba(0, 0, 0, 0);
+    border: rgba(0, 0, 0, 0);
+    color: #c80c0a;
+ 
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.pagina-submit{
+    background-color:rgba(0, 0, 0, 0);
+}

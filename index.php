@@ -31,6 +31,8 @@ else{
 
 </head>
 <body>
+
+
 <div id="zoek"  class="hero-image">
     <div class="hero-text">
         <h1>WWI</h1>
@@ -57,10 +59,11 @@ else{
     while($huidig < $aantal){
 
         $huidig++;
-        print("<button class='button' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+        print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
     }
 
     ?>
+
 </form>
 
 <form >
@@ -70,7 +73,7 @@ else{
         <option value="3"><?php print(90)?></option>
     </select>
 
-    <input name="aantal" value="opslaan" type="submit">
+    <input class= "pagina-submit" name="aantal" value="opslaan" type="submit">
 </form>
 
 <div class="grid-container">
@@ -87,14 +90,14 @@ else{
 <form id="nummering">
     <?php
 
-       $aantal = aantalPaginas(count($producten), $max);
-       $huidig = 0;
+    $aantal = aantalPaginas(count($producten), $max);
+    $huidig = 0;
 
-       while($huidig < $aantal){
+    while($huidig < $aantal){
 
-           $huidig++;
-           print("<button class='button' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
-       }
+        $huidig++;
+        print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+    }
 
     ?>
 </form>

@@ -68,7 +68,7 @@ function valideerZoeken($zoek){
 
     $validate = true;
     if(strpos($zoek, "'") !== false || strpos($zoek, "\\") !== false || strpos($zoek, ";") !== false){
-        print("voer iets fatsoenlijks in");
+        print("<h1 class='alert'>Uw product word niet door ons geleverd</h1>");
         $validate = false;
     }
     return $validate;
@@ -116,3 +116,5 @@ function aantalPaginas($aantal, $perPagina){
 function utf8($text){
     return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
 }
+
+
