@@ -122,7 +122,7 @@ $productdails = $producten[0] ["SearchDetails"];
                 <div class="mySlides">
                     <div class="numbertext">1 / 3</div>
                     <?php
-                    print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:800px; max-height:800px;'>");
+                    print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
                     ?>
                 </div>
 
@@ -153,7 +153,7 @@ $productdails = $producten[0] ["SearchDetails"];
 
             <div class="column">
                 <?php
-                print("<img class='demo cursor' src='plaatjeswwi/id$productid.jpg' style='width:100%' onclick='currentSlide(1)' alt='product'>")
+                print("<img class='demo cursor' src='plaatjeswwi/id$productid.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
             </div>
             <div class="column">
