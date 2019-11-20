@@ -5,6 +5,13 @@ include('functies.php');
 
 $categorieen = categorieLijst();
 
+session_start();
+
+$_SESSION['perPagina'] = 30;
+$_SESSION['huidigePagina'] = 1;
+$_SESSION['categorie'] = 'Clothing';
+
+
 
 ?>
 
@@ -54,6 +61,8 @@ $categorieen = categorieLijst();
     }
     elseif(isset($_GET['categorieen'])){
         foreach($_GET['categorieen'] as $cat){
+
+            $_SESSION['categorie'] = $cat;
 
             $producten = categorieClothing($cat);
         }
