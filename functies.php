@@ -43,7 +43,6 @@ function zoekProduct($zoek){
     $conn = db_connect();
 
     $validate = valideerZoeken($zoek);
-    print('<br><br><br>');
     $pieces = explode(" ", $zoek);
     if($validate){
         foreach($pieces as $piece){
