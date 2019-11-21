@@ -87,7 +87,7 @@ $productdails = $producten[0] ["SearchDetails"];
         <div class="column">
             <br><br><br>
             <?php
-            print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:100px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+            print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
             ?>
             <!---->
             <!---->
