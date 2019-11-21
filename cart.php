@@ -30,7 +30,7 @@ if(isset($_SESSION["cart"])){
 ?>
 <div class="cartrow flex-container">
     <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
-        <img class="cart_image" src="../wwi/af1.png">
+        <img class="cart_image" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
     </div>
     <div class="cart_naam">
         <h3><?php print($productNaam); ?></h3><br>
