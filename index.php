@@ -1,8 +1,13 @@
 <?php
 include('include.php');
 
+
 global $producten;
 global $categorieen;
+
+if(isset($_SESSION['perPagina'])){
+   $_SESSION['perPagina'];
+}
 
 if(isset($_GET['aantal'])){
     $max = 30 * $_GET['perPagina'];
@@ -33,9 +38,9 @@ if(isset($_GET['paginaNummer'])){
 
 <div class="m0a">
     <form action="" style = "background-image : linear-gradient(rgb(137, 18, 17), rgba(95,16,16,0.98))">
-        <button class="btn active" >Overzicht</button>
-        <?php
-        foreach($categorieen as $categorie){
+
+        <button class="btn" >Overzicht
+        <?php foreach($categorieen as $categorie){
             print("<button class=\"btn active\" type=\"submit\" name=\"categorieen[]\" value=\"" . $categorie['StockGroupName'] . "\" >" .  $categorie['StockGroupName'] . "</button>");
         }
         ?>
