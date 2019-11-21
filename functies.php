@@ -43,16 +43,9 @@ function zoekProduct($zoek){
     $conn = db_connect();
 
     $validate = valideerZoeken($zoek);
-    $pieces = explode(" ", $zoek);
+
     if($validate){
-        foreach($pieces as $piece){
-            $sqlnaam[] = "StockItemName LIKE '%".$piece."%'";
-            $sqldetails[] = "SearchDetails LIKE '%".$piece."%'";
-            $sqlid[] = "StockItemId LIKE '%".$piece."%'";
-        }
-
-        $sql = "SELECT * FROM stockitems WHERE ".implode(" AND ", $sqlnaam)." or ".implode(" AND ", $sqldetails)." or ".implode(" OR ", $sqlid);
-
+        $sql = "SELECT * FROM stockitems WHERE StockItemName LIKE '%$zoek%' or SearchDetails LIKE '%$zoek%' or StockItemId = '$zoek'";
         return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
     }else{
         $sql = "SELECT * FROM stockitems";
@@ -65,7 +58,8 @@ function productenLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems ";
+    $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID";
+
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
@@ -122,7 +116,7 @@ function aantalPaginas($aantal, $perPagina){
 
 function toevoegenProductWinkelmand($id, $toevoegen){
 
-//    session_start();
+    session_start();
     if($toevoegen){
         if(isset($_SESSION["cart"])){
             if (!in_array($id, $_SESSION["cart"])) {
@@ -148,4 +142,12 @@ function utf8($text){
     return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
 }
 
+function vooraad($ID){
 
+    $conn = db_connect();
+
+    $sql = "SELECT h.QuantityOnHand FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID where i.StockItemID = "  . $ID;
+
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
+}
