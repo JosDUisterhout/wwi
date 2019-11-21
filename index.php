@@ -3,26 +3,20 @@ include('include.php');
 
 global $producten;
 global $categorieen;
+
 if(isset($_GET['aantal'])){
     $max = 30 * $_GET['perPagina'];
+} else {
+    $max = 30;
 }
-else{$max = 30;}
 
 if(isset($_GET['paginaNummer'])){
-
-    foreach($_GET['paginaNummer'] as $pnr){
-
-
+    foreach($_GET['paginaNummer'] as $pnr) {
     $huidigeLijst = array_slice($producten, ($pnr -1) * $max, $max);
-
-
-}
-}
-else{
+    }
+} else {
     $huidigeLijst = array_slice($producten, 0, $max);
-
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,41 +25,32 @@ else{
 
 </head>
 <body>
-
-
 <div id="zoek"  class="hero-image">
     <div class="hero-text">
         <h1>WWI</h1>
-
-
     </div>
 </div>
 
 <div class="m0a">
     <form action="" style = "background-image : linear-gradient(rgb(137, 18, 17), rgba(95,16,16,0.98))">
-
         <button class="btn active" >Overzicht</button>
-        <?php foreach($categorieen as $categorie){
+        <?php
+        foreach($categorieen as $categorie){
             print("<button class=\"btn active\" type=\"submit\" name=\"categorieen[]\" value=\"" . $categorie['StockGroupName'] . "\" >" .  $categorie['StockGroupName'] . "</button>");
-        } ?>
-
+        }
+        ?>
     </form>
 </div>
 
 <form id="nummering" style = "background-image : linear-gradient(rgba(95,16,16,0.98), #3a0a0a)">
     <?php
-
     $aantal = aantalPaginas(count($producten), $max);
     $huidig = 0;
-
     while($huidig < $aantal){
-
         $huidig++;
         print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
     }
-
     ?>
-
 </form>
 
 <form style = "background-image : linear-gradient(#3a0a0a, black)">
@@ -74,7 +59,6 @@ else{
         <option value="2"><?php print(60)?></option>
         <option value="3"><?php print(90)?></option>
     </select>
-
     <input class= 'pagina-opslaan' name="aantal" value="opslaan" type="submit">
 </form>
 
@@ -89,23 +73,15 @@ else{
         }
     ?>
 </div>
-
 <form id="nummering">
     <?php
-
     $aantal = aantalPaginas(count($producten), $max);
     $huidig = 0;
-
     while($huidig < $aantal){
-
            $huidig++;
            print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
        }
-
     ?>
 </form>
-
-
-
 </body>
 </html>

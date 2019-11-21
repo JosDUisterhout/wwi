@@ -8,47 +8,25 @@ $productID = $producten[0]['StockItemID'];
 $productNaam = $producten[0]['StockItemName'];
 $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-
-
-
-
+<link rel="stylesheet" href="stylesheet.css">
 <!---->
 <!---->
 <!--HIER BEGINT DE STYLE------HIER BEGINT DE STYLE------HIER BEGINT DE STYLE------HIER BEGINT DE STYLE-------->
 <!---->
 <!---->
 <style>
-
-
-
     @media screen and (max-width:1250px){
         .container ul li{
             width:40%;
             margin-left: 40px;
-
         }
-
-
-    /*    */
-    /*    */
-    /*    */
-    /*    */
-    /*    */
 </style>
-
-
-
 <body>
-
 <div class="cartbtn">
     <form method="post" action="cart.php">
         <input type="hidden" name="productID" value='<?php print($productID);?>'>
@@ -56,21 +34,13 @@ $productdails = $producten[0] ["SearchDetails"];
     </form>
 </div>
 
-<h2
+<h2>
 <div class="relative">
     <div class="absolute">
-
-
-
     </div>
-
 </div>
-
-
-
-
-
 </h2>
+
 <!---->
 <!---->
 <!--PAGINA INDELING------PAGINA INDELING------PAGINA INDELING------PAGINA INDELING------PAGINA INDELING-->
@@ -91,14 +61,11 @@ $productdails = $producten[0] ["SearchDetails"];
             ?>
             <!---->
             <!---->
-            <!--PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE------PRODUCT INVORMATIE-->
+            <!--PRODUCT INFORMATIE------PRODUCT INFORMATIE------PRODUCT INFORMATIE------PRODUCT INFORMATIE-->
             <!---->
             <!---->
             <prijs>
-
                 <?php
-
-
                 print("€ ".ceil($productPrijs). " euro" . "<br>");
                 ?>
             </prijs>
@@ -108,8 +75,6 @@ $productdails = $producten[0] ["SearchDetails"];
                 ?>
                 <a href="https://www.youtube.com/results?search_query=<?php echo$productNaam?>" target="_blank">YouTube</a>
             </div>
-
-
 <relatedproduct>
     <div class="container">
         <ul>
@@ -119,47 +84,29 @@ $productdails = $producten[0] ["SearchDetails"];
         </ul>
     </div>
 </relatedproduct>
-
-
-
-
-        </div>
         <div id="myModal" class="modal">
             <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
-
                 <div class="mySlides">
                     <div class="numbertext">1 / 3</div>
                     <?php
-                    print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
+                    print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
                     ?>
                 </div>
-
                 <div class="mySlides">
                     <div class="numbertext">2 / 3</div>
                     <img src="../wwi/af3.png" style="width:800px">
                 </div>
-
                 <div class="mySlides">
                     <div class="numbertext">3 / 3</div>
                     <img src="../wwi/af4.png" style="width:800px">
-
-
-
-
                 </div>
-
-
             </div>
-
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
             <div class="caption-container">
                 <p id="caption"></p>
             </div>
-
-
             <div class="column">
                 <?php
                 print("<img class='demo cursor' src='plaatjeswwi/id$productid.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
@@ -171,12 +118,9 @@ $productdails = $producten[0] ["SearchDetails"];
             <div class="column">
                 <img class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
             </div>
-
         </div>
     </div>
-
     <script>
-
         function openModal() {
             document.getElementById("myModal").style.display = "block";
         }
@@ -217,4 +161,3 @@ $productdails = $producten[0] ["SearchDetails"];
     </script>
 </body>
 </html>
-
