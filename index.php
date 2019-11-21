@@ -42,7 +42,7 @@ else{
 <div class="m0a">
     <form action="" style = "background-image : linear-gradient(rgb(137, 18, 17), rgba(95,16,16,0.98))">
 
-        <button class="btn active" >Overzicht</button>
+        <button class="btn active" >Overzicht
         <?php foreach($categorieen as $categorie){
             print("<button class=\"btn active\" type=\"submit\" name=\"categorieen[]\" value=\"" . $categorie['StockGroupName'] . "\" >" .  $categorie['StockGroupName'] . "</button>");
         } ?>
