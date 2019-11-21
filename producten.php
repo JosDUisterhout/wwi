@@ -109,7 +109,7 @@ $productdails = $producten[0] ["SearchDetails"];
             </div>
             <div class="column">
                 <?php
-                print("<img class='demo cursor' src='plaatjeswwi/id$productid.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("<img class='demo cursor' src='plaatjeswwi/id$productID.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
             </div>
             <div class="column">
@@ -157,7 +157,6 @@ $productdails = $producten[0] ["SearchDetails"];
             dots[slideIndex-1].className += " active";
             captionText.innerHTML = dots[slideIndex-1].alt;
         }
-
     </script>
 </body>
 </html>

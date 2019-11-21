@@ -124,7 +124,7 @@ function toevoegenProductWinkelmand($id, $toevoegen){
                 $array2 = array($id);
                 $_SESSION["cart"] = array_merge($array1, $array2);
             }
-        }else{
+        } else {
             $_SESSION["cart"] = array($id);
         }
     }
