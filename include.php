@@ -28,7 +28,7 @@ $_SESSION['categorie'] = 'Clothing';
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="index.php" class="active">Home</a>
+        <a href="index.php">Home</a>
         <a href="#contact">Contact</a>
         <a href="#login" class="topnavright">Login</a>
         <a href="cart.php" class="topnavright"><i class="fa fa-shopping-cart"></i></a>
@@ -72,6 +72,7 @@ $_SESSION['categorie'] = 'Clothing';
         }
     }
     else{
+
         $producten = productenLijst();
     }
     ?>

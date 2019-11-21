@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="94d459a1-bb00-4c73-8ec3-5dc3bab74921" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include.php" beforeDir="false" afterPath="$PROJECT_DIR$/include.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producten.php" beforeDir="false" afterPath="$PROJECT_DIR$/producten.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +68,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3adf7db5-1bf9-4b9c-82f1-f0ab1002f46d" name="Default Changelist" comment="" />
+      <changelist id="94d459a1-bb00-4c73-8ec3-5dc3bab74921" name="Default Changelist" comment="" />
       <created>1573553443201</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -90,6 +91,8 @@
       <workItem from="1574151334678" duration="2809000" />
       <workItem from="1574239276450" duration="762000" />
       <workItem from="1574250093294" duration="617000" />
+      <workItem from="1574328556175" duration="3359000" />
+      <workItem from="1574336321138" duration="288000" />
     </task>
     <servers />
   </component>
