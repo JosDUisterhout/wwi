@@ -1,4 +1,4 @@
-        <?php
+<?php
 include('include.php');
 
 if(isset($_POST['cart'])) {
@@ -19,15 +19,13 @@ if(isset($_POST['remove_cart'])){
 </div>
     <hr>
 <?php
-$totaalprijs = 0;
 if(isset($_SESSION["cart"])){
     foreach ($_SESSION["cart"] as $product){
         $product = productenItem($product);
         $productID = $product[0]['StockItemID'];
         $productNaam = $product[0]['StockItemName'];
-        $productPrijs = ceil($product[0]['RecommendedRetailPrice']);
+        $productPrijs = $product[0]['RecommendedRetailPrice'];
         $productdails = $product[0] ["SearchDetails"];
-        $totaalprijs = $totaalprijs + $productPrijs;
 //        print_r($product);
 ?>
 <div class="cartrow flex-container">
@@ -45,17 +43,11 @@ if(isset($_SESSION["cart"])){
             <button type="submit" name="remove_cart" class="delete_button cursor"><i class="fa fa-trash"> </i></button>
         </form>
     </div>
-</div>
-<hr>
 
+</div>
+        <hr>
 
 <?php
     }
 }
-
 ?>
-        <div class="cartrow flex-container">
-            <div class="cart_totaalprijs">
-                <h2><?php print("Totaalprijs: € $totaalprijs euro"); ?></h2>
-            </div>
-        </div>

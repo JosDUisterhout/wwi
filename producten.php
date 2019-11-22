@@ -3,43 +3,37 @@ include('include.php');
 
 global $producten;
 
+
 $producten = productenItem($_GET['id']);
 $productID = $producten[0]['StockItemID'];
 $productNaam = $producten[0]['StockItemName'];
 $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
-?>
+$productid = $producten[0]['StockItemID'];
+$vooraad = $productID[0]['QuantityOnHand'];
+$reproduct1= rand(1, count(productenLijst()));
+$reproduct2= rand(1, count(productenLijst()));
+$reproduct3= rand(1, count(productenLijst()));
 
+
+?>
+<div class="absolute">
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="stylesheet.css">
-<!---->
-<!---->
-<!--HIER BEGINT DE STYLE------HIER BEGINT DE STYLE------HIER BEGINT DE STYLE------HIER BEGINT DE STYLE-------->
-<!---->
-<!---->
+
+
 <style>
     @media screen and (max-width:1250px){
         .container ul li{
             width:40%;
             margin-left: 40px;
+
         }
 </style>
-<body>
-<div class="cartbtn">
-    <form method="post" action="cart.php">
-        <input type="hidden" name="productID" value='<?php print($productID);?>'>
-        <button type="submit" name="cart" class="button">In winkelmandje</button>
-    </form>
-</div>
+<div class="opmaakproductpagina">
 
-<h2>
-<div class="relative">
-    <div class="absolute">
-    </div>
-</div>
-</h2>
+
 
 <!---->
 <!---->
@@ -47,23 +41,18 @@ $productdails = $producten[0] ["SearchDetails"];
 <!---->
 <!---->
 
-<div class="absolute">
+
     <productnaam>
         <?php
         print("$productNaam<br>");
         ?>
     </productnaam>
-    <div class="row">
+
         <div class="column">
-            <br><br><br>
+            <br>
             <?php
-            print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+            print("<img src='plaatjeswwi/id$productID.jpg' style='width:400px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
             ?>
-            <!---->
-            <!---->
-            <!--PRODUCT INFORMATIE------PRODUCT INFORMATIE------PRODUCT INFORMATIE------PRODUCT INFORMATIE-->
-            <!---->
-            <!---->
             <prijs>
                 <?php
                 print("€ ".ceil($productPrijs). " euro" . "<br>");
@@ -73,43 +62,112 @@ $productdails = $producten[0] ["SearchDetails"];
                 <?php
                 print $productdails.'<br>'.'<br>';
                 ?>
-                <a href="https://www.youtube.com/results?search_query=<?php echo$productNaam?>" target="_blank">YouTube</a>
+                <div class="cartbtn">
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                        <button type="submit" name="cart" class="button">In winkelmandje</button>
+                    </form>
+                </div>
+                <br>
+
+                <vooraad>
+                    <?php
+                    if ($vooraad >= 100000) {print ("Voorraad status: Ruim op vooraad");}
+                    elseif ($vooraad >= 20000){print ("Voorraad status: Op vooraad");}
+                    elseif ($vooraad <= 100){print ("Voorraad status: Schaars");}
+                    elseif ($vooraad == 0){print ("Voorraad status: Niet op vooraad");
+                    }
+                    ?>
+                </vooraad>
+
             </div>
+
 <relatedproduct>
     <div class="container">
         <ul>
-            <li> <a href="producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
-            <li> <a href="producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
-            <li> <a href="producten.php?id=<?php echo rand(1, count(productenLijst()))?>" ><?php echo 'product'?></a> </li>
+            <li><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo 'product'?></a>
+                <?php
+                print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:150px' style='width:200px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                ?>
+                <div class="cartbtn">
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="productID" value='<?php print($reproduct1);?>'>
+                        <button type="submit" name="cart" class="button">In winkelmandje</button>
+                    </form>
+                </div></li>
+            <li> <a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo 'product'?></a>
+                <?php
+                print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:150px' style='width:200px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                ?>
+                <div class="cartbtn">
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="productID" value='<?php print($reproduct2);?>'>
+                        <button type="submit" name="cart" class="button">In winkelmandje</button>
+                    </form>
+                </div></li>
+            <li> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo 'product'?></a>
+                <?php
+                print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:150px' style='width:200px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                ?>
+                <div class="cartbtn">
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
+                        <button type="submit" name="cart" class="button">In winkelmandje</button>
+                    </form>
+                </div></li>
         </ul>
     </div>
+
 </relatedproduct>
+<play>
+            <video width="320" height="260" autoplay controls>
+                <source src=".mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+</play>
+
+
+
+        </div>
         <div id="myModal" class="modal">
             <span class="close cursor" onclick="closeModal()">&times;</span>
             <div class="modal-content">
+
                 <div class="mySlides">
                     <div class="numbertext">1 / 3</div>
                     <?php
-                    print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
+                    print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
                     ?>
                 </div>
+
                 <div class="mySlides">
                     <div class="numbertext">2 / 3</div>
                     <img src="../wwi/af3.png" style="width:800px">
                 </div>
+
                 <div class="mySlides">
                     <div class="numbertext">3 / 3</div>
                     <img src="../wwi/af4.png" style="width:800px">
+
+
+
+
                 </div>
+
+
             </div>
+
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
             <div class="caption-container">
                 <p id="caption"></p>
             </div>
+
+
             <div class="column">
                 <?php
-                print("<img class='demo cursor' src='plaatjeswwi/id$productID.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("<img class='demo cursor' src='plaatjeswwi/id$productid.jpg' style='width:100%' onclick='currentSlide(1)' alt='product' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
             </div>
             <div class="column">
@@ -118,9 +176,12 @@ $productdails = $producten[0] ["SearchDetails"];
             <div class="column">
                 <img class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
             </div>
+
         </div>
     </div>
+</div>
     <script>
+
         function openModal() {
             document.getElementById("myModal").style.display = "block";
         }
@@ -157,6 +218,8 @@ $productdails = $producten[0] ["SearchDetails"];
             dots[slideIndex-1].className += " active";
             captionText.innerHTML = dots[slideIndex-1].alt;
         }
+
     </script>
-</body>
+
 </html>
+

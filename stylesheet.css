@@ -57,7 +57,7 @@ body {
 
 /* Style the buttons */
 .btn {
-    border: 1px solid #F1E8E8;
+    border: 1px solid #9f9f9f;
 
     outline: none;
     padding: 12px 16px;
@@ -65,7 +65,7 @@ body {
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #F1E8E8;
+    color: #9f9f9f;
 }
 
 .btn:hover{
@@ -85,13 +85,15 @@ body {
     background-color: rgb(0, 0, 0);
     background-image: linear-gradient(black, white);
     padding: 10px;
+
+
 }
 .grid-item {
     background-color:  rgb(255, 255, 255);
 
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     cursor: pointer;
 
@@ -335,11 +337,16 @@ body {
     width: 90%;
 
 }
-.modal-content, img{
+af1{
     max-width: 1200px;
     max-height:800px;
     min-height: 170px;
     min-width: 450px;
+}
+af2{
+    width: 60px;
+    height: 40px;
+
 }
 
 /* The Close Button */
@@ -457,8 +464,8 @@ div.relative {
 
 div.absolute {
     position: absolute;
-    top: 80px;
-    right: 330px;
+    top: 40px;
+    right: 40px;
     width: 900px;
     height: 700px;
     border: 48px solid white;
@@ -489,16 +496,16 @@ productnaam  {
 relatedproduct  {
     position: absolute;
     top: 460px;
-    right: 40px;
+    right: 344px;
     width: 800px;
-    height: 160px;
+    height: 250px;
     border: 3px solid black;
     font-size: 20px;
 }
 
 .cartbtn {
-    margin-top: 50px;
-    margin-left: 1100px;
+    margin-top: 30px;
+    margin-left: auto;
 }
 
 .cartrow {
@@ -532,12 +539,6 @@ relatedproduct  {
     margin-right: 20px;
 }
 
-.cart_totaalprijs {
-    text-align: right;
-    width: 100%;
-    margin-right: 20px;
-}
-
 .container{
     width: 90%;
     margin: auto;
@@ -555,9 +556,9 @@ relatedproduct  {
 .container ul li{
     float:left;
     list-style: none;
-    width:20%;
-    height:50px;
-    margin :20px 0px 20px 55px;
+    width:200px;
+    height: 210px;
+    margin :1px 2px 20px 30px;
     border:2px solid black;
     box-sizing: border-box;
 }
@@ -591,14 +592,14 @@ a:hover{
 }
 .pagina-buttons{
     background-color:#480f16;
-    border: 1px solid #D9CFCF;
+    border: 1px solid #0000b7;
     outline: none;
     padding: 12px 16px;
 
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #D9CFCF;
+    color: #0000b7;
 }
 .pagina-buttons:hover{
     text-decoration: underline;
@@ -611,11 +612,35 @@ a:hover{
     padding: 12px 16px;
     background-color: #480f16;
     cursor: pointer;
-    color:#C6BDBD ;
-    border: 1px solid #C6BDBD;
+    color:MediumSeaGreen ;
+    border: 1px solid mediumseagreen;
 }
 .pagina-opslaan:hover{
     text-decoration: underline;
     background-color: #9d1c36;
 }
 
+
+play {
+    position: absolute;
+    top: 20px;
+    right: 1075px;
+    width:60px;
+    height:40px;
+
+}
+vooraad {
+    position: absolute;
+    top: 220px;
+    right: 736px;
+    width: 324px;
+    height: 170px;
+    border: 3px solid black;
+}
+div.opmaakproductpagina{
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    right: auto;
+    width: auto;
+}
