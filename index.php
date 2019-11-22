@@ -44,7 +44,7 @@ else{
 <div class="m0a">
     <form action="" style = "background-image : linear-gradient(rgb(137, 18, 17), rgba(95,16,16,0.98))">
 
-        <button class="btn active" >Overzicht</button>
+        <button class="btn active">Overzicht
         <?php foreach($categorieen as $categorie){
             print("<button class=\"btn active\" type=\"submit\" name=\"categorieen[]\" value=\"" . $categorie['StockGroupName'] . "\" >" .  $categorie['StockGroupName'] . "</button>");
         } ?>
@@ -69,24 +69,49 @@ else{
 </form>
 
 <form style = "background-image : linear-gradient(#3a0a0a, black)">
-    <select  name="perPagina" class = 'btn active'>
+    <select class="pagina-opslaan"  name="perPagina" class = 'btn active'>
         <option value="1"><?php print(30)?></option>
         <option value="2"><?php print(60)?></option>
         <option value="3"><?php print(90)?></option>
     </select>
 
-    <input class= "pagina-submit" name="aantal" value="opslaan" type="submit">
+    <input class= 'pagina-opslaan' name="aantal" value="opslaan" type="submit">
 </form>
 
 <div class="grid-container">
     <?php
+
+
         foreach($huidigeLijst as $product){
             $id = $product["StockItemID"];
             $foto = $product["Photo"];
             $naam = $product['StockItemName'];
-            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' .  $naam  . '<br></div>');
+            $vooraad = $product["QuantityOnHand"];
+            $productPrijs = $product['RecommendedRetailPrice'];
+            echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' .  $naam  . "
+                  <img src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br>');
+
+            if ($vooraad >= 100000) {
+                print ("Voorraad status: Ruim op vooraad");
+            } elseif
+            ($vooraad >= 20000) {
+                print ("Voorraad status: Op vooraad");
+            } elseif
+            ($vooraad <= 100) {
+                print ("Voorraad status: Schaars");
+            } elseif
+            ($vooraad == 0) {
+                print ("Voorraad status: Niet op vooraad");
+            }
+            print (" <br> ");
+            print(" € ".ceil($productPrijs). " euro" . "<br>".'</div>');
         }
+
+
+
+
     ?>
+
 </div>
 
 <form id="nummering">
@@ -97,9 +122,9 @@ else{
 
     while($huidig < $aantal){
 
-        $huidig++;
-        print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
-    }
+           $huidig++;
+           print("<button class='pagina-buttons' type='submit' name='paginaNummer[]' value='" . $huidig ."'>" . $huidig . "</button>");
+       }
 
     ?>
 </form>
