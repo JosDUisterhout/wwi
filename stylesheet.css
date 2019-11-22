@@ -57,7 +57,7 @@ body {
 
 /* Style the buttons */
 .btn {
-    border: 1px solid #9f9f9f;
+    border: 1px solid #F1E8E8;
 
     outline: none;
     padding: 12px 16px;
@@ -65,7 +65,7 @@ body {
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #9f9f9f;
+    color: #F1E8E8;
 }
 
 .btn:hover{
@@ -591,14 +591,14 @@ a:hover{
 }
 .pagina-buttons{
     background-color:#480f16;
-    border: 1px solid #0000b7;
+    border: 1px solid #D9CFCF;
     outline: none;
     padding: 12px 16px;
 
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #0000b7;
+    color: #D9CFCF;
 }
 .pagina-buttons:hover{
     text-decoration: underline;
@@ -611,8 +611,8 @@ a:hover{
     padding: 12px 16px;
     background-color: #480f16;
     cursor: pointer;
-    color:MediumSeaGreen ;
-    border: 1px solid mediumseagreen;
+    color:#C6BDBD ;
+    border: 1px solid #C6BDBD;
 }
 .pagina-opslaan:hover{
     text-decoration: underline;
