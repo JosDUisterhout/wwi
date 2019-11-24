@@ -7,9 +7,7 @@ $categorieen = categorieLijst();
 
 session_start();
 
-$_SESSION['perPagina'] = 30;
-$_SESSION['huidigePagina'] = 1;
-$_SESSION['categorie'] = 'Clothing';
+
 
 
 
@@ -59,6 +57,9 @@ $_SESSION['categorie'] = 'Clothing';
     </div>
 
     <?php
+
+
+//TODO: check toevoegen voor lege categorie
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
         $producten = zoekProduct($zoek);
@@ -67,13 +68,13 @@ $_SESSION['categorie'] = 'Clothing';
         foreach($_GET['categorieen'] as $cat){
 
             $_SESSION['categorie'] = $cat;
-
-            $producten = categorieClothing($cat);
         }
     }
-    else{
-        $producten = productenLijst();
+    elseif(!isset($_SESSION['categorie'])){
+       $producten = productenLijst();
     }
+
+    $producten = categorieClothing($_SESSION['categorie']);
     ?>
 
 

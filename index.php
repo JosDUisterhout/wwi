@@ -3,6 +3,11 @@ include('include.php');
 
 global $producten;
 global $categorieen;
+
+
+var_dump($_SESSION);
+
+
 if(isset($_GET['aantal'])){
     $max = 30 * $_GET['perPagina'];
 }
