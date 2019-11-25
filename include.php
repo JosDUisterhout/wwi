@@ -9,8 +9,6 @@ session_start();
 
 
 
-
-
 ?>
 
 <!--TODO: onderstaande in layout.php-->
@@ -59,23 +57,34 @@ session_start();
     <?php
 
 
-//TODO: check toevoegen voor lege categorie
+//TODO: naar functie(s)
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
         $producten = zoekProduct($zoek);
     }
     elseif(isset($_GET['categorieen'])){
         foreach($_GET['categorieen'] as $cat){
-
+            $_SESSION['paginaNummer'] = 1;
             $_SESSION['categorie'] = $cat;
         }
     }
+
+    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
+        $producten = productenLijst();
+
+    }
     elseif(!isset($_SESSION['categorie'])){
-       $producten = productenLijst();
+        $_SESSION['categorie'] = 'overzicht';
+    $producten = $producten = productenLijst();
+        }
+    if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht"){
+    $producten = categorieClothing($_SESSION['categorie']);
     }
 
-    $producten = categorieClothing($_SESSION['categorie']);
+
+
     ?>
+
 
 
     <script>

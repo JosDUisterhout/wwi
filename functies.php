@@ -153,3 +153,13 @@ function vooraad($ID){
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
+
+function testQueryAantal($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump(count($huidigeLijst));
+}
+
+function sessieTest($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump($huidigeLijst);
+}
