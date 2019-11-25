@@ -16,6 +16,16 @@ function db_connect(){
 
 }
 
+function testQueryAantal($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump(count($huidigeLijst));
+}
+
+function sessieTest($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump($huidigeLijst);
+}
+
 function db_exec ($stmt, $conn){
 
     mysqli_stmt_execute($stmt);
@@ -113,7 +123,9 @@ function categorieClothing($categorie)
 
 function aantalPaginas($aantal, $perPagina){
 
- return(ceil($aantal/$perPagina));
+    $perPagina = intval($perPagina);
+
+ return ceil($aantal/$perPagina);
 }
 
 function toevoegenProductWinkelmand($id, $toevoegen){
@@ -154,12 +166,4 @@ function vooraad($ID){
 
 }
 
-function testQueryAantal($huidigeLijst){
-    print("<BR><BR><BR>");
-    var_dump(count($huidigeLijst));
-}
 
-function sessieTest($huidigeLijst){
-    print("<BR><BR><BR>");
-    var_dump($huidigeLijst);
-}

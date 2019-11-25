@@ -17,8 +17,8 @@ if(isset($_GET['paginaNummer'])){
 
 
 
-if(isset($_GET['aantal'])){
-    $_SESSION['perPagina'] = $startPerPagina * $_GET['perPagina'];
+if(isset($_GET['aantal']) AND isset($_GET['perPagina'])){
+    $_SESSION['perPagina'] = $_GET['perPagina'];
     $_SESSION['paginaNummer'] = 1;
 
 }
@@ -40,7 +40,6 @@ elseif(!isset($_SESSION['paginaNummer']) OR $_SESSION['paginaNummer'] == 1){
 
 
 }
-
 
 
 
@@ -78,6 +77,7 @@ elseif(!isset($_SESSION['paginaNummer']) OR $_SESSION['paginaNummer'] == 1){
 <form id="nummering" style = "background-image : linear-gradient(rgba(95,16,16,0.98), #3a0a0a)">
     <?php
 
+
     $aantal = aantalPaginas(count($producten), $max);
     $huidig = 0;
 
@@ -95,14 +95,19 @@ elseif(!isset($_SESSION['paginaNummer']) OR $_SESSION['paginaNummer'] == 1){
 
 </form>
 
-<form style = "background-image : linear-gradient(#3a0a0a, black)">
-    <select class="pagina-opslaan"  name="perPagina" class = "btn active">
-        <option value="1"><?php print(30)?></option>
-        <option value="2"><?php print(60)?></option>
-        <option value="3"><?php print(90)?></option>
+<form style = "background-image : linear-gradient(#3a0a0a, black) <?php if(count($producten) <= 30){print("display:none");}?>">
+    <select class="pagina-opslaan" style="<?php if(count($producten) <= 30){print("display:none");}?>"  name="perPagina" class = "btn active">
+
+        <?php
+        for($i = 1; $i <= 3; $i++){
+            $select = $startPerPagina * $i;
+            if($select == $_SESSION['perPagina']){$actief = "selected=\"selected\"";}
+        print("<option $actief value=\"$select\">$select</option>");
+        }
+        ?>
     </select>
 
-    <input class= "pagina-opslaan" name="aantal" value="opslaan" type="submit">
+    <input style="<?php if(count($producten) <= 30){print("display:none");}?>" class= "pagina-opslaan" name="aantal" value="opslaan" type="submit">
 </form>
 
 <div class="grid-container">
