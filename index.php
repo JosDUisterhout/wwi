@@ -37,8 +37,7 @@ elseif(!isset($_SESSION['paginaNummer']) OR $_SESSION['paginaNummer'] == 1){
     $huidigeLijst = array_slice($producten, 0, $max);
     $_SESSION['paginaNummer'] = 1;
 
-
-
+    
 }
 
 

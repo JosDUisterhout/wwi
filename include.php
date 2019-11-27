@@ -61,6 +61,7 @@ session_start();
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
         $producten = zoekProduct($zoek);
+        $_SESSION['paginaNummer'] = 1;
     }
     elseif(isset($_GET['categorieen'])){
         foreach($_GET['categorieen'] as $cat){
@@ -69,13 +70,18 @@ session_start();
         }
     }
 
+    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "zoeken")){
+        $producten = productenLijst();
+
+    }
+
     if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
         $producten = productenLijst();
 
     }
     elseif(!isset($_SESSION['categorie'])){
         $_SESSION['categorie'] = 'overzicht';
-    $producten = $producten = productenLijst();
+    $producten = productenLijst();
         }
     if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht"){
     $producten = categorieClothing($_SESSION['categorie']);
