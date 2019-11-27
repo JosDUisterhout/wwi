@@ -11,7 +11,7 @@ include('include.php');
 <html>
 <a href="acount.php" class="center"><i<i class="button">Log in</i></a><br><br>
 
-<form action="/betaal.php" method="get" >
+<form action="betaal.php" method="get" >
 <vradres>
 
         <label> Bezorgen <input type="radio"name="afhalen" value="1" required></label><br><br>
@@ -37,7 +37,7 @@ include('include.php');
     <input type="submit" value="Opslaan" name="submit" /> <br><br>
 </form>
 </vradres>
-<a   href="betaal.php" class="center"><i<i class="button">Afronden</i></a>
+<a  href="betaal.php" class="center"><i<i class="button">Afronden</i></a>
 <br>
 
 
