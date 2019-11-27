@@ -27,7 +27,16 @@ session_start();
         <a href="index.php" class="active">Home</a>
         <a href="#contact">Contact</a>
         <a href="#login" class="topnavright">Login</a>
-        <a href="cart.php" class="topnavright"><i class="fa fa-shopping-cart"></i></a>
+<!--        <span class="fa-stack fa-2x has-badge" data-count="5">-->
+<!--            <i class="fa fa-circle fa-stack-2x fa-inverse"></i>-->
+<!--            <i style="" class="fa fa-shopping-cart fa-stack-2x red-cart"></i>-->
+<!--        </span>-->
+        <a href="cart.php" class="topnavright">
+            <span class="fa-stack fa-2x has-badge" data-count="5">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-shopping-cart fa-stack-2x"></i>
+            </span>
+        </a>
 
 
 

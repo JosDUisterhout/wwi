@@ -14,20 +14,22 @@ if(isset($_POST['remove_cart'])){
 <br><a href="Bestellen.php" class="topnavright"><i class="button">Afrekenen</i></a>
     <br>
     <br>
-<div>
-    <h1>Winkelmandje</h1>
-</div>
-    <hr>
+
+
 <?php
-if(isset($_SESSION["cart"])){
+if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     foreach ($_SESSION["cart"] as $product){
         $product = productenItem($product);
         $productID = $product[0]['StockItemID'];
         $productNaam = $product[0]['StockItemName'];
         $productPrijs = $product[0]['RecommendedRetailPrice'];
         $productdails = $product[0] ["SearchDetails"];
-//        print_r($product);
 ?>
+
+        <div>
+            <h1>Winkelmandje</h1>
+        </div>
+        <hr>
 <div class="cartrow flex-container">
     <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
         <img class="cart_image" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
@@ -49,6 +51,14 @@ if(isset($_SESSION["cart"])){
 
 <?php
     }
+}else{
+    ?>
+<div class="flex-container">
+    <div class="">
+        <h3><?php print("Winkelmandje is leeg, DOE ER WAT AAN!!!"); ?></h3>
+    </div>
+</div>
+<?php
 }
 ?>
 
