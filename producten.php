@@ -17,9 +17,24 @@ $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
 $productid = $producten[0]['StockItemID'];
 $vooraad = $productID[0]['QuantityOnHand'];
-
-
 ?>
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="stylesheet.css">
+<!---->
+<!---->
+<!--HIER BEGINT DE STYLE------HIER BEGINT DE STYLE------HIER BEGINT DE STYLE------HIER BEGINT DE STYLE-------->
+<!---->
+<!---->
+<style>
+    @media screen and (max-width:1250px){
+        .container ul li{
+            width:40%;
+            margin-left: 40px;
+        }
+</style>
+<body>
 <div class="opmaakproductpagina">
     <div class="absolute">
         <!DOCTYPE html>
@@ -70,6 +85,11 @@ $vooraad = $productID[0]['QuantityOnHand'];
                     <form method="post" action="cart.php">
                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                         <button type="submit" name="cart" class="button">In winkelmandje</button>
+                    </form>
+                    <br>
+                    <form method="post" action="verlanglijst.php">
+                        <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                        <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                     </form>
                 </div>
                 <br>
