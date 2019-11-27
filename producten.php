@@ -1,7 +1,7 @@
 <?php
 include('include.php');
 
-global $producten;
+$producten = productenLijst();
 $reproduct1= rand(1, count(productenLijst()));
 $reproduct2= rand(1, count(productenLijst()));
 $reproduct3= rand(1, count(productenLijst()));
