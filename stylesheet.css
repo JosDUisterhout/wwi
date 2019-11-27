@@ -138,7 +138,10 @@ font-size: 16px;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+}
 
+.topnav-winkelwagen {
+    padding: 8px 16px !important;
 }
 
 .topnavright {
@@ -158,6 +161,32 @@ font-size: 16px;
 .topnav .icon {
     display: none;
 }
+
+
+.topnav-icon{
+    font-size: 1em !important;
+}
+
+.fa-stack[data-count]:after{
+    position:absolute;
+    right:0%;
+    top:0%;
+    content: attr(data-count);
+    font-size:40%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: red;
+    text-align:center;
+    min-width:1em;
+    font-weight:bold;
+    background: white;
+    border-style:solid;
+}
+.fa-circle {
+    color: transparent;
+}
+
 
 
 .zoeken {
