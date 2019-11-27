@@ -16,6 +16,16 @@ function db_connect(){
 
 }
 
+function testQueryAantal($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump(count($huidigeLijst));
+}
+
+function sessieTest($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump($huidigeLijst);
+}
+
 function db_exec ($stmt, $conn){
 
     mysqli_stmt_execute($stmt);
@@ -104,14 +114,18 @@ function categorieClothing($categorie)
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems WHERE StockItemID IN (SELECT StockItemID FROM stockitemstockgroups WHERE StockGroupID IN(SELECT StockGroupID FROM stockgroups WHERE StockGroupName = '" . $categorie . "'))";
+    $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID WHERE i.StockItemID IN (SELECT StockItemID FROM stockitemstockgroups WHERE StockGroupID IN(SELECT StockGroupID FROM stockgroups WHERE StockGroupName = '" . $categorie . "'))";
+
+
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
 
 function aantalPaginas($aantal, $perPagina){
 
- return(ceil($aantal/$perPagina));
+    $perPagina = intval($perPagina);
+
+ return ceil($aantal/$perPagina);
 }
 
 function toevoegenProductWinkelmand($id, $toevoegen){
@@ -151,3 +165,5 @@ function vooraad($ID){
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
+
+

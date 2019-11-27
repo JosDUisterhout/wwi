@@ -7,10 +7,6 @@ $categorieen = categorieLijst();
 
 session_start();
 
-$_SESSION['perPagina'] = 30;
-$_SESSION['huidigePagina'] = 1;
-$_SESSION['categorie'] = 'Clothing';
-
 
 
 ?>
@@ -59,22 +55,36 @@ $_SESSION['categorie'] = 'Clothing';
     </div>
 
     <?php
+
+
+//TODO: naar functie(s)
     if(isset($_GET['submit'])) {
         $zoek = $_GET["zoek"];
         $producten = zoekProduct($zoek);
     }
     elseif(isset($_GET['categorieen'])){
         foreach($_GET['categorieen'] as $cat){
-
+            $_SESSION['paginaNummer'] = 1;
             $_SESSION['categorie'] = $cat;
-
-            $producten = categorieClothing($cat);
         }
     }
-    else{
+
+    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
         $producten = productenLijst();
+
     }
+    elseif(!isset($_SESSION['categorie'])){
+        $_SESSION['categorie'] = 'overzicht';
+    $producten = $producten = productenLijst();
+        }
+    if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht"){
+    $producten = categorieClothing($_SESSION['categorie']);
+    }
+
+
+
     ?>
+
 
 
     <script>
