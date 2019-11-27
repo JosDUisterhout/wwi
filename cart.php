@@ -3,6 +3,8 @@
 include('include.php');
 
 ?>
+<br>
+<br>
 <br><a href="Bestellen.php" class="topnavright"><i class="button">Afrekenen</i></a>
     <br>
     <br>
