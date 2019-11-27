@@ -18,7 +18,7 @@ $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
 $productid = $producten[0]['StockItemID'];
 $vooraad = $productID[0]['QuantityOnHand'];
-
+?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
