@@ -11,7 +11,6 @@ $rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
 $reNaam1 = $producten[$reproduct1]['StockItemName'];
 $reNaam2 = $producten[$reproduct2]['StockItemName'];
 $reNaam3 = $producten[$reproduct3]['StockItemName'];
-$producten = productenItem($_GET['id']);
 $productID = $producten[0]['StockItemID'];
 $productNaam = $producten[0]['StockItemName'];
 $productPrijs = $producten[0]['RecommendedRetailPrice'];
