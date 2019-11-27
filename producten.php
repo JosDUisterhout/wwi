@@ -36,19 +36,6 @@ $vooraad = $productID[0]['QuantityOnHand'];
         }
 </style>
 <body>
-<div class="cartbtn">
-    <form method="post" action="cart.php">
-        <input type="hidden" name="productID" value='<?php print($productID);?>'>
-        <button type="submit" name="cart" class="button">In winkelmandje</button>
-    </form>
-    <br>
-    <form method="post" action="verlanglijst.php">
-        <input type="hidden" name="productID" value='<?php print($productID);?>'>
-        <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
-    </form>
-</div>
-
-?>
 <div class="opmaakproductpagina">
     <div class="absolute">
         <!DOCTYPE html>
@@ -99,6 +86,11 @@ $vooraad = $productID[0]['QuantityOnHand'];
                     <form method="post" action="cart.php">
                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                         <button type="submit" name="cart" class="button">In winkelmandje</button>
+                    </form>
+                    <br>
+                    <form method="post" action="verlanglijst.php">
+                        <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                        <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                     </form>
                 </div>
                 <br>
