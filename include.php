@@ -28,8 +28,7 @@ session_start();
         <a href="#contact">Contact</a>
         <a href="#login" class="topnavright">Login</a>
         <a href="cart.php" class="topnavright"><i class="fa fa-shopping-cart"></i></a>
-
-
+        <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
 
         <form method="get" class="zoek">
             <div class="">
