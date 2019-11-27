@@ -33,19 +33,31 @@ body {
 }
 
 .button {
-    background-color: green;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+background-color: green;
+border: none;
+border-radius: 8px;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
 }
 
 .delete_button {
-    background-color: #c80c0a;
+background-color: #c80c0a;
+border: none;
+border-radius: 8px;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+
+.move_button {
+    background-color: green;
     border: none;
     border-radius: 8px;
     color: white;
@@ -543,6 +555,12 @@ relatedproduct  {
     margin-right: 20px;
 }
 
+.cart_totaalprijs {
+    text-align: right;
+    width: 100%;
+    margin-right: 20px;
+}
+
 .container{
     width: 90%;
     margin: auto;
@@ -595,29 +613,28 @@ a:hover{
     margin-bottom: 40px;
 }
 .pagina-buttons{
-    background-color:#480f16;
-    border: 1px solid #0000b7;
+    background-color:transparent;
+    border: 1px solid #9f9f9f;;
     outline: none;
     padding: 12px 16px;
 
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #0000b7;
+    color: #9f9f9f;
 }
 .pagina-buttons:hover{
     text-decoration: underline;
     background-color: #9d1c36;
 }
 .pagina-opslaan{
-    border: black;
     margin-top:1px;
     outline: none;
     padding: 12px 16px;
-    background-color: #480f16;
+    background-color: transparent;
     cursor: pointer;
-    color:MediumSeaGreen ;
-    border: 1px solid mediumseagreen;
+    color:#9f9f9f ;
+    border: 1px solid #9f9f9f;
 }
 .pagina-opslaan:hover{
     text-decoration: underline;
@@ -668,6 +685,6 @@ vradres {
     position: center;
     width: 400px;
     height: 800px;
-    border: 3px solid black;
+    border: 0px solid black;
 }
 
