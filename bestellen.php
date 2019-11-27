@@ -5,12 +5,15 @@ include('include.php');
 ?>
 <br>
 <br>
+<br><center>
+<h1>leveradres</h1>
 <br>
-<br>
+login met uw WWI acount of vul uw gegevens in voor een bezorgadres/opohaalpunt
+<br></center><br>
 <!DOCTYPE html>
 <html>
 <a href="acount.php" class="center"><i<i class="button">Log in</i></a><br><br>
-<a  href="afhalen.php" class="afhaal"><i<i class="button">Afhalen</i></a>
+<a  href="afhalen.php" class="afhaal"><i<i class="button">Ophaalpunt</i></a>
 <form action="betaal.php" method="get" >
 <vradres>
 <br>
