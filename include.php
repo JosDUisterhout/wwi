@@ -109,8 +109,6 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     $producten = categorieClothing($_SESSION['categorie']);
     }
 
-    testQueryAantal($producten);
-
     ?>
 
 
