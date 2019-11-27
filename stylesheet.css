@@ -555,6 +555,12 @@ relatedproduct  {
     margin-right: 20px;
 }
 
+.cart_totaalprijs {
+    text-align: right;
+    width: 100%;
+    margin-right: 20px;
+}
+
 .container{
     width: 90%;
     margin: auto;
