@@ -11,11 +11,14 @@ $rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
 $reNaam1 = $producten[$reproduct1]['StockItemName'];
 $reNaam2 = $producten[$reproduct2]['StockItemName'];
 $reNaam3 = $producten[$reproduct3]['StockItemName'];
-$productID = $producten[0]['StockItemID'];
-$productNaam = $producten[0]['StockItemName'];
-$productPrijs = $producten[0]['RecommendedRetailPrice'];
-$productdails = $producten[0] ["SearchDetails"];
-$productid = $producten[0]['StockItemID'];
+
+//huidig product
+$product = productenItem($_GET['id']);
+$productID = $product[0]['StockItemID'];
+$productNaam = $product[0]['StockItemName'];
+$productPrijs = $product[0]['RecommendedRetailPrice'];
+$productdails = $product[0] ["SearchDetails"];
+$productid = $product[0]['StockItemID'];
 $vooraad = $productID[0]['QuantityOnHand'];
 ?>
 <!DOCTYPE html>
