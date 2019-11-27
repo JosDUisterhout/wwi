@@ -84,9 +84,9 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 
 //TODO: naar functie(s)
     if(isset($_GET['submit'])) {
+        $zoek = $_GET["zoek"];
+        $producten = zoekProduct($zoek);
         $_SESSION['paginaNummer'] = 1;
-        $_SESSION['categorie'] = 'zoeken';
-        $_SESSION['zoekwoord'] = $_GET["zoek"];
     }
     elseif(isset($_GET['categorieen'])){
         foreach($_GET['categorieen'] as $cat){
@@ -95,17 +95,20 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         }
     }
 
-    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == 'zoeken')){
-        $producten = zoekProduct($_SESSION['zoekwoord']);
-    }
-    else if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
+    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "zoeken")){
         $producten = productenLijst();
+
+    }
+
+    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
+        $producten = productenLijst();
+
     }
     elseif(!isset($_SESSION['categorie'])){
         $_SESSION['categorie'] = 'overzicht';
     $producten = productenLijst();
         }
-    if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht" AND $_SESSION['categorie'] != "zoeken"){
+    if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht"){
     $producten = categorieClothing($_SESSION['categorie']);
     }
 
