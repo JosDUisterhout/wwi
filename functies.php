@@ -16,6 +16,16 @@ function db_connect(){
 
 }
 
+function testQueryAantal($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump(count($huidigeLijst));
+}
+
+function sessieTest($huidigeLijst){
+    print("<BR><BR><BR>");
+    var_dump($huidigeLijst);
+}
+
 function db_exec ($stmt, $conn){
 
     mysqli_stmt_execute($stmt);
@@ -43,9 +53,16 @@ function zoekProduct($zoek){
     $conn = db_connect();
 
     $validate = valideerZoeken($zoek);
-
+    $pieces = explode(" ", $zoek);
     if($validate){
-        $sql = "SELECT * FROM stockitems WHERE StockItemName LIKE '%$zoek%' or SearchDetails LIKE '%$zoek%' or StockItemId = '$zoek'";
+        foreach($pieces as $piece){
+            $sqlnaam[] = "StockItemName LIKE '%".$piece."%'";
+            $sqldetails[] = "SearchDetails LIKE '%".$piece."%'";
+            $sqlid[] = "StockItemId LIKE '%".$piece."%'";
+        }
+
+        $sql = "SELECT * FROM stockitems WHERE ".implode(" AND ", $sqlnaam)." or ".implode(" AND ", $sqldetails)." or ".implode(" OR ", $sqlid);
+
         return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
     }else{
         $sql = "SELECT * FROM stockitems";
@@ -58,7 +75,8 @@ function productenLijst(){
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems ";
+    $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID";
+
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
@@ -103,14 +121,18 @@ function categorieClothing($categorie)
 
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems WHERE StockItemID IN (SELECT StockItemID FROM stockitemstockgroups WHERE StockGroupID IN(SELECT StockGroupID FROM stockgroups WHERE StockGroupName = '" . $categorie . "'))";
+    $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID WHERE i.StockItemID IN (SELECT StockItemID FROM stockitemstockgroups WHERE StockGroupID IN(SELECT StockGroupID FROM stockgroups WHERE StockGroupName = '" . $categorie . "'))";
+
+
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
 
 function aantalPaginas($aantal, $perPagina){
 
- return(ceil($aantal/$perPagina));
+    $perPagina = intval($perPagina);
+
+ return ceil($aantal/$perPagina);
 }
 
 function toevoegenProductWinkelmand($id, $toevoegen){
@@ -139,6 +161,16 @@ function verwijdenProductWinkelwagen($id){
 }
 function utf8($text){
     return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
+}
+
+function vooraad($ID){
+
+    $conn = db_connect();
+
+    $sql = "SELECT h.QuantityOnHand FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID where i.StockItemID = "  . $ID;
+
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
 }
 
 
