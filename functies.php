@@ -159,6 +159,32 @@ function verwijdenProductWinkelwagen($id){
         }
     }
 }
+
+function toevoegenProductVerlanglijst($id, $toevoegen){
+
+    session_start();
+    if($toevoegen){
+        if(isset($_SESSION["verlanglijst"])){
+            if (!in_array($id, $_SESSION["verlanglijst"])) {
+                $array1 = $_SESSION["verlanglijst"];
+                $array2 = array($id);
+                $_SESSION["verlanglijst"] = array_merge($array1, $array2);
+            }
+        }else{
+            $_SESSION["verlanglijst"] = array($id);
+        }
+    }
+}
+
+function verwijdenProductVerlanglijst($id){
+    if(isset($_SESSION["verlanglijst"])){
+        if (in_array($id, $_SESSION["verlanglijst"])) {
+            $key = array_search($id, $_SESSION["verlanglijst"]);
+            unset($_SESSION["verlanglijst"][$key]);
+        }
+    }
+}
+
 function utf8($text){
     return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
 }
