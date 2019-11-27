@@ -53,9 +53,16 @@ function zoekProduct($zoek){
     $conn = db_connect();
 
     $validate = valideerZoeken($zoek);
-
+    $pieces = explode(" ", $zoek);
     if($validate){
-        $sql = "SELECT * FROM stockitems WHERE StockItemName LIKE '%$zoek%' or SearchDetails LIKE '%$zoek%' or StockItemId = '$zoek'";
+        foreach($pieces as $piece){
+            $sqlnaam[] = "StockItemName LIKE '%".$piece."%'";
+            $sqldetails[] = "SearchDetails LIKE '%".$piece."%'";
+            $sqlid[] = "StockItemId LIKE '%".$piece."%'";
+        }
+
+        $sql = "SELECT * FROM stockitems WHERE ".implode(" AND ", $sqlnaam)." or ".implode(" AND ", $sqldetails)." or ".implode(" OR ", $sqlid);
+
         return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
     }else{
         $sql = "SELECT * FROM stockitems";
