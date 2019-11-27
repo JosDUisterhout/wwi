@@ -2,8 +2,15 @@
 include('include.php');
 
 global $producten;
-
-
+$reproduct1= rand(1, count(productenLijst()));
+$reproduct2= rand(1, count(productenLijst()));
+$reproduct3= rand(1, count(productenLijst()));
+$rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
+$rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
+$rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
+$reNaam1 = $producten[$reproduct1]['StockItemName'];
+$reNaam2 = $producten[$reproduct2]['StockItemName'];
+$reNaam3 = $producten[$reproduct3]['StockItemName'];
 $producten = productenItem($_GET['id']);
 $productID = $producten[0]['StockItemID'];
 $productNaam = $producten[0]['StockItemName'];
@@ -11,12 +18,10 @@ $productPrijs = $producten[0]['RecommendedRetailPrice'];
 $productdails = $producten[0] ["SearchDetails"];
 $productid = $producten[0]['StockItemID'];
 $vooraad = $productID[0]['QuantityOnHand'];
-$reproduct1= rand(1, count(productenLijst()));
-$reproduct2= rand(1, count(productenLijst()));
-$reproduct3= rand(1, count(productenLijst()));
 
 
 ?>
+<div class="opmaakproductpagina">
 <div class="absolute">
 <!DOCTYPE html>
 <html>
@@ -31,7 +36,7 @@ $reproduct3= rand(1, count(productenLijst()));
 
         }
 </style>
-<div class="opmaakproductpagina">
+
 
 
 
@@ -51,7 +56,7 @@ $reproduct3= rand(1, count(productenLijst()));
         <div class="column">
             <br>
             <?php
-            print("<img src='plaatjeswwi/id$productID.jpg' style='width:400px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+            print("<img src='plaatjeswwi/id$productID.jpg' style='width:430px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
             ?>
             <prijs>
                 <?php
@@ -82,12 +87,24 @@ $reproduct3= rand(1, count(productenLijst()));
 
             </div>
 
+
+<?php
+$default ="<img src='src=plaatjeswwi/default.jpg' style='width:150px' style='width:150px' class='hover-shadow cursor'>";
+      ?>
+            
+            
+            
 <relatedproduct>
     <div class="container">
         <ul>
-            <li><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo 'product'?></a>
+            <li><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo $reNaam1?></a>
+
+                    <?php
+                    print("€ ".ceil($rePrijs1). " euro" . "<br>");
+                    ?>
+
                 <?php
-                print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:150px' style='width:200px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
                 <div class="cartbtn">
                     <form method="post" action="cart.php">
@@ -95,9 +112,14 @@ $reproduct3= rand(1, count(productenLijst()));
                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                     </form>
                 </div></li>
-            <li> <a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo 'product'?></a>
+            <li> <a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
+
                 <?php
-                print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:150px' style='width:200px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("€ ".ceil($rePrijs2). " euro" . "<br>");
+                ?>
+
+                <?php
+                print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
                 <div class="cartbtn">
                     <form method="post" action="cart.php">
@@ -105,9 +127,14 @@ $reproduct3= rand(1, count(productenLijst()));
                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                     </form>
                 </div></li>
-            <li> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo 'product'?></a>
+            <li> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
+
                 <?php
-                print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:150px' style='width:200px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("€ ".ceil($rePrijs3). " euro" . "<br>");
+                ?>
+
+                <?php
+                print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
                 <div class="cartbtn">
                     <form method="post" action="cart.php">
@@ -136,7 +163,7 @@ $reproduct3= rand(1, count(productenLijst()));
                 <div class="mySlides">
                     <div class="numbertext">1 / 3</div>
                     <?php
-                    print("<img src='plaatjeswwi/id$productid.jpg' style='max-width:800px; max-height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
+                    print("<img src='plaatjeswwi/id$productid.jpg' style='width:800px; height:800px;' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
                     ?>
                 </div>
 

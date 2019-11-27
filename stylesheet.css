@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .m0a{
@@ -501,6 +502,7 @@ relatedproduct  {
     height: 250px;
     border: 3px solid black;
     font-size: 20px;
+    font-size: 15px;
 }
 
 .cartbtn {
@@ -624,7 +626,7 @@ a:hover{
 play {
     position: absolute;
     top: 20px;
-    right: 1075px;
+    right: 1081px;
     width:60px;
     height:40px;
 
@@ -643,4 +645,27 @@ div.opmaakproductpagina{
     margin-right: auto;
     right: auto;
     width: auto;
+    height: auto;
 }
+
+adres {
+    position: center;
+    top: auto;
+    width:  auto;
+    height:  auto;
+    border: 48px solid white;
+    padding: 3px;
+}
+.center{
+    position: relative;
+    right: -46%;
+
+
+}
+vradres {
+    position: center;
+    width: 400px;
+    height: 800px;
+    border: 3px solid black;
+}
+

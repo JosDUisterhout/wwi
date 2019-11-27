@@ -11,7 +11,7 @@ if(isset($_POST['remove_cart'])){
     verwijdenProductWinkelwagen($_POST['productID']);
 }
 ?>
-<br>
+<br><a href="Bestellen.php" class="topnavright"><i class="button">Afrekenen</i></a>
     <br>
     <br>
 <div>
@@ -51,3 +51,4 @@ if(isset($_SESSION["cart"])){
     }
 }
 ?>
+
