@@ -53,13 +53,6 @@ function zoekProduct($zoek){
     $conn = db_connect();
 
     $validate = valideerZoeken($zoek);
-    $pieces = explode(" ", $zoek);
-    if($validate){
-        foreach($pieces as $piece){
-            $sqlnaam[] = "StockItemName LIKE '%".$piece."%'";
-            $sqldetails[] = "SearchDetails LIKE '%".$piece."%'";
-            $sqlid[] = "StockItemId LIKE '%".$piece."%'";
-        }
 
     $pieces = explode(" ", $zoek);
 
