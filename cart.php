@@ -1,26 +1,19 @@
 <?php
+
 include('include.php');
 
-if(isset($_POST['cart'])) {
-    toevoegenProductWinkelmand($_POST['productID'], TRUE);
-}else{
-    toevoegenProductWinkelmand(0, FALSE);
-}
-
-if(isset($_POST['remove_cart'])){
-    verwijdenProductWinkelwagen($_POST['productID']);
-}
 ?>
 <br><a href="Bestellen.php" class="topnavright"><i class="button">Afrekenen</i></a>
     <br>
     <br>
+
 <div>
     <h1>Winkelmandje</h1>
 </div>
-    <hr>
+<hr>
 <?php
 $totaalprijs = 0;
-if(isset($_SESSION["cart"])){
+if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     foreach ($_SESSION["cart"] as $product){
         $product = productenItem($product);
         $productID = $product[0]['StockItemID'];
@@ -28,8 +21,9 @@ if(isset($_SESSION["cart"])){
         $productPrijs = ceil($product[0]['RecommendedRetailPrice']);
         $productdails = $product[0] ["SearchDetails"];
         $totaalprijs = $totaalprijs + $productPrijs
-//        print_r($product);
 ?>
+
+
 <div class="cartrow flex-container">
     <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
         <img class="cart_image" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
@@ -51,6 +45,14 @@ if(isset($_SESSION["cart"])){
 
 <?php
     }
+}else{
+    ?>
+<div class="flex-container">
+    <div class="">
+        <h3><?php print("Winkelmandje is leeg, DOE ER WAT AAN!!!"); ?></h3>
+    </div>
+</div>
+<?php
 }
 ?>
 <div class="cartrow flex-container">

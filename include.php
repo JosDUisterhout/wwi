@@ -3,11 +3,23 @@
 include('config.php');
 include('functies.php');
 
+
 $categorieen = categorieLijst();
-
+$aantal_winkelmand = 0;
 session_start();
+if(isset($_POST['cart'])) {
+    toevoegenProductWinkelmand($_POST['productID'], TRUE);
+}else{
+    toevoegenProductWinkelmand(0, FALSE);
+}
 
+if(isset($_POST['remove_cart'])){
+    verwijdenProductWinkelwagen($_POST['productID']);
+}
 
+if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
+    $aantal_winkelmand = count($_SESSION["cart"]);
+}
 
 ?>
 
@@ -27,8 +39,22 @@ session_start();
         <a href="index.php" class="active">Home</a>
         <a href="#contact">Contact</a>
         <a href="#login" class="topnavright">Login</a>
-        <a href="cart.php" class="topnavright"><i class="fa fa-shopping-cart"></i></a>
         <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
+
+        <a href="cart.php" class="topnavright topnav-winkelwagen">
+            <?php if($aantal_winkelmand !== 0){ ?>
+            <span class="fa-stack fa-2x has-badge topnav-icon" data-count="<?php  print($aantal_winkelmand); ?>">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-shopping-cart fa-stack-2x"></i>
+            </span>
+            <?php }else{ ?>
+            <span class="fa-stack topnav-icon">
+                <i class="fa fa-shopping-cart fa-stack-2x"></i>
+            </span>
+            <?php } ?>
+        </a>
+
+
 
         <form method="get" class="zoek">
             <div class="">
