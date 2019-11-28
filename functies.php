@@ -53,17 +53,20 @@ function zoekProduct($zoek){
     $conn = db_connect();
 
     $validate = valideerZoeken($zoek);
+
     $pieces = explode(" ", $zoek);
+
     if($validate){
-        foreach($pieces as $piece){
-            $sqlnaam[] = "StockItemName LIKE '%".$piece."%'";
-            $sqldetails[] = "SearchDetails LIKE '%".$piece."%'";
-            $sqlid[] = "StockItemId LIKE '%".$piece."%'";
+        foreach($pieces as $piece) {
+            $sqlnaam[] = "i.StockItemName LIKE '%" . $piece . "%'";
+            $sqldetails[] = "i.SearchDetails LIKE '%" . $piece . "%'";
+            $sqlid[] = "i.StockItemId LIKE '%" . $piece . "%'";
         }
 
-        $sql = "SELECT * FROM stockitems WHERE ".implode(" AND ", $sqlnaam)." or ".implode(" AND ", $sqldetails)." or ".implode(" OR ", $sqlid);
+            $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID WHERE " . implode(" AND ", $sqlnaam) . " or " . implode(" AND ", $sqldetails) . " or " . implode(" OR ", $sqlid);
+            return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
-        return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
     }else{
         $sql = "SELECT * FROM stockitems";
 
@@ -161,7 +164,6 @@ function verwijdenProductWinkelwagen($id){
 
 function toevoegenProductVerlanglijst($id, $toevoegen){
 
-    session_start();
     if($toevoegen){
         if(isset($_SESSION["verlanglijst"])){
             if (!in_array($id, $_SESSION["verlanglijst"])) {

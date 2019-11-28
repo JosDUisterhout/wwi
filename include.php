@@ -44,7 +44,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         <a href="cart.php" class="topnavright topnav-winkelwagen">
             <?php if($aantal_winkelmand !== 0){ ?>
             <span class="fa-stack fa-2x has-badge topnav-icon" data-count="<?php  print($aantal_winkelmand); ?>">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-shopping-cart fa-stack-2x"></i>
             </span>
             <?php }else{ ?>
@@ -111,8 +111,6 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht"){
     $producten = categorieClothing($_SESSION['categorie']);
     }
-
-
 
     ?>
 
