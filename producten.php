@@ -19,7 +19,7 @@ $productNaam = $product[0]['StockItemName'];
 $productPrijs = $product[0]['RecommendedRetailPrice'];
 $productdails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
-$vooraad = $productID[0]['QuantityOnHand'];
+$vooraad = $product[0]['QuantityOnHand'];
 ?>
 <!DOCTYPE html>
 <html>

@@ -14,7 +14,7 @@ login met uw WWI acount of vul uw gegevens in voor een bezorgadres/opohaalpunt
 <html>
 <a href="acount.php" class="center"><i<i class="button">Log in</i></a><br><br>
 <a  href="bestellen.php" class="afhaal"><i<i class="button">Bezorgen</i></a>
-<form action="betaal.php" method="get" >
+<form action="betaal.php" method="post" >
     <vradres>
 
         <br>

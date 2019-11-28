@@ -99,7 +99,7 @@ function valideerZoeken($zoek){
 function productenItem($id){
     $conn = db_connect();
 
-    $sql = "SELECT * FROM stockitems WHERE stockItemID = $id";
+    $sql = "SELECT * FROM stockitems JOIN stockitemholdings USING (StockItemID) WHERE stockItemID = $id";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 //                $result = mysqli_query($conn, $sql);

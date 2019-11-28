@@ -35,94 +35,94 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 </head>
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="index.php" class="active">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="#login" class="topnavright">Login</a>
-        <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
+<div class="topnav" id="myTopnav">
+    <a href="index.php" class="active">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#login" class="topnavright">Login</a>
+    <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
 
-        <a href="cart.php" class="topnavright topnav-winkelwagen">
-            <?php if($aantal_winkelmand !== 0){ ?>
+    <a href="cart.php" class="topnavright topnav-winkelwagen">
+        <?php if($aantal_winkelmand !== 0){ ?>
             <span class="fa-stack fa-2x has-badge topnav-icon" data-count="<?php  print($aantal_winkelmand); ?>">
                 <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-shopping-cart fa-stack-2x"></i>
             </span>
-            <?php }else{ ?>
+        <?php }else{ ?>
             <span class="fa-stack topnav-icon">
                 <i class="fa fa-shopping-cart fa-stack-2x"></i>
             </span>
-            <?php } ?>
-        </a>
+        <?php } ?>
+    </a>
 
 
 
-        <form method="get" class="zoek">
-            <div class="">
-                <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
-                <button type="submit" name="submit" class="zoekbtn">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </form>
+    <form method="get" class="zoek">
+        <div class="">
+            <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
+            <button type="submit" name="submit" class="zoekbtn">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </form>
 
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
 
-    <div class="mobielzoek">
+<div class="mobielzoek">
     <form method="get" class="mobielzoek">
         <input type="text" class="zoeken" name="zoek" placeholder="Zoeken" />
         <button type="submit" name="submit" class="zoekbtn">
             <i class="fa fa-search"></i>
         </button>
     </form>
-    </div>
+</div>
 
-    <?php
+<?php
 
 
 //TODO: naar functie(s)
-    if(isset($_GET['submit'])) {
+if(isset($_GET['submit'])) {
+    $_SESSION['paginaNummer'] = 1;
+    $_SESSION['categorie'] = 'zoeken';
+    $_SESSION['zoekwoord'] = $_GET["zoek"];
+}
+elseif(isset($_GET['categorieen'])){
+    foreach($_GET['categorieen'] as $cat){
         $_SESSION['paginaNummer'] = 1;
-        $_SESSION['categorie'] = 'zoeken';
-        $_SESSION['zoekwoord'] = $_GET["zoek"];
+        $_SESSION['categorie'] = $cat;
     }
-    elseif(isset($_GET['categorieen'])){
-        foreach($_GET['categorieen'] as $cat){
-            $_SESSION['paginaNummer'] = 1;
-            $_SESSION['categorie'] = $cat;
-        }
-    }
+}
 
-    if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == 'zoeken')){
-        $producten = zoekProduct($_SESSION['zoekwoord']);
-    }
-    else if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
-        $producten = productenLijst();
-    }
-    elseif(!isset($_SESSION['categorie'])){
-        $_SESSION['categorie'] = 'overzicht';
+if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == 'zoeken')){
+    $producten = zoekProduct($_SESSION['zoekwoord']);
+}
+else if((isset($_SESSION['categorie']) AND $_SESSION['categorie'] == "overzicht")){
     $producten = productenLijst();
-        }
-    if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht" AND $_SESSION['categorie'] != "zoeken"){
+}
+elseif(!isset($_SESSION['categorie'])){
+    $_SESSION['categorie'] = 'overzicht';
+    $producten = productenLijst();
+}
+if(isset($_SESSION['categorie'])AND $_SESSION['categorie'] != "overzicht" AND $_SESSION['categorie'] != "zoeken"){
     $producten = categorieClothing($_SESSION['categorie']);
-    }
+}
 
-    ?>
+?>
 
 
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>

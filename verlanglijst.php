@@ -10,6 +10,14 @@ if(isset($_POST['verlanglijst'])) {
 if(isset($_POST['remove_verlanglijst'])){
     verwijdenProductVerlanglijst($_POST['productID']);
 }
+
+if(isset($_POST['to_cart'])){
+    if(!isset($_SESSION['cart'][$_POST['productID']])){
+        toevoegenProductWinkelmand($_POST['productID'], TRUE);
+    }
+    verwijdenProductVerlanglijst($_POST['productID']);
+    header("Location: cart.php");
+}
 ?>
     <br>
     <br>
@@ -41,11 +49,9 @@ if(isset($_SESSION["verlanglijst"])){
                 <form method="post" action="verlanglijst.php">
                     <input type="hidden" name="productID" value='<?php print($productID);?>'>
                     <button type="submit" name="remove_verlanglijst" class="delete_button cursor"><i class="fa fa-trash"></i></button>
+                    <button type="submit" name="to_cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
                     <br>
                     <br>
-                </form>
-                <form method="post" action="cart.php">
-                    <button type="submit" name="cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
                 </form>
             </div>
 

@@ -263,7 +263,7 @@ prijs {
         <!---->
         <prijs>
             <?php $conn = db_connect();
-            $sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_GET['id'] ;
+            $sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_POST['id'] ;
             $result = mysqli_query($conn, $sql);
 
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -371,7 +371,7 @@ BLA BLA
 </script>
 <?php
 $conn = db_connect();
-$sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_GET['id'] ;
+$sql = "SELECT RecommendedRetailPrice FROM stockitems WHERE stockItemID =".$_POST['id'] ;
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
