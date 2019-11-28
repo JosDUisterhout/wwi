@@ -158,6 +158,7 @@ if(isset($_SESSION["cart"])) {
                         <h4>Cart <span class="price" style="color:black">
                     <i class="fa fa-shopping-cart"></i>
                     <b></b></span></h4><?php
+                        $totaalprijs = 0;
                         if(isset($_SESSION["cart"])) {
                             foreach ($_SESSION["cart"] as $product) {
                                 $product = productenItem($product);
@@ -165,6 +166,7 @@ if(isset($_SESSION["cart"])) {
                                 $productNaam = $product[0]['StockItemName'];
                                 $productPrijs = $product[0]['RecommendedRetailPrice'];
                                 $productdails = $product[0] ["SearchDetails"];
+                                $totaalprijs = $totaalprijs + $productPrijs;
 
                                 echo '<br>';
                                 print($productNaam.' '.  $productPrijs);
@@ -172,7 +174,9 @@ if(isset($_SESSION["cart"])) {
                                 //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
 
                             }
-                        }
+                        }print("<br> <br> <br> totaalprijs: " .$totaalprijs);
+                        unset($_SESSION['cart']);
+                        $_SESSION = array();
                         ?>
                     </div>
                 </div>
@@ -199,7 +203,7 @@ if(isset($_SESSION["cart"])) {
                         <label for="cvv">CVV</label>
                         <input type="text" id="cvv" name="cvv" placeholder="352">
 
-                        <input type="submit" value="Pay" class="btn">
+                        <input type="submit" value="Pay" class="btn" onclick="alert('U heeft betaald')">
 
             </form>
                             </div>

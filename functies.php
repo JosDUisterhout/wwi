@@ -138,27 +138,15 @@ function aantalPaginas($aantal, $perPagina){
  return ceil($aantal/$perPagina);
 }
 
-function toevoegenProductWinkelmand($id, $toevoegen){
-
+function toevoegenProductWinkelmand($id, $aantal, $toevoegen){
     if($toevoegen){
-        if(isset($_SESSION["cart"])){
-            if (!in_array($id, $_SESSION["cart"])) {
-                $array1 = $_SESSION["cart"];
-                $array2 = array($id);
-                $_SESSION["cart"] = array_merge($array1, $array2);
-            }
-        }else{
-            $_SESSION["cart"] = array($id);
-        }
+        $_SESSION["cart"][$id] = $aantal;
     }
 }
 
 function verwijdenProductWinkelwagen($id){
     if(isset($_SESSION["cart"])){
-        if (in_array($id, $_SESSION["cart"])) {
-            $key = array_search($id, $_SESSION["cart"]);
-            unset($_SESSION["cart"][$key]);
-        }
+        unset($_SESSION["cart"][$id]);
     }
 }
 
@@ -200,4 +188,9 @@ function vooraad($ID){
 
 }
 
+
+
+function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
 

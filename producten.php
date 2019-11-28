@@ -87,11 +87,13 @@ $vooraad = $product[0]['QuantityOnHand'];
                 <div class="cartbtn">
                     <form method="post" action="cart.php">
                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                        <input type="hidden" name="productAantal" value='1'>
                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                     </form>
                     <br>
                     <form method="post" action="verlanglijst.php">
                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                        <input type="hidden" name="productAantal" value='1'>
                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                     </form>
                 </div>
@@ -131,6 +133,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                             <div class="cartbtn">
                                 <form method="post" action="cart.php">
                                     <input type="hidden" name="productID" value='<?php print($reproduct1);?>'>
+                                    <input type="hidden" name="productAantal" value='1'>
                                     <button type="submit" name="cart" class="button">In winkelmandje</button>
                                 </form>
                             </div></li>
@@ -146,6 +149,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                             <div class="cartbtn">
                                 <form method="post" action="cart.php">
                                     <input type="hidden" name="productID" value='<?php print($reproduct2);?>'>
+                                    <input type="hidden" name="productAantal" value='1'>
                                     <button type="submit" name="cart" class="button">In winkelmandje</button>
                                 </form>
                             </div></li>
