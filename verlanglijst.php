@@ -1,6 +1,13 @@
 <?php
 include('include.php');
 
+if(isset($_POST['to_cart']) AND isset($_POST['productID'])){
+    if(!in_array($_POST['productID'], $_SESSION['cart'])){
+        $_SESSION['cart'] = $_POST['productID'];
+    }
+    unset($_SESSION['verlanglijst'][$_POST['productID']]);
+}
+
 if(isset($_POST['verlanglijst'])) {
     toevoegenProductVerlanglijst($_POST['productID'], TRUE);
 }else{
@@ -38,14 +45,13 @@ if(isset($_SESSION["verlanglijst"])){
             </div>
             <div class="cart_prijs">
                 <h3><?php print("€ ".ceil($productPrijs). " euro"); ?></h3>
-                <form method="post" action="verlanglijst.php">
+                <form method="post" action="">
                     <input type="hidden" name="productID" value='<?php print($productID);?>'>
                     <button type="submit" name="remove_verlanglijst" class="delete_button cursor"><i class="fa fa-trash"></i></button>
                     <br>
                     <br>
-                </form>
-                <form method="post" action="cart.php">
-                    <button type="submit" name="cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
+
+                    <button type="submit" name="to_cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
                 </form>
             </div>
 

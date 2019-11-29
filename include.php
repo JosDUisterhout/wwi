@@ -3,14 +3,13 @@
 include('config.php');
 include('functies.php');
 
-
 $categorieen = categorieLijst();
 $aantal_winkelmand = 0;
 session_start();
 if(isset($_POST['cart'])) {
-    toevoegenProductWinkelmand($_POST['productID'], TRUE);
+    toevoegenProductWinkelmand($_POST['productID'], $_POST['productAantal'], TRUE);
 }else{
-    toevoegenProductWinkelmand(0, FALSE);
+    toevoegenProductWinkelmand(0,1, FALSE);
 }
 
 if(isset($_POST['remove_cart'])){
@@ -18,7 +17,10 @@ if(isset($_POST['remove_cart'])){
 }
 
 if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
-    $aantal_winkelmand = count($_SESSION["cart"]);
+    foreach ($_SESSION["cart"] as $key => $aantal){
+        $aantal_winkelmand = $aantal_winkelmand + $aantal;
+    }
+//    $aantal_winkelmand = count($_SESSION["cart"]);
 }
 
 ?>
@@ -37,7 +39,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 
     <div class="topnav" id="myTopnav">
         <a href="index.php" class="active">Home</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.php">Contact</a>
         <a href="#login" class="topnavright">Login</a>
         <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
 

@@ -16,15 +16,15 @@ include('include.php');
 <?php
 $totaalprijs = 0;
 if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
-    foreach ($_SESSION["cart"] as $product){
-        $product = productenItem($product);
+    foreach ($_SESSION["cart"] as $key => $aantal){
+        $product = productenItem($key);
         $productID = $product[0]['StockItemID'];
         $productNaam = $product[0]['StockItemName'];
-        $productPrijs = ceil($product[0]['RecommendedRetailPrice']);
-        $productdails = $product[0] ["SearchDetails"];
+        $productPrijs = $aantal * ceil($product[0]['RecommendedRetailPrice']);
+        $productdails = $product[0]["SearchDetails"];
+        $voorraad = $product[0]["QuantityOnHand"];
         $totaalprijs = $totaalprijs + $productPrijs
 ?>
-
 
 <div class="cartrow flex-container">
     <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
@@ -33,6 +33,32 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     <div class="cart_naam">
         <h3><?php print($productNaam); ?></h3><br>
         <h4><?php print($productdails); ?></h4>
+    </div>
+    <div >
+        <h3><?php print("Aantal"); ?></h3><br>
+        <select id="<?php print($productID); ?>" onchange="myFunction(this.id)">
+            <?php
+                if($voorraad >= 10){
+                    $x = 1;
+                    while($x <= 10) {
+                        if($x == $aantal){
+                            print("<option value=\"$x\" selected=\"selected\">$x</option>");
+                        }else{
+                            print("<option value=\"$x\">$x</option>");
+                        }
+
+                        $x++;
+                    }
+                }else{
+                    $z = 4;
+                    $x = 1;
+                    while($x <= $voorraad){
+                        print("<option value=\"1\">$x</option>");
+                        $x++;
+                    }
+                }
+            ?>
+        </select>
     </div>
     <div class="cart_prijs">
         <h3><?php print("€ ".ceil($productPrijs). " euro"); ?></h3>
@@ -63,3 +89,16 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     </div>
 </div>
 
+<script>
+    function myFunction(id) {
+        var aantal = document.getElementById(id).value;
+        // console.log(aantal);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "cart.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("productID="+ id +"&productAantal="+ aantal +"&cart=''");
+        location.reload();
+        // console.log('id');
+    }
+</script>
