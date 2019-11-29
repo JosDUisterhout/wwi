@@ -1,6 +1,13 @@
 <?php
 include('include.php');
 
+if(isset($_POST['to_cart']) AND isset($_POST['productID'])){
+    if(!in_array($_POST['productID'], $_SESSION['cart'])){
+        $_SESSION['cart'] = $_POST['productID'];
+    }
+    unset($_SESSION['verlanglijst'][$_POST['productID']]);
+}
+
 if(isset($_POST['verlanglijst'])) {
     toevoegenProductVerlanglijst($_POST['productID'], TRUE);
 }else{
@@ -52,6 +59,8 @@ if(isset($_SESSION["verlanglijst"])){
                     <button type="submit" name="to_cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
                     <br>
                     <br>
+
+                    <button type="submit" name="to_cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
                 </form>
             </div>
 

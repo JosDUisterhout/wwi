@@ -37,11 +37,11 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 </head>
 <body>
 
-<div class="topnav" id="myTopnav">
-    <a href="index.php" class="active">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="#login" class="topnavright">Login</a>
-    <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
+    <div class="topnav" id="myTopnav">
+        <a href="index.php" class="active">Home</a>
+        <a href="contact.php">Contact</a>
+        <a href="#login" class="topnavright">Login</a>
+        <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
 
     <a href="cart.php" class="topnavright topnav-winkelwagen">
         <?php if($aantal_winkelmand !== 0){ ?>
