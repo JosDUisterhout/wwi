@@ -119,6 +119,13 @@ font-size: 16px;
     opacity:90%;
     box-shadow: 5px 10px 5px #c80c0a;
 }
+.grid-item > img{
+    transition: transform 0.4s;
+}
+
+.grid-item:hover > img{
+    -webkit-transform: scale(0.9);
+}
 
 .topnav {
     overflow: hidden;
@@ -751,4 +758,18 @@ proorder{
     width: 450px;
     height: auto;
     left: 20px;
+}
+
+.mt-10{
+    margin-top: 10px;
+}
+
+.fancy-image{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+img{
+    max-width: 100%;
 }

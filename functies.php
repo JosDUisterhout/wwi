@@ -50,8 +50,9 @@ function db_exec ($stmt, $conn){
 
 function zoekProduct($zoek){
 
-    $conn = db_connect();
+    var_dump($zoek);
 
+    $conn = db_connect();
     $validate = valideerZoeken($zoek);
 
     $pieces = explode(" ", $zoek);
@@ -97,18 +98,17 @@ function valideerZoeken($zoek){
 }
 
 function productenItem($id){
-
     $conn = db_connect();
 
     $sql = "SELECT * FROM stockitems JOIN stockitemholdings USING (StockItemID) WHERE stockItemID = $id";
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
-//                $result = mysqli_query($conn, $sql);
+}
 
-//                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-//                    $naam = $row["RecommendedRetailPrice"];
-//                    print("€ ".ceil($naam). " euro" . "<br>");
-//                }
+function getOneProductById($id){
+
+    $rows = productenItem($id);
+    return array_pop($rows);
 }
 
 function categorieLijst(){
@@ -240,4 +240,8 @@ function perPagina($startPerPagina){
 
     }
     if(!isset($_SESSION['perPagina'])){$_SESSION['perPagina'] = $startPerPagina;}
+}
+
+function redirect($url){
+    header("Location: $url");
 }
