@@ -20,13 +20,13 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
 
     $totaalprijs = 0;
     if(isset($_SESSION["cart"])) {
-        foreach ($_SESSION["cart"] as $product) {
+        foreach ($_SESSION["cart"] as $product => $aantal) {
             $product = productenItem($product);
             $productID = $product[0]['StockItemID'];
             $productNaam = $product[0]['StockItemName'];
             $productPrijs = $product[0]['RecommendedRetailPrice'];
             $productdails = $product[0] ["SearchDetails"];
-            $totaalprijs = $totaalprijs + $productPrijs;
+            $totaalprijs = $totaalprijs + $productPrijs * $aantal;
 
             echo '<br>';
             print($productNaam . ' ' . $productPrijs);
