@@ -1,69 +1,52 @@
 <?php
 include('include.php');
-
-if(isset($_POST['to_cart']) AND isset($_POST['productID'])){
-    if(!in_array($_POST['productID'], $_SESSION['cart'])){
-        $_SESSION['cart'] = $_POST['productID'];
-    }
-    unset($_SESSION['verlanglijst'][$_POST['productID']]);
-}
-
-if(isset($_POST['verlanglijst'])) {
-    toevoegenProductVerlanglijst($_POST['productID'], TRUE);
-}else{
-    toevoegenProductVerlanglijst(0, FALSE);
-}
-
-if(isset($_POST['remove_verlanglijst'])){
-    verwijdenProductVerlanglijst($_POST['productID']);
-}
-
-if(isset($_POST['to_cart'])){
-    if(!isset($_SESSION['cart'][$_POST['productID']])){
-        toevoegenProductWinkelmand($_POST['productID'], TRUE);
-    }
-    verwijdenProductVerlanglijst($_POST['productID']);
-    header("Location: cart.php");
-}
 ?>
-    <br>
-    <br>
-    <br>
-    <div>
+    <div style="margin-top: 60px;">
         <h1>Verlanglijstje</h1>
     </div>
     <hr>
 <?php
 if(isset($_SESSION["verlanglijst"])){
-    foreach ($_SESSION["verlanglijst"] as $product){
-        $product = productenItem($product);
-        $productID = $product[0]['StockItemID'];
-        $productNaam = $product[0]['StockItemName'];
-        $productPrijs = $product[0]['RecommendedRetailPrice'];
-        $productdails = $product[0] ["SearchDetails"];
-//        print_r($product);
+    foreach ($_SESSION["verlanglijst"] as $productId){
+        $product = getOneProductById($productId);
+        $productID = $product['StockItemID'];
+        $productNaam = $product['StockItemName'];
+        $productPrijs = $product['RecommendedRetailPrice'];
+        $productdails = $product["SearchDetails"];
         ?>
         <div class="cartrow flex-container">
             <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
-                <img class="cart_image" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
+                <img class="fancy-image" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
             </div>
             <div class="cart_naam">
-                <h3><?php print($productNaam); ?></h3><br>
-                <h4><?php print($productdails); ?></h4>
+                <h3><?php print($productNaam); ?></h3>
+                <h4 style="color: gray;"><?php print($productdails); ?></h4>
             </div>
             <div class="cart_prijs">
-                <h3><?php print("€ ".ceil($productPrijs). " euro"); ?></h3>
-                <form method="post" action="verlanglijst.php">
+                <div style="text-align: right;">
+                    <div style="color: #27ae60; font-size: 40px; font-weight: bold;">
+                    &euro; <?php print(ceil($productPrijs)); ?>
+                    </div>
+                    <div>
+                    euro
+                    </div>
+                </div>
+
+                <div style="display: inline-block">
+                <form method="post" action="verlanglijstje/verwijderen.php">
                     <input type="hidden" name="productID" value='<?php print($productID);?>'>
-                    <button type="submit" name="remove_verlanglijst" class="delete_button cursor"><i class="fa fa-trash"></i></button>
-                    <button type="submit" name="to_cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
-                    <br>
-                    <br>
-
-                    <button type="submit" name="to_cart" class="move_button cursor"><i class="fa fa-shopping-cart"></i></button>
+                    <button type="submit" name="remove_verlanglijst" class="delete_button cursor mt-10"><i class="fa fa-trash"></i></button>
                 </form>
-            </div>
+                </div>
 
+                <div style="display: inline-block">
+                <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
+                    <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                    <button type="submit" name="to_cart" class="move_button cursor mt-10"><i class="fa fa-shopping-cart"></i></button>
+                </form>
+                </div>
+
+            </div>
         </div>
         <hr>
 

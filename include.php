@@ -24,6 +24,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 //    $aantal_winkelmand = count($_SESSION["cart"]);
 }
 
+$verlanglijstAantal = $_SESSION["verlanglijst"] ? count($_SESSION["verlanglijst"]) : 0;
 ?>
 
 <!--TODO: onderstaande in layout.php-->
@@ -42,7 +43,19 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         <a href="index.php" class="active">Home</a>
         <a href="contact.php">Contact</a>
         <a href="#login" class="topnavright">Login</a>
-        <a href="verlanglijst.php" class="topnavright"><i class="fa fa-gift"></i></a>
+        <a href="verlanglijst.php" class="topnavright topnav-winkelwagen">
+            <?php if($verlanglijstAantal > 0){ ?>
+                <span class="fa-stack fa-2x has-badge topnav-icon" data-count="<?php  echo $verlanglijstAantal; ?>">
+                <i class="fa fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-gift fa-stack-2x"></i>
+            </span>
+            <?php }else{ ?>
+                <span class="fa-stack topnav-icon">
+                <i class="fa fa-gift fa-stack-2x"></i>
+            </span>
+            <?php } ?>
+
+        </a>
 
     <a href="cart.php" class="topnavright topnav-winkelwagen">
         <?php if($aantal_winkelmand !== 0){ ?>
