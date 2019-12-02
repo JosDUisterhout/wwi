@@ -53,8 +53,6 @@ function zoekProduct($zoek){
     var_dump($zoek);
 
     $conn = db_connect();
-    var_dump(mysqli_real_escape_string($conn, $zoek));die;
-    
     $validate = valideerZoeken($zoek);
 
     $pieces = explode(" ", $zoek);
