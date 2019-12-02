@@ -50,8 +50,6 @@ function db_exec ($stmt, $conn){
 
 function zoekProduct($zoek){
 
-    var_dump($zoek);
-
     $conn = db_connect();
     $validate = valideerZoeken($zoek);
 

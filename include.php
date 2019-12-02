@@ -24,7 +24,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 //    $aantal_winkelmand = count($_SESSION["cart"]);
 }
 
-$verlanglijstAantal = $_SESSION["verlanglijst"] ? count($_SESSION["verlanglijst"]) : 0;
+$verlanglijstAantal = isset($_SESSION["verlanglijst"]) ? count($_SESSION["verlanglijst"]) : 0;
 ?>
 
 <!--TODO: onderstaande in layout.php-->
