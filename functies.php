@@ -140,7 +140,20 @@ function aantalPaginas($aantal, $perPagina){
 
 function toevoegenProductWinkelmand($id, $aantal, $toevoegen){
     if($toevoegen){
-        $_SESSION["cart"][$id] = $aantal;
+
+
+        if(isset($_SESSION["cart"])){
+            if(!in_array($_POST['productID'], $_SESSION["cart"]))
+            {
+                echo "dat";
+                $_SESSION["cart"][$id] = $aantal;
+            }else{
+                echo "dsa";
+            }
+
+        }else{
+            $_SESSION["cart"][$id] = $aantal;
+        }
     }
 }
 

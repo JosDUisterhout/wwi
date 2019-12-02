@@ -92,13 +92,12 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 <script>
     function myFunction(id) {
         var aantal = document.getElementById(id).value;
-        // console.log(aantal);
 
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "cart.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("productID="+ id +"&productAantal="+ aantal +"&cart=''");
+
         location.reload();
-        // console.log('id');
     }
 </script>
