@@ -152,7 +152,7 @@ if(isset($_SESSION["cart"])) {
 <div class="row">
     <div class="col-75">
         <div class="container">
-            <form action="index.php" method="get">
+            <form action="index.php" method="post">
                 <div class="col-25">
                     <div class="container">
                         <h4>Cart <span class="price" style="color:black">
