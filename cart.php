@@ -15,7 +15,6 @@ include('include.php');
 <hr>
 <?php
 
-sessieTest($_POST);
 
 $totaalprijs = 0;
 if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
