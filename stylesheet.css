@@ -737,3 +737,10 @@ orderd {
     height: 150px;
     right: 20px;
 }
+proorder{
+    position: absolute;
+    border: 3px solid black;
+    width: 450px;
+    height: auto;
+    left: 20px;
+}
