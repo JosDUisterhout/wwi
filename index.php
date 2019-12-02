@@ -86,7 +86,6 @@ $huidigeLijst = laadPagina($producten);
 
 <div class="grid-container">
     <?php
-
     foreach($huidigeLijst as $product){
         $id = $product["StockItemID"];
         $foto = $product["Photo"];
@@ -95,7 +94,7 @@ $huidigeLijst = laadPagina($producten);
         $productPrijs = $product['RecommendedRetailPrice'];
         echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' .  $naam  . "
                   <img src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br>');
-
+        print("<div class='grid-text'>");
         if ($vooraad >= 100000) {
             print ("Voorraad status: Ruim op vooraad");
         } elseif
@@ -109,7 +108,7 @@ $huidigeLijst = laadPagina($producten);
             print ("Voorraad status: Niet op vooraad");
         }
         print (" <br> ");
-        print(" € ".ceil($productPrijs). " euro" . "<br>".'</div>');
+        print(" € ".ceil($productPrijs). " euro" . "<br>".'</div></div>');
     }
 
 
