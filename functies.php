@@ -97,6 +97,8 @@ function valideerZoeken($zoek){
 }
 
 function productenItem($id){
+
+    sessieTest($id);
     $conn = db_connect();
 
     $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID WHERE i.stockItemID = $id";
