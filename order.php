@@ -45,13 +45,14 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
     <orderd>
     <ol>
 
-        <li><em>Naam:</em> <?php echo $_POST["voornaam"].' '.$_POST["achternaam"]?></li>
-        <li><em>Email:</em> <?php echo $_POST["email"]?></li>
-        <li><em>Tel:</em> <?php if(isset($_POST["tel"])){echo$_POST["tel"];}?></li>
-        ---------Lever adres---------
-        <li><em>Adres:</em> <?php echo ($_POST["adres"])?></li>
-        <li><em>Woonplaats:</em> <?php echo ($_POST["woonplaats"])?></li>
-
+        <em>Naam:</em> <?php echo $_POST["voornaam"].' '.$_POST["achternaam"]?><br>
+        <em>Email:</em> <?php echo $_POST["email"]?><br>
+        <em>Tel:</em> <?php if(isset($_POST["tel"])){echo$_POST["tel"];}?><br>
+        ---------Lever adres---------<br>
+        <em>Adres:</em> <?php echo ($_POST["adres"])?><br>
+        <em>Woonplaats:</em> <?php echo ($_POST["woonplaats"])?><br>
+<br>
+        <?php print ("Order Nr: 1234")?>
 
     </ol>
         </orderd>
@@ -60,6 +61,8 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
 
 <br>
 <?php
+
+
 
 
 ?>
