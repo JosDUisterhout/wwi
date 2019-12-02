@@ -85,7 +85,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                 print $productdails.'<br>'.'<br>';
                 ?>
                 <div class="cartbtn">
-                    <form method="post" action="cart.php">
+                    <form method="post" action="">
                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                         <input type="hidden" name="productAantal" value='1'>
                         <button type="submit" name="cart" class="button">In winkelmandje</button>
@@ -131,10 +131,16 @@ $vooraad = $product[0]['QuantityOnHand'];
                             print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                             ?>
                             <div class="cartbtn">
-                                <form method="post" action="cart.php">
+                                <form method="post" action="">
                                     <input type="hidden" name="productID" value='<?php print($reproduct1);?>'>
                                     <input type="hidden" name="productAantal" value='1'>
                                     <button type="submit" name="cart" class="button">In winkelmandje</button>
+                                </form>
+                                <br>
+                                <form method="post" action="verlanglijst.php">
+                                    <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                                    <input type="hidden" name="productAantal" value='1'>
+                                    <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                                 </form>
                             </div></li>
                         <li> <a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
@@ -147,10 +153,16 @@ $vooraad = $product[0]['QuantityOnHand'];
                             print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                             ?>
                             <div class="cartbtn">
-                                <form method="post" action="cart.php">
+                                <form method="post" action="">
                                     <input type="hidden" name="productID" value='<?php print($reproduct2);?>'>
                                     <input type="hidden" name="productAantal" value='1'>
                                     <button type="submit" name="cart" class="button">In winkelmandje</button>
+                                </form>
+                                <br>
+                                <form method="post" action="verlanglijst.php">
+                                    <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                                    <input type="hidden" name="productAantal" value='1'>
+                                    <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                                 </form>
                             </div></li>
                         <li> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
@@ -163,9 +175,15 @@ $vooraad = $product[0]['QuantityOnHand'];
                             print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                             ?>
                             <div class="cartbtn">
-                                <form method="post" action="cart.php">
+                                <form method="post" action="">
                                     <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
                                     <button type="submit" name="cart" class="button">In winkelmandje</button>
+                                </form>
+                                <br>
+                                <form method="post" action="verlanglijst.php">
+                                    <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                                    <input type="hidden" name="productAantal" value='1'>
+                                    <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                                 </form>
                             </div></li>
                     </ul>
