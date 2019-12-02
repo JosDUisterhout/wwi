@@ -1,5 +1,6 @@
 <?php
 include('include.php');
+
 ?>
 <br>
 <br>
@@ -9,6 +10,7 @@ include('include.php');
 login met uw WWI acount of vul uw gegevens in voor een bezorgadres/ophaalpunt
 <br></center><br>
 <!DOCTYPE html>
+
 <html>
 <a href="acount.php" class="center"><i<i class="button">Log in</i></a><br><br>
 <a  href="afhalen.php" class="afhaal"><i<i class="button">Ophaalpunt</i></a>
@@ -30,6 +32,16 @@ login met uw WWI acount of vul uw gegevens in voor een bezorgadres/ophaalpunt
 </vradres>
 
 <br>
-
+<?php
+//if(isset($_SESSION["data"]) && !empty($_SESSION["cart"])){
+//foreach ($_SESSION["data"] as $key => $aantal) {
+//    $vrn = $_POST['voornaam'];
+//    $act = $_POST['achternaam'];
+//    $email = $_POST['email'];
+//    $adres= $_POST['adres'];
+//    $wo = $_POST['woonplaats'];
+//    $tel = $_POST['tel'];
+//}}
+?>
 
 </html>
