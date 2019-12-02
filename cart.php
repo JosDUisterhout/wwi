@@ -14,6 +14,9 @@ include('include.php');
 </div>
 <hr>
 <?php
+
+sessieTest($_POST);
+
 $totaalprijs = 0;
 if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     foreach ($_SESSION["cart"] as $key => $aantal){

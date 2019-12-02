@@ -98,7 +98,6 @@ function valideerZoeken($zoek){
 
 function productenItem($id){
 
-    sessieTest($id);
     $conn = db_connect();
 
     $sql = "SELECT * FROM stockitems JOIN stockitemholdings USING (StockItemID) WHERE stockItemID = $id";
@@ -134,6 +133,7 @@ function categorieClothing($categorie)
 }
 
 function aantalPaginas($aantal, $perPagina){
+
 
     $perPagina = intval($perPagina);
 
@@ -209,3 +209,38 @@ function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 
+function verwerkPaginaNR(){
+    if(isset($_GET['paginaNummer'])){
+
+        foreach($_GET['paginaNummer'] as $pnr){
+
+            $_SESSION['paginaNummer'] = $pnr;
+        }
+    }
+}
+
+function laadPagina($producten){
+
+    $max = $_SESSION['perPagina'];
+
+    if(isset($_SESSION['paginaNummer']) AND $_SESSION['paginaNummer'] != 1){
+        return array_slice($producten, ($_SESSION['paginaNummer'] -1) * $max, $max);
+    }
+    elseif(!isset($_SESSION['paginaNummer']) OR $_SESSION['paginaNummer'] == 1){
+
+        $_SESSION['paginaNummer'] = 1;
+        return array_slice($producten, 0, $max);
+
+    }
+    else{return false;}
+}
+
+function perPagina($startPerPagina){
+
+    if(isset($_GET['aantal']) AND isset($_GET['perPagina'])){
+        $_SESSION['perPagina'] = $_GET['perPagina'];
+        $_SESSION['paginaNummer'] = 1;
+
+    }
+    if(!isset($_SESSION['perPagina'])){$_SESSION['perPagina'] = $startPerPagina;}
+}

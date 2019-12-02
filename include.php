@@ -6,6 +6,7 @@ include('functies.php');
 $categorieen = categorieLijst();
 $aantal_winkelmand = 0;
 session_start();
+
 if(isset($_POST['cart'])) {
     toevoegenProductWinkelmand($_POST['productID'], $_POST['productAantal'], TRUE);
 }else{

@@ -1,4 +1,9 @@
+
+
 <?php
+
+//TODO: rekening houden met verschillende verzendmethoden e-mail staat niet bij ophaalpunt
+
 include('include.php');
 ?>
 <center>

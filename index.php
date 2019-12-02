@@ -3,42 +3,18 @@ include('include.php');
 
 global $producten;
 global $categorieen;
-
-$startPerPagina = 30;
-
-
-if(isset($_GET['paginaNummer'])){
-
-    foreach($_GET['paginaNummer'] as $pnr){
-
-        $_SESSION['paginaNummer'] = $pnr;
-    }
-}
+global $startPerPagina;
 
 
 
-if(isset($_GET['aantal']) AND isset($_GET['perPagina'])){
-    $_SESSION['perPagina'] = $_GET['perPagina'];
-    $_SESSION['paginaNummer'] = 1;
 
-}
-if(!isset($_SESSION['perPagina'])){$_SESSION['perPagina'] = 30;}
+verwerkPaginaNR();
 
+perPagina($startPerPagina);
 
 $max = $_SESSION['perPagina'];
 
-
-if(isset($_SESSION['paginaNummer']) AND $_SESSION['paginaNummer'] != 1){
-    $huidigeLijst = array_slice($producten, ($_SESSION['paginaNummer'] -1) * $max, $max);
-}
-elseif(!isset($_SESSION['paginaNummer']) OR $_SESSION['paginaNummer'] == 1){
-
-
-    $huidigeLijst = array_slice($producten, 0, $max);
-    $_SESSION['paginaNummer'] = 1;
-
-
-}
+$huidigeLijst = laadPagina($producten);
 
 
 ?>
