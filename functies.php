@@ -145,10 +145,7 @@ function toevoegenProductWinkelmand($id, $aantal, $toevoegen){
         if(isset($_SESSION["cart"])){
             if(!in_array($_POST['productID'], $_SESSION["cart"]))
             {
-                echo "dat";
                 $_SESSION["cart"][$id] = $aantal;
-            }else{
-                echo "dsa";
             }
 
         }else{

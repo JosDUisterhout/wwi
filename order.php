@@ -8,9 +8,9 @@ include('include.php');
 ?>
 <center>
 <br><br>
-<h1>Gelukt! bedankt voor uw betaling</h1>
+<h1>Gelukt! bedankt voor uw besteling</h1>
 <h2>Factuur</h2>
-Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><a  href="betaal.php" class=""><i<i class="button">Afronden</i></a>
+Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><a  href="betaal.php" value="afronder"><i<i   class="button">Afronden</i></a>
 </center>
 <order>
 
@@ -19,22 +19,27 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
     <?php
 
     $totaalprijs = 0;
+//    var_dump($_SESSION["cart"]);
+//    die;
     if(isset($_SESSION["cart"])) {
-        foreach ($_SESSION["cart"] as $product) {
-            $product = productenItem($product);
+        foreach ($_SESSION["cart"] as $key => $aantal){
+            $product = productenItem($key);
             $productID = $product[0]['StockItemID'];
             $productNaam = $product[0]['StockItemName'];
-            $productPrijs = $product[0]['RecommendedRetailPrice'];
-            $productdails = $product[0] ["SearchDetails"];
+            $productPrijs = $aantal * ceil($product[0]['RecommendedRetailPrice']);
+            $productdails = $product[0]["SearchDetails"];
+            $voorraad = $product[0]["QuantityOnHand"];
             $totaalprijs = $totaalprijs + $productPrijs;
-
+            //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
             echo '<br>';
             print($productNaam . ' ' . $productPrijs);
 
-            //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
         }
+        
 
-    }print("<br> <br> <br> totaalprijs: " .$totaalprijs);
+    }
+
+    print("<br> <br> <br> totaalprijs: " .$totaalprijs);
     ?>
     </proorder>
     <orderd>
@@ -54,7 +59,8 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
 </order>
 
 <br>
+<?php
 
 
-
+?>
 
