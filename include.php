@@ -7,7 +7,6 @@ $categorieen = categorieLijst();
 $aantal_winkelmand = 0;
 session_start();
 if(isset($_POST['cart'])) {
-    var_dump($_POST['cart']);
     toevoegenProductWinkelmand($_POST['productID'], $_POST['productAantal'], TRUE);
 }else{
     toevoegenProductWinkelmand(0,1, FALSE);
