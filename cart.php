@@ -40,8 +40,10 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         <h3><?php print("Aantal"); ?></h3><br>
         <select id="<?php print($productID); ?>" onchange="myFunction(this.id)">
             <?php
+
                 if($voorraad >= 10){
                     $x = 1;
+//                    print('test');
                     while($x <= 10) {
                         if($x == $aantal){
                             print("<option value=\"$x\" selected=\"selected\">$x</option>");
@@ -52,10 +54,11 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
                         $x++;
                     }
                 }else{
+//print('test');
                     $z = 4;
                     $x = 1;
                     while($x <= $voorraad){
-                        print("<option value=\"1\">$x</option>");
+                        print("<option value=\"6\">$x</option>");
                         $x++;
                     }
                 }
@@ -93,8 +96,9 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 
 <script>
     function myFunction(id) {
-        var aantal = document.getElementById(id).value;
 
+        var aantal = document.getElementById(id).value;
+        console.log(aantal);
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "cart.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
