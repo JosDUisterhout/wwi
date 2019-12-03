@@ -1,7 +1,7 @@
 <?php
-include('functie.php');
+include('include.php');
 session_start();
-
+echo '<br><br><br>';
 echo '<table align="center"><form method="POST" >';
 echo '<tr><td><label for="gebruikersnaam">gebruikersnaam</label><input type="text" name="gebruikersnaam"></td>';
 echo '<td><label for="wachtwoord">wachtwoord</label><input type="password" name="wachtwoord"></td>';
@@ -17,6 +17,7 @@ if(isset($_POST['registreren'])){
 
 if(isset($_POST['inloggen'])){
     if (inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord'])){
+        $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
     header('location: secure.php');
 
     }

@@ -1,8 +1,9 @@
 <?php
-include('functie.php');
+include('include.php');
 session_start();
 ?>
 <form method="post">
+    <br><br><br>
 <table align="center"><form method="POST" >
 <tr><td><label for="gebruikersnaam">gebruikersnaam</label><input type="text" name="gebruikersnaam" placeholder="gebruikersnaam"></td>
 <td><label for="wachtwoord">wachtwoord</label><input type="password" name="wachtwoord" placeholder="wachtwoord"></td>
@@ -32,7 +33,7 @@ if (isset($_POST['registreren'])) {
     }
     else {
         registreer($_POST['gebruikersnaam'],$_POST['wachtwoord'],$_POST['emailadress']);
-        header('location: secure.php');
+        header('location: inlog.php');
 
     }
 }
