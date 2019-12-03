@@ -91,7 +91,6 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 <div class="cartrow flex-container">
     <div class="cart_totaalprijs">
         <h2><?php
-            var_dump($_SESSION["cart"]);
             print("Totaalprijs: € $totaalprijs euro");?></h2>
     </div>
 </div>
