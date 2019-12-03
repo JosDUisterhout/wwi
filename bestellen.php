@@ -12,7 +12,7 @@ login met uw WWI acount of vul uw gegevens in voor een bezorgadres/ophaalpunt
 <!DOCTYPE html>
 
 <html>
-<a href="acount.php" class="center"><i<i class="button">Log in</i></a><br><br>
+<a href="inlog.php" class="center"><i<i class="button">Log in</i></a><br><br>
 <a  href="afhalen.php" class="afhaal"><i<i class="button">Ophaalpunt</i></a>
 <form action="order.php" method="post" >
 <vradres>
