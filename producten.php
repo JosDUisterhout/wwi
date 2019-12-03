@@ -85,13 +85,13 @@ $vooraad = $productID[0]['QuantityOnHand'];
                     print $productdails.'<br>'.'<br>';
                     ?>
                     <div class="cartbtn">
-                        <form method="post" action="">
+                        <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
                             <button type="submit" name="cart" class="button">In winkelmandje</button>
                         </form>
                         <br>
-                        <form method="post" action="verlanglijst.php">
+                        <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
                             <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
@@ -137,7 +137,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
                                     <br>
-                                    <form method="post" action="verlanglijst.php">
+                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
@@ -159,7 +159,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
                                     <br>
-                                    <form method="post" action="verlanglijst.php">
+                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
@@ -180,7 +180,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
                                     <br>
-                                    <form method="post" action="verlanglijst.php">
+                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>

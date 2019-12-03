@@ -92,7 +92,6 @@ function valideerZoeken($zoek){
         $validate = false;
     }
     return $validate;
-
 }
 
 function productenItem($id){

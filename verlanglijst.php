@@ -16,7 +16,7 @@ if(isset($_SESSION["verlanglijst"])){
         ?>
         <div class="cartrow flex-container">
             <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
-                <img class="fancy-image" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
+                <img class="fancy-image-verlanglijst" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
             </div>
             <div class="cart_naam">
                 <h3><?php print($productNaam); ?></h3>

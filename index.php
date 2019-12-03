@@ -93,7 +93,7 @@ $huidigeLijst = laadPagina($producten);
         $vooraad = $product["QuantityOnHand"];
         $productPrijs = $product['RecommendedRetailPrice'];
         echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';">Product ' .  $naam  . "
-                  <img src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br>');
+                  <img class='fancy-image-index' src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br>');
         print("<div class='grid-text'>");
         if ($vooraad >= 100000) {
             print ("Voorraad status: Ruim op vooraad");
