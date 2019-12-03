@@ -239,21 +239,7 @@ function redirect($url){
     header("Location: $url");
 }
 // inloggen
-function db_connect()
-{
 
-    global $host;
-    global $user;
-    global $pass;
-    global $databasename;
-    global $port;
-
-    $conn = mysqli_connect($host, $user, $pass, $databasename, $port);
-
-    mysqli_set_charset($conn, 'utf8mb4');
-
-    return $conn;
-}
 
 
 function inlog($gebruikersnaam,$wachtwoord)
