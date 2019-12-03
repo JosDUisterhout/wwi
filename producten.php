@@ -77,7 +77,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                 ?>
                 <prijs>
                     <?php
-                    print("€ ".ceil($productPrijs). " euro" . "<br>");
+                    print("€ ".round($productPrijs, 2). " euro" . "<br>");
                     ?>
                 </prijs>
                 <div class="relative">
@@ -85,7 +85,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                     print $productdails.'<br>'.'<br>';
                     ?>
                     <div class="cartbtn">
-                        <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
+                        <form method="post" action="">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
                             <button type="submit" name="cart" class="button">In winkelmandje</button>
@@ -101,12 +101,16 @@ $vooraad = $productID[0]['QuantityOnHand'];
 
                     <vooraad>
                         <?php
+                        $watching = rand(1,50);
                         if ($vooraad >= 100000) {print ("Voorraad status: Ruim op vooraad");}
                         elseif ($vooraad >= 20000){print ("Voorraad status: Op vooraad");}
                         elseif ($vooraad <= 100){print ("Voorraad status: Schaars");}
                         elseif ($vooraad == 0){print ("Voorraad status: Niet op vooraad");
                         }
+                        print("<br> <br>");
+                        print("Mensen met dit product in hun winkelwagen: $watching")
                         ?>
+
                     </vooraad>
 
                 </div>
@@ -177,6 +181,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                                 <div class="cartbtn">
                                     <form method="post" action="">
                                         <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
+                                        <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
                                     <br>

@@ -159,19 +159,20 @@ if(isset($_SESSION["cart"])) {
                     <i class="fa fa-shopping-cart"></i>
                     <b></b></span></h4><?php
                         $totaalprijs = 0;
+                        //    var_dump($_SESSION["cart"]);
+                        //    die;
                         if(isset($_SESSION["cart"])) {
-                            foreach ($_SESSION["cart"] as $product) {
-                                $product = productenItem($product);
+                            foreach ($_SESSION["cart"] as $key => $aantal){
+                                $product = productenItem($key);
                                 $productID = $product[0]['StockItemID'];
                                 $productNaam = $product[0]['StockItemName'];
-                                $productPrijs = $product[0]['RecommendedRetailPrice'];
-                                $productdails = $product[0] ["SearchDetails"];
+                                $productPrijs = $aantal * ceil($product[0]['RecommendedRetailPrice']);
+                                $productdails = $product[0]["SearchDetails"];
+                                $voorraad = $product[0]["QuantityOnHand"];
                                 $totaalprijs = $totaalprijs + $productPrijs;
-
-                                echo '<br>';
-                                print($productNaam.' '.  $productPrijs);
-
                                 //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
+                                echo '<br>';
+                                print($productNaam . ' ' . $productPrijs);
 
                             }
                         }print("<br> <br> <br> totaalprijs: " .$totaalprijs);
