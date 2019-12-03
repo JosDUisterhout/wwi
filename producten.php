@@ -19,7 +19,7 @@ $productNaam = $product[0]['StockItemName'];
 $productPrijs = $product[0]['RecommendedRetailPrice'];
 $productdails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
-$vooraad = $productID[0]['QuantityOnHand'];
+$vooraad = $product[0]['QuantityOnHand'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -102,11 +102,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                     <vooraad>
                         <?php
                         $watching = rand(1,50);
-                        if ($vooraad >= 100000) {print ("Voorraad status: Ruim op vooraad");}
-                        elseif ($vooraad >= 20000){print ("Voorraad status: Op vooraad");}
-                        elseif ($vooraad <= 100){print ("Voorraad status: Schaars");}
-                        elseif ($vooraad == 0){print ("Voorraad status: Niet op vooraad");
-                        }
+                        print(checkVooraad($vooraad));
                         print("<br> <br>");
                         print("Mensen met dit product in hun winkelwagen: $watching")
                         ?>
