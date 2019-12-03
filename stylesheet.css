@@ -770,7 +770,13 @@ proorder{
     margin-top: 10px;
 }
 
-.fancy-image{
+.fancy-image-verlanglijst{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.fancy-image-index{
     width: 200px;
     height: 200px;
     object-fit: cover;
