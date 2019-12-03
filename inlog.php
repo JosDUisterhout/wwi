@@ -7,6 +7,12 @@ echo '<tr><td><label for="gebruikersnaam">gebruikersnaam</label><input type="tex
 echo '<td><label for="wachtwoord">wachtwoord</label><input type="password" name="wachtwoord"></td>';
 echo '<td><input type="submit" name="inloggen" value="Inloggen"></td>';
 
+echo '<td><input type="submit" name="registreren" value="registreren"></td>';
+
+if(isset($_POST['registreren'])){
+    header('location: registreer.php');
+}
+
 
 
 if(isset($_POST['inloggen'])){
