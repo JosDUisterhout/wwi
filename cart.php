@@ -16,6 +16,7 @@ include('include.php');
 <?php
 
 
+
 $totaalprijs = 0;
 if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     foreach ($_SESSION["cart"] as $key => $aantal){
@@ -103,8 +104,10 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "cart.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
         xhttp.send("productID="+ id +"&productAantal="+ aantal +"&cart=''");
 
         location.reload();
     }
 </script>
+

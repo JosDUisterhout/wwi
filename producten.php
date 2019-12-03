@@ -77,7 +77,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                 ?>
                 <prijs>
                     <?php
-                    print("€ ".ceil($productPrijs). " euro" . "<br>");
+                    print("€ ".round($productPrijs, 2). " euro" . "<br>");
                     ?>
                 </prijs>
                 <div class="relative">
