@@ -22,7 +22,7 @@ if(isset($_SESSION["verlanglijst"])){
                 <h3><?php print($productNaam); ?></h3>
                 <h4 style="color: gray;"><?php print($productdails); ?></h4>
             </div>
-            <div class="cart_prijs">
+            <div class="verlanglijst_prijs">
                 <div style="text-align: right;">
                     <div style="color: #27ae60; font-size: 40px; font-weight: bold;">
                     &euro; <?php print(ceil($productPrijs)); ?>
