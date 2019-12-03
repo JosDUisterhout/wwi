@@ -238,3 +238,72 @@ function perPagina($startPerPagina){
 function redirect($url){
     header("Location: $url");
 }
+// inloggen
+
+
+
+function inlog($gebruikersnaam,$wachtwoord)
+{
+
+    $wachtwoord = hash('sha256', $wachtwoord);
+
+    $conn = db_connect();
+
+    $sql = "SELECT klantID FROM klant WHERE gebruikersNaam = $gebruikersnaam and wachtwoord = $wachtwoord";
+
+
+    if(!mysqli_query($conn, $sql)){
+        return true;
+    }
+    else{ return false;}
+
+}
+
+//staat naam in db?
+function registreergebruikersnaam($gebruikersnaam){
+
+    $conn = db_connect();
+
+    $sql = "SELECT klantID FROM klant WHERE gebruikersnaam = $gebruikersnaam";
+
+    if(!mysqli_query($conn, $sql)){
+        return false;
+    }
+    else{ return true;}
+
+}
+
+//staat email in db?
+function registreeremailadress($emailadres){
+
+    $conn = db_connect();
+
+    $sql = "SELECT emailAdres FROM klant WHERE emailAdres = $emailadres";
+
+
+    if(!mysqli_query($conn, $sql)){
+        return false;
+    }
+    else{ return true;}
+
+}
+function registreer($gebruikersnaam,$password,$emailadress){
+
+    $password = hash('sha256', $password);
+
+    $conn = db_connect();
+
+    $sql = "INSERT INTO klant (gebruikersNaam,wachtwoord,emailAdres) values ('" . $gebruikersnaam ."','" . $password . "','" . $emailadress ."')";
+
+    mysqli_query($conn, $sql);
+}
+
+function emailvalidator($emailadress)
+{
+    if (preg_match("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,4}$^", $emailadress)) {
+        $geldig = TRUE;
+    } else {
+        $geldig = TRUE;
+    }
+    return $geldig;
+}
