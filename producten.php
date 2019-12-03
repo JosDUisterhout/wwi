@@ -73,7 +73,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
             <div class="column">
                 <br>
                 <?php
-                print("<img src='plaatjeswwi/id$productID.jpg' style='width:430px' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:200% !important;' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
                 <prijs>
                     <?php
