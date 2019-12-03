@@ -599,16 +599,29 @@ relatedproduct  {
     margin-right: 20px;
     max-width: 40%;
     min-width: 40%;
+    padding-left: 60px;
+    vertical-align: auto;
 }
 
 .cart_prijs {
     margin-right: 20px;
+    max-width: 200px;
+    width: 100%;
+}
+
+.verlanglijst_prijs {
+    margin-right: 20px;
+    max-width: 200px;
 }
 
 .cart_totaalprijs {
     text-align: right;
     width: 100%;
     margin-right: 20px;
+}
+
+.cart_aantal_style {
+
 }
 
 .container{
@@ -774,6 +787,7 @@ proorder{
     width: 200px;
     height: 200px;
     object-fit: cover;
+    padding: 10px;
 }
 
 .fancy-image-index{
@@ -795,4 +809,12 @@ img{
 }
 .achtergrond3{
     background-image : linear-gradient(#3a0a0a, black)
+}
+
+.selectstyle {
+    font-size: 20px;
+    text-align-last: center;
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
 }

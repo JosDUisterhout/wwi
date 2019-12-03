@@ -95,18 +95,7 @@ $huidigeLijst = laadPagina($producten);
         echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';"> ' .  $naam  . " 
                   <img class='fancy-image-index' src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br>');
         print("<div class='grid-text'>");
-        if ($vooraad >= 100000) {
-            print ("Voorraad status: Ruim op vooraad");
-        } elseif
-        ($vooraad >= 20000) {
-            print ("Voorraad status: Op vooraad");
-        } elseif
-        ($vooraad <= 100) {
-            print ("Voorraad status: Schaars");
-        } elseif
-        ($vooraad == 0) {
-            print ("Voorraad status: Niet op vooraad");
-        }
+        print(checkVooraad($vooraad));
         print (" <br> ");
         print(" € ".round($productPrijs, 2). " euro" . "<br>".'</div></div>');
     }
