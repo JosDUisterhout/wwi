@@ -36,7 +36,7 @@ $huidigeLijst = laadPagina($producten);
 </div>
 
 <div class="m0a">
-    <form action="" style = "background-image : linear-gradient(rgb(137, 18, 17), rgba(95,16,16,0.98))">
+    <form action="" class="achtergrond1">
 
         <button class="btn active" type="submit" name="categorieen[]" value="overzicht" >Overzicht
             <?php foreach($categorieen as $categorie){
@@ -48,7 +48,7 @@ $huidigeLijst = laadPagina($producten);
 
 
 
-<form id="nummering" style = "background-image : linear-gradient(rgba(95,16,16,0.98), #3a0a0a)">
+<form id="nummering" class="achtergrond2">
     <?php
 
 
@@ -68,7 +68,7 @@ $huidigeLijst = laadPagina($producten);
 
 </form>
 
-<form style = "background-image : linear-gradient(#3a0a0a, black) <?php if(count($producten) <= 30){print("display:none");}?>">
+<form class="achtergrond3" <?php if(count($producten) <= 30){print("display:none");}?>">
     <select class="pagina-opslaan" style="<?php if(count($producten) <= 30){print("display:none");}?>"  name="perPagina" class = "btn active">
 
         <?php
@@ -138,7 +138,7 @@ $huidigeLijst = laadPagina($producten);
 
 </form>
 <form method="post">
-    <input type="submit" class="button" name="spring" value="insert" />
+    <input type="submit" class="button" name="spring" value="insert" style="display: none"  />
 
 </form><?php
 if(isset($_POST['spring'])) {
@@ -174,7 +174,7 @@ print("<style type='text/css'>.hero-image{ background-image: linear-gradient(rgb
     display: grid;
     /*grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));*/
     background-color: rgb(0,0,0);
-    background-image: linear-gradient(#33ff5f, white);
+    background-image: linear-gradient(#52e5ae, white);
     padding: 10px;
 }
 
@@ -267,7 +267,7 @@ print("<style type='text/css'>.hero-image{ background-image: linear-gradient(rgb
     padding:.6em;
     border-radius:999px;
     line-height:.75em;
-    color: #75ff07;
+    color: #06a884;
     text-align:center;
     min-width:1em;
     font-weight:bold;
@@ -277,7 +277,25 @@ print("<style type='text/css'>.hero-image{ background-image: linear-gradient(rgb
 .fa-circle {
     color: transparent;
 }
-
+.achtergrond1{
+    background-image : linear-gradient(rgb(45, 212, 92), rgba(50, 110, 201, 0.98));
+}
+.achtergrond2{
+    background-image : linear-gradient(rgba(50, 110, 201, 0.98), #0a193a);
+}
+.achtergrond3{
+    background-image : linear-gradient(#0a193a, #52e5ae);
+}
+.btn {
+    border: 1px solid #9f9f9f;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f6ff96;
+    cursor: pointer;
+    -webkit-transition-duration: 0.1s;
+    transition-delay: 0.1s;
+    color: #9f9f9f;
+}
 </style>");
 }
 ?>
