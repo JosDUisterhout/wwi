@@ -19,8 +19,6 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
     <?php
 
     $totaalprijs = 0;
-//    var_dump($_SESSION["cart"]);
-//    die;
     if(isset($_SESSION["cart"])) {
         foreach ($_SESSION["cart"] as $key => $aantal){
             $product = productenItem($key);
@@ -30,7 +28,6 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
             $productdails = $product[0]["SearchDetails"];
             $voorraad = $product[0]["QuantityOnHand"];
             $totaalprijs = $totaalprijs + $productPrijs;
-            //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
             echo '<br>';
             print($productNaam . ' ' . $productPrijs);
 
@@ -61,9 +58,14 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
 
 <br>
 <?php
+$to_email = "ivanknigge1997@gmail.com";
+$subject = "Simple Email Test via PHP";
+$body = "Hi,nn This is test email send by PHP Script";
+$headers = "From: ivanknigge1997@gmail.com";
 
-
-
-
+if (mail($to_email, $subject, $body, $headers)) {
+    echo "Email successfully sent to $to_email...";
+} else {
+    echo "Email sending failed...";
+}
 ?>
-
