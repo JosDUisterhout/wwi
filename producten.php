@@ -177,6 +177,7 @@ $vooraad = $productID[0]['QuantityOnHand'];
                                 <div class="cartbtn">
                                     <form method="post" action="">
                                         <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
+                                        <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
                                     <br>
