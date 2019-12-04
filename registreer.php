@@ -24,7 +24,7 @@ if (isset($_POST['registreren'])) {
 } elseif ($_POST['wachtwoord'] != $_POST['wachtwoord2']){
         print ("wachtwoorden komen niet overeen <br> probeer het nog eens");
     } elseif (!emailvalidator($_POST['emailadres'])){
-        print ("emailadres is onjuist ingevuld <br> probeer het nog eens");
+        print ("één van de onderstaande velden is onjuist ingevuld <br> probeer het nog eens");
 
     }
     elseif (registreeremailadress($_POST['emailadres'])){
