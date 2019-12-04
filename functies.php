@@ -305,14 +305,13 @@ function emailvalidator($emailadress)
 function checkVooraad($vooraad){
     if ($vooraad >= 100000) {
         return ("Voorraad status: Ruim op vooraad");
-    } elseif
-    ($vooraad >= 20000) {
-        return ("Voorraad status: Op vooraad");
-    } elseif
+    }  elseif
     ($vooraad <= 100) {
         return ("Voorraad status: Schaars");
     } elseif
     ($vooraad == 0) {
         return ("Voorraad status: Niet op vooraad");
     }
+    else
+        return ("Voorraad status: Op vooraad");
 }
