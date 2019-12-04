@@ -85,7 +85,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                     print $productdails.'<br>'.'<br>';
                     ?>
                     <div class="cartbtn">
-                        <form method="post" action="">
+                        <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
                             <button type="submit" name="cart" class="button">In winkelmandje</button>
