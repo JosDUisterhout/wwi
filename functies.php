@@ -249,13 +249,8 @@ function inlog($gebruikersnaam,$wachtwoord)
 
     $conn = db_connect();
 
-    $sql = "SELECT klantID FROM klant WHERE gebruikersNaam = $gebruikersnaam and wachtwoord = $wachtwoord";
-
-
-    if(!mysqli_query($conn, $sql)){
-        return true;
-    }
-    else{ return false;}
+    $sql = "SELECT gebruikersNaam FROM klant WHERE gebruikersNaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
+    return( ( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
 
