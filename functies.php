@@ -298,7 +298,7 @@ function emailvalidator($emailadress)
     if (preg_match("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,4}$^", $emailadress)) {
         $geldig = TRUE;
     } else {
-        $geldig = TRUE;
+        $geldig = false;
     }
     return $geldig;
 }
