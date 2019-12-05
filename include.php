@@ -39,9 +39,15 @@ $verlanglijstAantal = isset($_SESSION["verlanglijst"]) ? count($_SESSION["verlan
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="index.php" class="active">Home</a>
-        <a href="contact.php">Contact</a>
-        <a href="inlog.php" class="topnavright">Login</a>
+        <a href="index.php" class="active topnav-winkelwagen"><span class="fa-stack fa-2x topnav-icon">
+                <i class="fa fa-home fa-stack-2x"></i>
+            </span></a>
+        <a href="contact.php" class=" topnav-winkelwagen"><span class="fa-stack fa-2x topnav-icon">
+                <i class="fa fa-comments fa-stack-2x"></i>
+            </span></a>
+        <a href="inlog.php" class="topnavright topnav-winkelwagen"><span class="fa-stack fa-2x topnav-icon">
+                <i class="fa fa-user fa-stack-2x"></i>
+            </span></a>
         <a href="verlanglijst.php" class="topnavright topnav-winkelwagen">
             <?php if($verlanglijstAantal > 0){ ?>
                 <span class="fa-stack fa-2x has-badge topnav-icon" data-count="<?php  echo $verlanglijstAantal; ?>">

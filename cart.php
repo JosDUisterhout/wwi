@@ -22,7 +22,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         $product = productenItem($key);
         $productID = $product[0]['StockItemID'];
         $productNaam = $product[0]['StockItemName'];
-        $productPrijs = $aantal * ceil($product[0]['RecommendedRetailPrice']);
+        $productPrijs = $aantal * round($product[0]['RecommendedRetailPrice']);
         $productdails = $product[0]["SearchDetails"];
         $voorraad = $product[0]["QuantityOnHand"];
         $totaalprijs = $totaalprijs + $productPrijs
@@ -68,7 +68,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     <div class="cart_prijs">
         <div style="text-align: right">
             <div style="color: #27ae60; font-size: 40px; font-weight: bold;">
-                &euro; <?php print(ceil($productPrijs)); ?>
+                &euro; <?php print($productPrijs); ?>
             </div>
             <div>
                 euro

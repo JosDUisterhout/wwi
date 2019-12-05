@@ -249,13 +249,8 @@ function inlog($gebruikersnaam,$wachtwoord)
 
     $conn = db_connect();
 
-    $sql = "SELECT klantID FROM klant WHERE gebruikersNaam = $gebruikersnaam and wachtwoord = $wachtwoord";
-
-
-    if(!mysqli_query($conn, $sql)){
-        return true;
-    }
-    else{ return false;}
+    $sql = "SELECT gebruikersNaam FROM klant WHERE gebruikersNaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
+    return( ( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
 
@@ -303,21 +298,20 @@ function emailvalidator($emailadress)
     if (preg_match("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,4}$^", $emailadress)) {
         $geldig = TRUE;
     } else {
-        $geldig = TRUE;
+        $geldig = false;
     }
     return $geldig;
 }
 function checkVooraad($vooraad){
     if ($vooraad >= 100000) {
         return ("Voorraad status: Ruim op vooraad");
-    } elseif
-    ($vooraad >= 20000) {
-        return ("Voorraad status: Op vooraad");
-    } elseif
+    }  elseif
     ($vooraad <= 100) {
         return ("Voorraad status: Schaars");
     } elseif
     ($vooraad == 0) {
         return ("Voorraad status: Niet op vooraad");
     }
+    else
+        return ("Voorraad status: Op vooraad");
 }

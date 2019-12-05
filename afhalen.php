@@ -12,15 +12,16 @@ login met uw WWI acount of vul uw gegevens in voor een bezorgadres/ophaalpunt
 <br></center><br>
 <!DOCTYPE html>
 <html>
-<a href="acount.php" class="center"><i<i class="button">Log in</i></a><br><br>
+<a href="inlog.php" class="center"><i<i class="button">Log in</i></a><br><br>
 <a  href="bestellen.php" class="afhaal"><i<i class="button">Bezorgen</i></a>
-<form action="order.php" method="post" >
+<form action="order-afhaal.php" method="post" >
     <vradres>
 
         <br>
         lever adres <br>
         <label> <input type="text" name="voornaam"placeholder="Voornaam" required> </label><br>
         <label> <input type="text" name="achternaam"placeholder="achternaam" required></label><br>
+        <label> <input type="text" name="email"placeholder="Email" required></label><br>
         <label> <input type="text" name="stad"placeholder="Stad"required> </label><br>
         <label> <input type="text" name="tel"placeholder="Telefoon"> </label><br>
         <select name="waar"><br>
