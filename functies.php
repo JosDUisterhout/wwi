@@ -315,3 +315,27 @@ function checkVooraad($vooraad){
     else
         return ("Voorraad status: Op vooraad");
 }
+
+function bestelling ($post){
+    $voornaam = $post["voornaam"];
+    $achternaam = $post["achternaam"];
+    $email = $post["email"];
+    $tel = $post["tel"];
+    $adres = $post["adres"];
+    $postcode = $post["postcode"];
+    $woon = $post["woonplaats"];
+
+    if (isset($post['submit'])){
+        $sql = "INSERT INTO klanten (voornaam,achternaam,email,adres,woonplaats,telefoon,postcode) values ('" . $voornaam ."','" . $achternaam ."','" . $email . "','" . $adres ."','" . $woon ."','" . $tel ."','" . $postcode ."')";
+        $conn = db_connect();
+//        mysqli_query($conn, $sql);
+        if(!mysqli_query($conn, $sql)){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+
+}

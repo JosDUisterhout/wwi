@@ -10,7 +10,9 @@ include('include.php');
 <br><br>
 <h1>Gelukt! bedankt voor uw besteling</h1>
 <h2>Factuur</h2>
-Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><a  href="betaal.php" value="afronder"><i<i   class="button">Afronden</i></a>
+Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
+<!--    <a  href="betaal.php" value="afronder"><i<i   class="button">Afronden</i></a>-->
+    <input type="submit" value="Afronden" name="submit" /> <br><br>
 </center>
 <order>
 
@@ -47,7 +49,9 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
         <em>Tel:</em> <?php if(isset($_POST["tel"])){echo$_POST["tel"];}?><br>
         ---------Lever adres---------<br>
         <em>Adres:</em> <?php echo ($_POST["adres"])?><br>
+        <em>Postcode:</em> <?php echo ($_POST["postcode"])?><br>
         <em>Woonplaats:</em> <?php echo ($_POST["woonplaats"])?><br>
+
 <br>
         <?php print ("Order Nr: 1234")?>
 
@@ -58,6 +62,9 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br><
 
 <!--<br>-->
 <?php
+
+bestelling($_POST);
+
 //$to_email = "ivanknigge1997@gmail.com";
 //$subject = "Simple Email Test via PHP";
 //$body = "Hi,nn This is test email send by PHP Script";
