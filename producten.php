@@ -77,7 +77,8 @@ $vooraad = $product[0]['QuantityOnHand'];
                 ?>
                 <prijs>
                     <?php
-                    print("€ ".round($productPrijs, 2). " euro" . "<br>");
+                    kortingGenerator($productPrijs);
+                    // print("€ ".round($productPrijs, 2). " euro" . "<br>");
                     ?>
                 </prijs>
                 <div class="relative">
