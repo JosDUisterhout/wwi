@@ -11,8 +11,8 @@ include('include.php');
 <h1>Gelukt! bedankt voor uw besteling</h1>
 <h2>Factuur</h2>
 Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
-<!--    <a  href="betaal.php" value="afronder"><i<i   class="button">Afronden</i></a>-->
-    <input type="submit" value="Afronden" name="submit" /> <br><br>
+    <a  href="betaal.php" value="afronder"><i<i   class="button">Afronden</i></a>
+
 </center>
 <order>
 
@@ -32,12 +32,8 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
             $totaalprijs = $totaalprijs + $productPrijs;
             echo '<br>';
             print($productNaam . ' ' . $productPrijs);
-
         }
-        
-
     }
-
     print("<br> <br> <br> totaalprijs: " .$totaalprijs);
     ?>
     </proorder>
@@ -53,7 +49,10 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
         <em>Woonplaats:</em> <?php echo ($_POST["woonplaats"])?><br>
 
 <br>
-        <?php print ("Order Nr: 1234")?>
+        <?php
+        $producten = productenLijst();
+        $reNaam3 = $producten[$reproduct3]['StockItemName'];
+        print ("Order Nr: 1234")?>
 
     </ol>
         </orderd>

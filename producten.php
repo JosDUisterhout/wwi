@@ -193,7 +193,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                 </relatedproduct>
                 <play>
                     <video width="320" height="260" autoplay controls>
-                        <source src=".mp4" type="video/mp4">
+                        <source src="USBMissileLauncher.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </play>
