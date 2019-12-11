@@ -194,7 +194,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                 </relatedproduct>
                 <play>
                     <video width="320" height="260" autoplay controls>
-                        <source src=".mp4" type="video/mp4">
+                        <source src="USBMissileLauncher.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </play>
@@ -247,7 +247,8 @@ $vooraad = $product[0]['QuantityOnHand'];
                     <img class="demo cursor" src="../wwi/af3.png" style="width:100%" onclick="currentSlide(2)" alt="Werking">
                 </div>
                 <div class="column">
-                    <img class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
+
+                    <img  class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
                 </div>
 
             </div>
