@@ -246,7 +246,8 @@ $vooraad = $product[0]['QuantityOnHand'];
                     <img class="demo cursor" src="../wwi/af3.png" style="width:100%" onclick="currentSlide(2)" alt="Werking">
                 </div>
                 <div class="column">
-                    <img class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
+
+                    <img  class="demo cursor" src="../wwi/af4.png" style="width:100%" onclick="currentSlide(3)" alt="Effect">
                 </div>
 
             </div>

@@ -50,8 +50,6 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
 
 <br>
         <?php
-        $producten = productenLijst();
-        $reNaam3 = $producten[$reproduct3]['StockItemName'];
         print ("Order Nr: 1234")?>
 
     </ol>
