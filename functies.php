@@ -249,7 +249,7 @@ function inlog($gebruikersnaam,$wachtwoord)
 
     $conn = db_connect();
 
-    $sql = "SELECT gebruikersNaam FROM klant WHERE gebruikersNaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
+    $sql = "SELECT gebruikersnaam FROM klanten WHERE gebruikersnaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
     return( ( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
@@ -259,7 +259,7 @@ function registreergebruikersnaam($gebruikersnaam){
 
     $conn = db_connect();
 
-    $sql = "SELECT klantID FROM klant WHERE gebruikersnaam = $gebruikersnaam";
+    $sql = "SELECT klantID FROM klanten WHERE gebruikersnaam = $gebruikersnaam";
 
     if(!mysqli_query($conn, $sql)){
         return false;
@@ -273,7 +273,7 @@ function registreeremailadress($emailadres){
 
     $conn = db_connect();
 
-    $sql = "SELECT emailAdres FROM klant WHERE emailAdres = $emailadres";
+    $sql = "SELECT email FROM klanten WHERE email = $emailadres";
 
 
     if(!mysqli_query($conn, $sql)){
@@ -282,13 +282,13 @@ function registreeremailadress($emailadres){
     else{ return true;}
 
 }
-function registreer($gebruikersnaam,$password,$emailadress){
+function registreer($gebruikersnaam,$password,$emailadress,$voornaam,$achternaam,$postcode,$woonplaats,$adres,$telefoon){
 
     $password = hash('sha256', $password);
 
     $conn = db_connect();
 
-    $sql = "INSERT INTO klant (gebruikersNaam,wachtwoord,emailAdres) values ('" . $gebruikersnaam ."','" . $password . "','" . $emailadress ."')";
+    $sql = "INSERT INTO klanten (gebruikersnaam,wachtwoord,email,voornaam,achternaam,postcode,woonplaats,adres,telefoon) values ('" . $gebruikersnaam ."','" . $password . "','" . $emailadress ."','" . $voornaam ."','" . $achternaam . "','" . $postcode ."','"  . $woonplaats ."','" . $adres ."','" . $telefoon ."')";
 
     mysqli_query($conn, $sql);
 }
