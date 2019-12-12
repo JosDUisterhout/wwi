@@ -76,7 +76,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
             <div style="display: inline-block; padding-top: 10px;">
                 <form method="post" action="cart.php">
                     <input type="hidden" name="productID" value='<?php print($productID);?>'>
-                    <button type="submit" name="remove_cart" class="delete_button cursor"><i class="fa fa-trash"> </i></button>
+                    <button type="submit" name="remove_cart" class="delete_button cursor"><i class="fa fa-trash"> </i> Verwijder</button>
                 </form>
             </div>
         </div>
