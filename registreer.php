@@ -2,6 +2,34 @@
 include('include.php');
 
 ?>
+<?php
+
+if (isset($_POST['registreren'])) {
+
+    if(registreergebruikersnaam($_POST['gebruikersnaam'])){
+
+
+        print("gebruikersnaam is al in gebruik <br> kies alstublieft een ander");
+
+
+    } elseif ($_POST['wachtwoord'] != $_POST['wachtwoord2']){
+        print ("wachtwoorden komen niet overeen <br> probeer het nog eens");
+    } elseif (!emailvalidator($_POST['emailadres'])){
+        print ("één van de bovenstaande velden is onjuist ingevuld <br> probeer het nog eens");
+
+    }
+    elseif (registreeremailadress($_POST['emailadres'])){
+        print ("emailadres is al in gebruik <br> kies alstublieft een ander");
+    }
+    else {
+        registreer($_POST['gebruikersnaam'],$_POST['wachtwoord'],$_POST['emailadres'],$_POST['voornaam'],$_POST['achternaam'],$_POST['postcode'],$_POST['woonplaats'],$_POST['adres'],$_POST['telefoon']);
+        header('location: secure.php');
+
+    }
+}
+
+
+?>
 <br><br><br>
 <form class="registreren" method="post" style="width:30%">
 <table align="center">
@@ -19,31 +47,3 @@ include('include.php');
     </table>
 </form>
 
-<?php
-
-if (isset($_POST['registreren'])) {
-
-    if(registreergebruikersnaam($_POST['gebruikersnaam'])){
-
-
-            print("gebruikersnaam is al in gebruik <br> kies alstublieft een ander");
-
-
-} elseif ($_POST['wachtwoord'] != $_POST['wachtwoord2']){
-        print ("wachtwoorden komen niet overeen <br> probeer het nog eens");
-    } elseif (!emailvalidator($_POST['emailadres'])){
-        print ("één van de onderstaande velden is onjuist ingevuld <br> probeer het nog eens");
-
-    }
-    elseif (registreeremailadress($_POST['emailadres'])){
-        print ("emailadres is al in gebruik <br> kies alstublieft een ander");
-    }
-    else {
-        registreer($_POST['gebruikersnaam'],$_POST['wachtwoord'],$_POST['emailadres'],$_POST['voornaam'],$_POST['achternaam'],$_POST['postcode'],$_POST['woonplaats'],$_POST['adres'],$_POST['telefoon']);
-        header('location: secure.php');
-
-    }
-}
-
-
-?>
