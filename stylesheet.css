@@ -520,7 +520,7 @@ img.hover-shadow {
 
 div.relative {
     position: absolute;
-    top: 60px;
+    top: 140px;
     right: 80px;
     width: 200px;
     height: 250px;
@@ -541,11 +541,13 @@ prijs {
     position: absolute;
     top: 15px;
     right: 80px;
-    width: 200px;
+    width: 400px;
     height: 200px;
-    font-size: 30px;
+    font-size: 40px;
     color: lawngreen;
     text-shadow: 3px 2px black;
+    text-align: right;
+    font-weight: bold;
 }
 
 productnaam  {
@@ -715,7 +717,7 @@ play {
 }
 vooraad {
     position: absolute;
-    top: 220px;
+    top: 140px;
     right: 736px;
     width: 324px;
     height: 170px;
@@ -768,7 +770,7 @@ orderd {
     position: absolute;
     border: 3px solid black;
     width: 300px;
-    height: 180px;
+    height: 200px;
     right: 20px;
 }
 proorder{
@@ -847,3 +849,21 @@ img{
     background-color: #00BA06;
 }
 
+
+
+.kortingtekst {
+    color: gray;
+    text-shadow: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.kortingtekstbottom {
+    color: black;
+    font-weight: bold;
+    text-shadow: none;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 30px;
+}
