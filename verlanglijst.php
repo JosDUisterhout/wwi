@@ -31,7 +31,6 @@ if(isset($_SESSION["verlanglijst"])){
                     euro
                     </div>
                 </div>
-
                 <div style="display: inline-block">
                 <form method="post" action="verlanglijstje/verwijderen.php">
                     <input type="hidden" name="productID" value='<?php print($productID);?>'>

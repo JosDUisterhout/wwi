@@ -249,8 +249,8 @@ function inlog($gebruikersnaam,$wachtwoord)
 
     $conn = db_connect();
 
-    $sql = "SELECT gebruikersNaam FROM klant WHERE gebruikersNaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
-    return( ( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
+    $sql = "SELECT gebruikersnaam FROM klanten WHERE gebruikersnaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
+    return(( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
 
@@ -259,7 +259,7 @@ function registreergebruikersnaam($gebruikersnaam){
 
     $conn = db_connect();
 
-    $sql = "SELECT klantID FROM klant WHERE gebruikersnaam = $gebruikersnaam";
+    $sql = "SELECT klantID FROM klanten WHERE gebruikersnaam = $gebruikersnaam";
 
     if(!mysqli_query($conn, $sql)){
         return false;
@@ -273,7 +273,7 @@ function registreeremailadress($emailadres){
 
     $conn = db_connect();
 
-    $sql = "SELECT emailAdres FROM klant WHERE emailAdres = $emailadres";
+    $sql = "SELECT email FROM klanten WHERE email = $emailadres";
 
 
     if(!mysqli_query($conn, $sql)){
@@ -282,13 +282,13 @@ function registreeremailadress($emailadres){
     else{ return true;}
 
 }
-function registreer($gebruikersnaam,$password,$emailadress){
+function registreer($gebruikersnaam,$password,$emailadress,$voornaam,$achternaam,$postcode,$woonplaats,$adres,$telefoon){
 
     $password = hash('sha256', $password);
 
     $conn = db_connect();
 
-    $sql = "INSERT INTO klant (gebruikersNaam,wachtwoord,emailAdres) values ('" . $gebruikersnaam ."','" . $password . "','" . $emailadress ."')";
+    $sql = "INSERT INTO klanten (gebruikersnaam,wachtwoord,email,voornaam,achternaam,postcode,woonplaats,adres,telefoon) values ('" . $gebruikersnaam ."','" . $password . "','" . $emailadress ."','" . $voornaam ."','" . $achternaam . "','" . $postcode ."','"  . $woonplaats ."','" . $adres ."','" . $telefoon ."')";
 
     mysqli_query($conn, $sql);
 }
@@ -314,6 +314,44 @@ function checkVooraad($vooraad){
     }
     else
         return ("Voorraad status: Op vooraad");
+}
+
+function kortingGenerator($prijs) {
+    $kortinggenerator = rand(1 ,10);
+    switch($kortinggenerator) {
+        case 1:
+        case 2:
+        case 3:
+            print("€ $prijs");
+            break;
+        case 4:
+        case 5:
+        case 6:
+            $kortingprijs = round($prijs * 0.75, 2);
+            print("€ $kortingprijs<br>");
+            print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
+            print("<div class='kortingtekstbottom'>Je bespaart 25%!</div>");
+            break;
+        case 7:
+        case 8:
+            $kortingprijs = round($prijs * 0.5,2);
+            print("€ $kortingprijs<br>");
+            print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
+            print("<div class='kortingtekstbottom'>Je bespaart 50%!</div>");
+            break;
+        case 9:
+            $kortingprijs = round($prijs * 0.35,2);
+            print("€ $kortingprijs<br>");
+            print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
+            print("<div class='kortingtekstbottom'>Je bespaart 65%!</div>");
+            break;
+        case 10:
+            $kortingprijs = round($prijs * 0.2,2);
+            print("€ $kortingprijs<br>");
+            print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
+            print("<div class='kortingtekstbottom'>Je bespaart 80%!</div>");
+            break;
+    }
 }
 
 function bestelling ($post){

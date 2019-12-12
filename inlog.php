@@ -3,12 +3,14 @@ include('include.php');
 session_start();
 ?>
 <br><br><br>
-<table align="center" ><form method="POST" >
-<tr><td><label for="gebruikersnaam">gebruikersnaam<br></label><input type="text" name="gebruikersnaam"></td>
-<tr></tr><td><label for="wachtwoord">wachtwoord<br></label><input type="password" name="wachtwoord"></td>
-<tr></tr><td><input type="submit" name="inloggen" value="Inloggen"></td>
+    <form class="registreren" method="post" style="width:30%">
+<table align="center" ><form method="POST">
+<tr><td><label for="gebruikersnaam">gebruikersnaam<br></label><input class="registrerentext" type="text" name="gebruikersnaam" placeholder="gebruikersnaam"></td>
+<tr></tr><td><label for="wachtwoord">wachtwoord<br></label><input class="registrerentext" type="password" name="wachtwoord"placeholder="wachtwoord"></td>
+<tr></tr><td><input class="registreerbutton" type="submit" name="inloggen" value="Inloggen"></td>
 
-<tr></tr><td><input type="submit" name="registreren" value="registreren"></td>
+<tr></tr><td><input class="registreerbutton" type="submit" name="registreren" value="registreren"></td>
+    </form>
 <?php
 if(isset($_POST['registreren'])){
     header('location: registreer.php');
@@ -17,7 +19,7 @@ if(isset($_POST['registreren'])){
 if(isset($_POST['inloggen'])){
 
 
-    if (inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord']) AND inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord'])[0]["gebruikersNaam"] == $_POST['gebruikersnaam']){
+    if (inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord'])){
         $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
     header('location: secure.php');
 
