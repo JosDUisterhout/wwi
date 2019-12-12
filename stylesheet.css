@@ -823,7 +823,7 @@ img{
 .registreren {
     border: 10px solid #4CAF50;
     border-radius: 12px;
-   margin: 0 auto;
+    margin: 0 auto;
     background-color: #4F4148;
     color: #00BA06;
 }
@@ -856,7 +856,7 @@ img{
     color: #00BA06;
 }
 .uiloggenbutton{
-    background-color: #295C2A;
+    background-color: #D21B32;
     border: none;
     color: black;
     padding: 16px 32px;
