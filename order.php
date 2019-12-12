@@ -59,7 +59,6 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
 
 <!--<br>-->
 <?php
-
 bestelling($_POST);
 
 //$to_email = "ivanknigge1997@gmail.com";

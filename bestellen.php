@@ -19,12 +19,12 @@ login met uw WWI acount of vul uw gegevens in voor een bezorgadres/ophaalpunt
 <br>
         lever adres <br>
         <label> <input type="text" name="voornaam"placeholder="Voornaam" value="ivan" required> </label><br>
-        <label> <input type="text" name="achternaam"placeholder="achternaam" value="knigge" required></label><br>
-        <label> <input type="text" name="email"placeholder="Email" required value="idk@iets.com" ></label><br>
-        <label> <input type="text" name="adres"placeholder="Adres" required value="ergens" > </label><br>
-    <label> <input type="text" name="postcode"placeholder="Postcode" required value="9483" > </label><br>
-        <label> <input type="text" name="woonplaats"placeholder="Woonplaats" required value="finland" ></label><br>
-        <label> <input type="text" name="tel"placeholder="Telefoon" value="0612349334"> </label><br>
+        <label> <input type="text" name="achternaam"placeholder="achternaam" value="ivan" required></label><br>
+        <label> <input type="text" name="email"placeholder="Email" required value="ivan@ivan.nl" ></label><br>
+        <label> <input type="text" name="adres"placeholder="Adres" required value="ivan2" > </label><br>
+    <label> <input type="text" name="postcode"placeholder="Postcode" required value="1234ac"> </label><br>
+        <label> <input type="text" name="woonplaats"placeholder="Woonplaats" required value="ivan" ></label><br>
+        <label> <input type="text" name="tel"placeholder="Telefoon" value="12345678" > </label><br>
     <input type="hidden" name="form_submitted" value="1" />
     <br>
 <br>
