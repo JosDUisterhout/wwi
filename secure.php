@@ -1,13 +1,15 @@
 <?php
 
 include('include.php');
-echo '<br><br><br>';
-if(isset($_SESSION['gebruikersnaam'])){
-    print ("u bent ingelogd als ". $_SESSION['gebruikersnaam']);
 
 ?>
 <form method="post">
-    <td><input type="submit" name="uitloggen" value="Uitloggen"></td>
+    <h1><?php
+    if(isset($_SESSION['gebruikersnaam'])){
+        print ("<br><br><br><br><br><br>u bent ingelogd als <br> ". $_SESSION['gebruikersnaam'] . "<br>" );
+    ?></h1>
+    <td><input class="uiloggenbutton" type="submit" name="uitloggen" value="Uitloggen"></td>
+    <td><input class="registreerbutton" type="submit" name="homepage" value="terug naar homepage"></td>
 </form>
 <?php
 if(isset($_POST['uitloggen'])){
@@ -18,4 +20,7 @@ if(isset($_POST['uitloggen'])){
 }
 else{
     header('Location: inlog.php');
+}
+if(isset($_POST['homepage'])){
+    header("location: index.php");
 }

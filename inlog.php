@@ -19,7 +19,7 @@ if(isset($_POST['registreren'])){
 if(isset($_POST['inloggen'])){
 
 
-    if (inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord']) AND inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord'])[0]["gebruikersNaam"] == $_POST['gebruikersnaam']){
+    if (inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord'])){
         $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
     header('location: secure.php');
 
