@@ -140,12 +140,8 @@ function aantalPaginas($aantal, $perPagina){
 function toevoegenProductWinkelmand($id, $aantal, $toevoegen){
     if($toevoegen){
 
-        if(isset($_SESSION["cart"])){
             $_SESSION["cart"][$id] = $aantal;
 
-        }else{
-            $_SESSION["cart"][$id] = $aantal;
-        }
     }
 }
 

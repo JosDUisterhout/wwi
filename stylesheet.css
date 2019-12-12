@@ -370,8 +370,8 @@ body {
 }
 
 .column {
-    float: left;
-    width: 25%;
+    position: relative;
+
 }
 
 /* The Modal (background) */
@@ -545,12 +545,10 @@ prijs {
     font-weight: bold;
 }
 
-productnaam  {
-    position: absolute;
-    top: 15px;
-    right: 345px;
-    width: 450px;
-    height: 50px;
+.productNaam  {
+    position: relative;
+    left:25%;
+    width:50%;
     border: 0px solid black;
     font-size: 20px;
 }
@@ -702,14 +700,7 @@ a:hover{
 }
 
 
-play {
-    position: absolute;
-    top: 20px;
-    right: 1081px;
-    width:60px;
-    height:40px;
 
-}
 vooraad {
     position: absolute;
     top: 140px;
@@ -719,12 +710,7 @@ vooraad {
     border: 3px solid black;
 }
 div.opmaakproductpagina{
-    position: center;
-    margin-left: auto;
-    margin-right: auto;
-    right: auto;
-    width: auto;
-    height: auto;
+    margin:0 auto;
 }
 
 adres {
@@ -746,7 +732,7 @@ vradres {
     width: 400px;
     height: 800px;
     border: 0px solid black;
-    
+
 }
 .afhaal {
     position: relative;
@@ -880,6 +866,16 @@ img{
     background-color: #347637;
 }
 
+.wrapper{
+    position:relative;
+    width: 100%;
+    top:50px;
+}
+
+.video {
+    position: relative;
+    left:25%;
+}
 
 
 

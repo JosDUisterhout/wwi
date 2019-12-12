@@ -38,8 +38,8 @@ $vooraad = $product[0]['QuantityOnHand'];
         }
 </style>
 <body>
-    <div class="opmaakproductpagina">
-        <div class="absolute">
+
+        <div class="wrapper">
             <!DOCTYPE html>
             <html>
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,26 +64,36 @@ $vooraad = $product[0]['QuantityOnHand'];
             <!---->
 
 
-            <productnaam>
-                <?php
-                print("$productNaam<br>");
-                ?>
-            </productnaam>
 
-            <div class="column">
-                <br>
+        <div class="grid-container">
+
+
+
+
+            <div class="grid-item">
+                <div class="productNaam">
+                    <?php
+                    print $productdails.'<br>'.'<br>';
+                    ?>
+                </div>
+                <play>
+                    <video width="320" height="260" autoplay controls>
+                        <source src="USBMissileLauncher.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </play>
+            </div>
+
+            <div class="grid-item">
                 <?php
                 print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:215% !important;' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
-                <prijs>
+
+            </div>
+                <div class="grid-item">
                     <?php
                     kortingGenerator($productPrijs);
                     // print("€ ".round($productPrijs, 2). " euro" . "<br>");
-                    ?>
-                </prijs>
-                <div class="relative">
-                    <?php
-                    print $productdails.'<br>'.'<br>';
                     ?>
                     <div class="cartbtn">
                         <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
@@ -100,29 +110,26 @@ $vooraad = $product[0]['QuantityOnHand'];
                     </div>
                     <br>
 
-                    <vooraad>
-                        <?php
-                        $watching = rand(1,50);
-                        print(checkVooraad($vooraad));
-                        print("<br> <br>");
-                        print("Mensen met dit product in hun winkelwagen: $watching")
-                        ?>
-
-                    </vooraad>
+                    <?php
+                    $watching = rand(1,50);
+                    print(checkVooraad($vooraad));
+                    print("<br> <br>");
+                    print("Mensen met dit product in hun winkelwagen: $watching")
+                    ?>
 
                 </div>
 
 
-                <?php
-                $default ="<img src='src=plaatjeswwi/default.jpg' style='width:150px' style='width:150px' class='hover-shadow cursor'>";
-                ?>
+
+
+            <?php
+            $default ="<img src='src=plaatjeswwi/default.jpg' style='width:150px' style='width:150px' class='hover-shadow cursor'>";
+            ?>
 
 
 
-                <relatedproduct>
-                    <div class="container">
-                        <ul>
-                            <li><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo $reNaam1?></a>
+
+                        <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo $reNaam1?></a>
 
                                 <?php
                                 print("€ ".ceil($rePrijs1). " euro" . "<br>");
@@ -143,8 +150,8 @@ $vooraad = $product[0]['QuantityOnHand'];
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                                     </form>
-                                </div></li>
-                            <li> <a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
+                                </div></div>
+            <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
 
                                 <?php
                                 print("€ ".ceil($rePrijs2). " euro" . "<br>");
@@ -165,8 +172,8 @@ $vooraad = $product[0]['QuantityOnHand'];
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                                     </form>
-                                </div></li>
-                            <li> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
+                                </div></div>
+            <div class="grid-item"> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
 
                                 <?php
                                 print("€ ".ceil($rePrijs3). " euro" . "<br>");
@@ -187,17 +194,13 @@ $vooraad = $product[0]['QuantityOnHand'];
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
                                     </form>
-                                </div></li>
+                                </div></div>
                         </ul>
                     </div>
 
-                </relatedproduct>
-                <play>
-                    <video width="320" height="260" autoplay muted controls>
-                        <source src="USBMissileLauncher.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </play>
+                </div>
+
+
 
 
 
@@ -252,8 +255,8 @@ $vooraad = $product[0]['QuantityOnHand'];
                 </div>
 
             </div>
-        </div>
-    </div>
+        </div></div>
+
     <script>
 
         function openModal() {
@@ -294,5 +297,5 @@ $vooraad = $product[0]['QuantityOnHand'];
         }
 
     </script>
-
+</body>
 </html>
