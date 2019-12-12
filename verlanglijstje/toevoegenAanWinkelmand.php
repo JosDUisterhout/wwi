@@ -11,4 +11,4 @@ foreach ($_SESSION["verlanglijst"] as $key => $product){
     }
 }
 
-redirect('/wwi/cart.php');
+redirect('../cart.php');

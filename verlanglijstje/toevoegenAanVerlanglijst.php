@@ -4,4 +4,4 @@ session_start();
 
 toevoegenProductVerlanglijst($_POST["productID"] ,TRUE);
 
-redirect('/wwi/verlanglijst.php');
+redirect('../verlanglijst.php');
