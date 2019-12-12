@@ -328,14 +328,38 @@ function bestelling ($post){
     if (isset($post['submit'])){
         $sql = "INSERT INTO klanten (voornaam,achternaam,email,adres,woonplaats,telefoon,postcode) values ('" . $voornaam ."','" . $achternaam ."','" . $email . "','" . $adres ."','" . $woon ."','" . $tel ."','" . $postcode ."')";
         $conn = db_connect();
-//        mysqli_query($conn, $sql);
-        if(!mysqli_query($conn, $sql)){
-            return false;
+        if(mysqli_query($conn, $sql)){
+
+            $sql = "SELECT klantID FROM klanten WHERE email = '$email'";
+            $klantID = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+            bestellingorder($klantID[0]['klantID']);
+            return true;
         }
         else{
-            return true;
+            $sql = "SELECT klantID FROM klanten WHERE email = '$email'";
+            $klantID = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+            bestellingorder($klantID[0]['klantID']);
+            return false;
         }
     }
 
 
+
+
+}
+
+
+function bestellingorder ($klantID){
+
+    if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
+        foreach ($_SESSION["cart"] as $key => $aantal) {
+            $klantid = $klantID;
+            $product = productenItem($key);
+            $productID = $product[0]['StockItemID'];
+
+            $sql = "INSERT INTO bestellingen (klantID,stockItemID,aantal) values ('" . $klantid ."','" . $productID ."','" . $aantal ."')";
+            $conn = db_connect();
+            mysqli_query($conn, $sql);
+        }
+    }
 }
