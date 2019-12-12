@@ -7,7 +7,8 @@ if(isset($_SESSION['gebruikersnaam'])){
 
 ?>
 <form method="post">
-    <td><input type="submit" name="uitloggen" value="Uitloggen"></td>
+    <td><input class="uiloggenbutton" type="submit" name="uitloggen" value="Uitloggen"></td>
+    <td><input class="registreerbutton" type="submit" name="homepage" value="terug naar homepage"></td>
 </form>
 <?php
 if(isset($_POST['uitloggen'])){
@@ -18,4 +19,7 @@ if(isset($_POST['uitloggen'])){
 }
 else{
     header('Location: inlog.php');
+}
+if(isset($_POST['homepage'])){
+    header("location: index.php");
 }

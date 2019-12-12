@@ -848,6 +848,19 @@ img{
 .registreerbutton:hover{
     background-color: #00BA06;
 }
+.uiloggenbutton{
+    background-color: #295C2A;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.uitloggen:hover{
+    background-color: #347637;
+}
+
 
 
 
