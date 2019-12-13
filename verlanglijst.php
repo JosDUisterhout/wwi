@@ -32,16 +32,16 @@ if(isset($_SESSION["verlanglijst"])){
                     </div>
                 </div>
                 <div style="display: inline-block">
-                <form method="post" action="verlanglijstje/verwijderen.php">
-                    <input type="hidden" name="productID" value='<?php print($productID);?>'>
-                    <button type="submit" name="remove_verlanglijst" class="delete_button cursor mt-10"><i class="fa fa-trash"></i></button>
-                </form>
+                    <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
+                        <input type="hidden" name="productID" value='<?php print($productID);?>'>
+                        <button type="submit" name="to_cart" class="move_button cursor mt-10"><i class="fa fa-shopping-cart"></i></button>
+                    </form>
                 </div>
 
-                <div style="display: inline-block">
-                <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
+                <div style="display: inline-block;">
+                    <form method="post" action="verlanglijstje/verwijderen.php">
                     <input type="hidden" name="productID" value='<?php print($productID);?>'>
-                    <button type="submit" name="to_cart" class="move_button cursor mt-10"><i class="fa fa-shopping-cart"></i></button>
+                    <button type="submit" name="remove_verlanglijst" class="delete_button cursor mt-10"><i class="fa fa-trash"></i> Verwijder</button>
                 </form>
                 </div>
 

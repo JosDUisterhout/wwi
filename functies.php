@@ -318,32 +318,32 @@ function kortingGenerator($prijs) {
         case 1:
         case 2:
         case 3:
-            print("€ $prijs");
+            print("<i class='productenprijs'>€ $prijs</i>");
             break;
         case 4:
         case 5:
         case 6:
             $kortingprijs = round($prijs * 0.75, 2);
-            print("€ $kortingprijs<br>");
+            print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 25%!</div>");
             break;
         case 7:
         case 8:
             $kortingprijs = round($prijs * 0.5,2);
-            print("€ $kortingprijs<br>");
+            print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 50%!</div>");
             break;
         case 9:
             $kortingprijs = round($prijs * 0.35,2);
-            print("€ $kortingprijs<br>");
+            print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 65%!</div>");
             break;
         case 10:
             $kortingprijs = round($prijs * 0.2,2);
-            print("€ $kortingprijs<br>");
+            print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 80%!</div>");
             break;

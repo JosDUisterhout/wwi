@@ -895,3 +895,10 @@ img{
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 30px;
 }
+
+.productenprijs {
+    color: #27ae60;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: normal
+}
