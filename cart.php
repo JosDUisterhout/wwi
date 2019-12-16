@@ -91,7 +91,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     ?>
 <div class="flex-container">
     <div class="">
-        <h3><?php print("Winkelmandje is leeg, DOE ER WAT AAN!!!"); ?></h3>
+        <h3><?php print("Winkelmandje is leeg, klik <a href='index.php'>hier</a> om naar producten te zoeken"); ?></h3>
     </div>
 </div>
 <?php

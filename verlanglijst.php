@@ -6,7 +6,7 @@ include('include.php');
     </div>
     <hr>
 <?php
-if(isset($_SESSION["verlanglijst"])){
+if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
     foreach ($_SESSION["verlanglijst"] as $productId){
         $product = getOneProductById($productId);
         $productID = $product['StockItemID'];
@@ -51,5 +51,13 @@ if(isset($_SESSION["verlanglijst"])){
 
         <?php
     }
+}else{
+    ?>
+    <div class="flex-container">
+        <div class="">
+            <h3><?php print("Verlanglijstje is leeg, klik <a href='index.php'>hier</a> om naar producten te zoeken"); ?></h3>
+        </div>
+    </div>
+    <?php
 }
 ?>

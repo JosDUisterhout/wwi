@@ -934,6 +934,6 @@ img{
 }
 
 .productenpagina {
-    width: 200px;
-    margin-top: 0px;
+    display: inline-block;
+
 }

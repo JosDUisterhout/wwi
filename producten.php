@@ -97,7 +97,6 @@ $vooraad = $product[0]['QuantityOnHand'];
                             <input type="hidden" name="productAantal" value='1'>
                             <button type="submit" name="cart" class="button">In winkelmandje</button>
                         </form>
-                        <br>
                         <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
@@ -147,13 +146,12 @@ $vooraad = $product[0]['QuantityOnHand'];
                                 print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                                 ?>
                                 <div class="cartbtn">
-                                    <form method="post" action="">
+                                    <form method="post" action="" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($reproduct1);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
-                                    <br>
-                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
+                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
@@ -169,13 +167,12 @@ $vooraad = $product[0]['QuantityOnHand'];
                                 print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                                 ?>
                                 <div class="cartbtn">
-                                    <form method="post" action="">
+                                    <form method="post" action="" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($reproduct2);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
-                                    <br>
-                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
+                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
@@ -191,13 +188,12 @@ $vooraad = $product[0]['QuantityOnHand'];
                                 print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                                 ?>
                                 <div class="cartbtn">
-                                    <form method="post" action="">
+                                    <form method="post" action="" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
                                     </form>
-                                    <br>
-                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
+                                    <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
