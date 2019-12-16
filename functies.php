@@ -419,9 +419,10 @@ function getBestelling($id)
 
     $conn = db_connect();
 
-    $sql = "  select B.aantal, S.StockItemName, S.StockItemID, S.SearchDetails, S.RecommendedRetailPrice 
+    $sql = "  SELECT B.aantal, S.StockItemName, S.StockItemID, S.SearchDetails, S.RecommendedRetailPrice 
               FROM bestellingen B JOIN stockitems S ON S.StockItemID = B.StockItemID 
-              WHERE klantID = $id AND B.betaald = 0";
+              WHERE klantID = $id AND B.betaald = 1";
+
     return(( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
