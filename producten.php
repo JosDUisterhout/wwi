@@ -92,16 +92,16 @@ $vooraad = $product[0]['QuantityOnHand'];
                     kortingGenerator($productPrijs);
                     ?>
                     <div class="cartbtn">
-                        <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
+                        <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php" class="productenpagina">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
                             <button type="submit" name="cart" class="button">In winkelmandje</button>
                         </form>
                         <br>
-                        <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
+                        <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
                             <input type="hidden" name="productAantal" value='1'>
-                            <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
+                            <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
                         </form>
                     </div>
                     <br>

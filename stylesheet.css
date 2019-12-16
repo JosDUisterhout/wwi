@@ -926,3 +926,14 @@ img{
     font-weight: bold;
     font-style: normal
 }
+
+.verlanglijst_button {
+    color: red;
+    background-color: transparent;
+    border: 0px;
+}
+
+.productenpagina {
+    width: 200px;
+    margin-top: 0px;
+}
