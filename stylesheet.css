@@ -95,10 +95,19 @@ font-size: 16px;
     padding: 10px;
 }
 
+.grid-container-producten {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));*/
+    padding: 10px;
+    background-image: linear-gradient(black, white);
+    grid-template-columns: repeat(auto-fill, minmax(50%, 2fr));
+    row-gap:10px;
+}
+
 .grid-item {
     background-color:  rgb(255, 255, 255);
 
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
     font-size: 20px;
     text-align: center;
     cursor: pointer;
@@ -106,6 +115,19 @@ font-size: 16px;
     padding: 20px 20px 60px;
 
 }
+
+.grid-item {
+    background-color:  rgb(255, 255, 255);
+
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    padding: 20px 20px 60px;
+
+}
+
 .grid-text{
     position: absolute;
     bottom: 20px;
@@ -263,6 +285,8 @@ font-size: 16px;
     column-gap: 30px;
     row-gap: 20px;
 }
+
+
 
 @media only screen and (min-width: 600px) {
     .grid-container{

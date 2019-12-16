@@ -65,7 +65,9 @@ $vooraad = $product[0]['QuantityOnHand'];
 
 
 
-        <div class="grid-container">
+        <div class="grid-container-producten">
+
+
 
 
 
@@ -73,27 +75,21 @@ $vooraad = $product[0]['QuantityOnHand'];
             <div class="grid-item">
                 <div class="productNaam">
                     <?php
-                    print $productdails.'<br>'.'<br>';
+                    print'<h4>' . $productNaam.'</h4><br>'.'<br>';
                     ?>
                 </div>
-                <play>
-                    <video width="320" height="260" autoplay controls>
-                        <source src="USBMissileLauncher.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </play>
-            </div>
-
-            <div class="grid-item">
                 <?php
+
                 print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:215% !important;' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
 
             </div>
                 <div class="grid-item">
                     <?php
-                    kortingGenerator($productPrijs);
                     // print("€ ".round($productPrijs, 2). " euro" . "<br>");
+                    print($productdails);
+                    print('<br><br>');
+                    kortingGenerator($productPrijs);
                     ?>
                     <div class="cartbtn">
                         <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php">
@@ -116,6 +112,10 @@ $vooraad = $product[0]['QuantityOnHand'];
                     print("<br> <br>");
                     print("Mensen met dit product in hun winkelwagen: $watching")
                     ?>
+                    <h2>Specificaties</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Risus quis varius quam quisque id diam vel. Fermentum leo vel orci porta non pulvinar neque laoreet. Tristique senectus et netus et malesuada. In nulla posuere sollicitudin aliquam. Cursus eget nunc scelerisque viverra mauris in. Fermentum leo vel orci porta. Ut etiam sit amet nisl purus in mollis. Dui id ornare arcu odio ut sem nulla pharetra. Mauris pharetra et ultrices neque ornare aenean.
+                    </p>
 
                 </div>
 
@@ -126,7 +126,15 @@ $vooraad = $product[0]['QuantityOnHand'];
             $default ="<img src='src=plaatjeswwi/default.jpg' style='width:150px' style='width:150px' class='hover-shadow cursor'>";
             ?>
 
-
+            <div class="grid-item">
+                <h2>Demo</h2>
+                <play>
+                    <video width="320" height="260" autoplay controls>
+                        <source src="USBMissileLauncher.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </play>
+            </div>
 
 
                         <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo $reNaam1?></a>
@@ -218,7 +226,12 @@ $vooraad = $product[0]['QuantityOnHand'];
 
                     <div class="mySlides">
                         <div class="numbertext">2 / 3</div>
-                        <img src="../wwi/af3.png" style="width:800px">
+                        <play>
+                            <video width="320" height="260" autoplay controls>
+                                <source src="USBMissileLauncher.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </play>
                     </div>
 
                     <div class="mySlides">

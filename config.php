@@ -7,4 +7,4 @@ $pass = ""; //eigen password invullen
 $port = 3306;
 
 //aantal producten per pagina
-$startPerPagina = 15;
+$startPerPagina = 30;
