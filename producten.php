@@ -156,7 +156,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                     <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
-                                        <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
+                                        <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
                                     </form>
                                 </div></div>
             <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
@@ -178,7 +178,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                     <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
-                                        <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
+                                        <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
                                     </form>
                                 </div></div>
             <div class="grid-item"> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
@@ -200,7 +200,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                     <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
-                                        <button type="submit" name="verlanglijst" class="button">In verlanglijstje</button>
+                                        <button type="submit" name="verlanglijst" class="verlanglijst_button"><i class="fa fa-gift"></i> In verlanglijstje</button>
                                     </form>
                                 </div></div>
                         </ul>
