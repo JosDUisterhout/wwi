@@ -227,7 +227,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                     <div class="mySlides">
                         <div class="numbertext">2 / 3</div>
                         <play>
-                            <video width="320" height="260" autoplay controls>
+                            <video width="1600" height="900" autoplay controls>
                                 <source src="USBMissileLauncher.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
