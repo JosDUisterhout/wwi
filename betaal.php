@@ -176,8 +176,7 @@ if(isset($_SESSION["cart"])) {
 
                             }
                         }print("<br> <br> <br> totaalprijs: " .$totaalprijs);
-                        unset($_SESSION['cart']);
-                        $_SESSION = array();
+
                         ?>
                     </div>
                 </div>
@@ -204,7 +203,7 @@ if(isset($_SESSION["cart"])) {
                         <label for="cvv">CVV</label>
                         <input type="text" id="cvv" name="cvv" placeholder="352">
 
-                        <input type="submit" value="Pay" class="btn" onclick="alert('U heeft betaald')">
+                        <input type="submit" name="Pay" class="btn" onclick="alert('U heeft betaald')">
 
             </form>
                             </div>
