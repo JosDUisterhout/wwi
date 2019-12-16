@@ -5,8 +5,9 @@ global $producten;
 global $categorieen;
 global $startPerPagina;
 
-
-
+if(isset($_POST['Pay'])){
+    bestellingbetalen();
+}
 
 verwerkPaginaNR();
 

@@ -21,6 +21,8 @@ if(isset($_POST['inloggen'])){
 
     if (inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord'])){
         $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
+        $klant = inlog($_POST['gebruikersnaam'] , $_POST['wachtwoord']);
+        $_SESSION['gebruikersID'] = $klant[0]['gebruikersID'];
     header('location: secure.php');
 
     }

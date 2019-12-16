@@ -245,7 +245,7 @@ function inlog($gebruikersnaam,$wachtwoord)
 
     $conn = db_connect();
 
-    $sql = "SELECT gebruikersnaam FROM klanten WHERE gebruikersnaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
+    $sql = "SELECT klantID, gebruikersnaam FROM klanten WHERE gebruikersnaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
     return(( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
@@ -390,10 +390,38 @@ function bestellingorder ($klantID){
             $klantid = $klantID;
             $product = productenItem($key);
             $productID = $product[0]['StockItemID'];
-
+            $_SESSION['klantID'] = $klantid;
             $sql = "INSERT INTO bestellingen (klantID,stockItemID,aantal) values ('" . $klantid ."','" . $productID ."','" . $aantal ."')";
             $conn = db_connect();
             mysqli_query($conn, $sql);
         }
     }
+}
+
+function bestellingbetalen(){
+    if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
+        foreach ($_SESSION["cart"] as $key => $aantal) {
+            $klant = $_SESSION['klantID'];
+            $sql = "UPDATE bestellingen
+                    SET betaald = 1
+                    WHERE klantID = $klant AND stockItemID = $key";
+            $conn = db_connect();
+            mysqli_query($conn, $sql);
+        }
+        unset($_SESSION['cart']);
+        header("location: index.php");
+    }
+}
+
+
+function getBestelling($id)
+{
+
+    $conn = db_connect();
+
+    $sql = "  select B.aantal, S.StockItemName, S.StockItemID, S.SearchDetails, S.RecommendedRetailPrice 
+              FROM bestellingen B JOIN stockitems S ON S.StockItemID = B.StockItemID 
+              WHERE klantID = $id AND B.betaald = 0";
+    return(( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
+
 }
