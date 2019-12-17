@@ -1,8 +1,8 @@
 <?php
 include('include.php');
-session_start();
-if(isset($_)){
 
+if(isset($_SESSION['gebruikersnaam'])){
+    header('Location: secure.php');
 }
 ?>
 <br><br><br>
