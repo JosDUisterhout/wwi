@@ -12,7 +12,7 @@ if(isset($_SESSION['gebruikersnaam'])){
     <h1 class="registreren">
 
     </h1>
-    <h2>Hieronder zijn al uw bestellingen:</h2>
+    <h2>Hieronder ziet uw al uw bestellingen:</h2>
         <hr>
         <?php
         $bestellingen = getBestelling($_SESSION['gebruikersID']);
@@ -60,8 +60,8 @@ if(isset($_SESSION['gebruikersnaam'])){
         ?>
 
 
-        <tr><td><input class="uiloggenbutton" type="submit" name="uitloggen" value="Uitloggen"</td></tr>
-        <tr><td><input class="registreerbutton" type="submit" name="homepage" value="terug naar homepage"></td></tr>
+        <tr><td><input class="redbutton" type="submit" name="uitloggen" value="Uitloggen"</td></tr>
+        <tr><td><input class="button" type="submit" name="homepage" value="Terug naar homepage"></td></tr>
 </form>
 <?php
 if(isset($_POST['uitloggen'])){
