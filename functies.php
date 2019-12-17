@@ -407,6 +407,10 @@ function bestellingbetalen(){
                     WHERE klantID = $klant AND stockItemID = $key";
             $conn = db_connect();
             mysqli_query($conn, $sql);
+            $sql = "UPDATE stockitemholdings
+                    SET QuantityOnHand = QuantityOnHand-$aantal
+                    WHERE stockItemID = $key";
+            mysqli_query($conn, $sql);
         }
         unset($_SESSION['cart']);
         header("location: index.php");
