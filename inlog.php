@@ -1,6 +1,9 @@
 <?php
 include('include.php');
 session_start();
+if(isset($_)){
+
+}
 ?>
 <br><br><br>
     <form class="registreren" method="post" style="width:30%">

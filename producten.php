@@ -2,9 +2,9 @@
 include('include.php');
 
 $producten = productenLijst();
-$reproduct1= rand(1, count(productenLijst()));
-$reproduct2= rand(1, count(productenLijst()));
-$reproduct3= rand(1, count(productenLijst()));
+$reproduct1= rand(1, count(productenLijst())) -1;
+$reproduct2= rand(1, count(productenLijst())) -1;
+$reproduct3= rand(1, count(productenLijst())) -1;
 $rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
 $rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
 $rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
@@ -223,7 +223,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                     <div class="mySlides">
                         <div class="numbertext">2 / 3</div>
                         <play>
-                            <video width="1600" height="900" autoplay controls>
+                            <video width="100%" height="720" autoplay controls>
                                 <source src="USBMissileLauncher.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
