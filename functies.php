@@ -426,3 +426,63 @@ function getBestelling($id)
     return(( mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 
 }
+// automatisch inloggen
+
+function bestelvoornaam($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT voornaam from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+function bestelachternaam($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT achternaam from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+function bestelemail($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT email from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+function besteladres($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT adres from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+function bestelpostcode($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT postcode from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+function bestelwoonplaats($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT woonplaats from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+function besteltelefoon($gebruiksersnaam){
+    $conn = db_connect();
+
+    $sql = "SELECT telefoon from klanten where gebruikersnaam = $gebruiksersnaam ";
+
+    return mysqli_query($conn, $sql);
+}
+
+function bestelinlog($gebruiker){
+    $conn = db_connect();
+
+    $sql = "SELECT * FROM klanten where gebruikersnaam = '$gebruiker'";
+
+    $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+    return $test;
+}
