@@ -12,7 +12,6 @@ login met uw WWI acount of vul uw gegevens in voor een bezorgadres/ophaalpunt
 <!DOCTYPE html>
 
 <html>
-
 <a  href="afhalen.php" class="afhaal"><i<i class="button">Ophaalpunt</i></a>
 <form action="order.php" method="post" >
 <vradres>
