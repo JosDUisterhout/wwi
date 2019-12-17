@@ -30,7 +30,7 @@ if(isset($_POST['inloggen'])){
 
     }
      else {
-        print ("gebruikersnaam en/of wachtwoord zijn onjuist ingevuld <br> probeer het nog eens ");
+        print ("Gebruikersnaam en/of wachtwoord zijn onjuist ingevuld <br> probeer het nog eens ");
     }
 }
 
