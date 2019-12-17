@@ -26,6 +26,7 @@ if(isset($_POST['homepage'])){
         $bestellingen = getBestelling($_SESSION['gebruikersID']);
         if($bestellingen){
             foreach ($bestellingen as $bestelling){
+                $bestellingID = $bestelling['bestellingID'];
                 $productID = $bestelling['StockItemID'];
                 $productNaam = $bestelling['StockItemName'];
                 $productdails = $bestelling["SearchDetails"];
@@ -33,6 +34,7 @@ if(isset($_POST['homepage'])){
                 $productPrijs = $aantal * $bestelling['RecommendedRetailPrice'];
                 ?>
                 <div class="cartrow flex-container">
+                    <div><h3>BestellingID: <?php print($bestellingID)?></h3></div>
                     <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
                         <img class="fancy-image-verlanglijst" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
                     </div>

@@ -1,7 +1,11 @@
 <?php
 
+
+
 include('config.php');
 include('functies.php');
+
+
 
 $categorieen = categorieLijst();
 $aantal_winkelmand = 0;
