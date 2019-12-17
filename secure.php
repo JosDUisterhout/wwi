@@ -3,12 +3,14 @@
 include('include.php');
 
 ?>
+
+<?php
+if(isset($_SESSION['gebruikersnaam'])){
+    print ("<br><br>u bent ingelogd als: <br> ". $_SESSION['gebruikersnaam'] . "<br> WELKOM" );
+    ?>
 <form method="post">
     <h1 class="registreren">
-<?php
-    if(isset($_SESSION['gebruikersnaam'])){
-        print ("<br><br>u bent ingelogd als: <br> ". $_SESSION['gebruikersnaam'] . "<br> WELKOM" );
-?>
+
     </h1>
     <h2>Hieronder zijn al uw bestellingen:</h2>
         <hr>
