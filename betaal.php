@@ -13,7 +13,7 @@ if(isset($_SESSION["cart"])) {
         $productPrijs = $product[0]['RecommendedRetailPrice'];
         $productdails = $product[0] ["SearchDetails"];
 
-        echo '<br>';
+//        echo '<br>';
         //print($productNaam.' '.  $productPrijs);
 
         //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
@@ -171,11 +171,12 @@ if(isset($_SESSION["cart"])) {
                                 $voorraad = $product[0]["QuantityOnHand"];
                                 $totaalprijs = $totaalprijs + $productPrijs;
                                 //print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:100px; max-height:100px; min-width: 50px; min-height: 50px' onerror='this.src=\"plaatjeswwi/default.jpg\"'>");
-                                echo '<br>';
-                                print($productNaam . ' ' . $productPrijs);
+
+                                print($productNaam . ' ' . $productPrijs .'<br>');
 
                             }
-                        }print("<br> <br> <br> totaalprijs: " .$totaalprijs);
+
+                        }print("<br> <br> <br>  " .kortingGenerator($totaalprijs));
 
                         ?>
                     </div>
