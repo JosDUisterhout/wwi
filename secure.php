@@ -17,57 +17,50 @@ if(isset($_POST['homepage'])){
 <form method="post">
     <h1 class="registreren">
 <?php
-        print ("<br><br>u bent ingelogd als: <br> ". $_SESSION['gebruikersnaam'] . "<br> WELKOM" );
+        print ("<br><br>U bent ingelogd als: <br> ". $_SESSION['gebruikersnaam'] . "<br> WELKOM" );
 ?>
     </h1>
-    <h2>Hieronder ziet uw al uw bestellingen:</h2>
-        <hr>
         <?php
-        $bestellingen = getBestelling($_SESSION['gebruikersID']);
-        if($bestellingen){
+            $bestellingen = getBestelling($_SESSION['gebruikersID']);
+            if($bestellingen){
+        ?>
+            <h2>Hieronder ziet u al uw bestellingen:</h2>
+
+                <table id="orders">
+                    <tr>
+                        <th>Ordernummer:</th>
+                        <th>Aantal producten gekocht:</th>
+                        <th>Totaalprijs:</th>
+                        <th>Datum:</th>
+                    </tr>
+
+
+
+
+                <?php
             foreach ($bestellingen as $bestelling){
                 $bestellingID = $bestelling['bestellingID'];
-                $productID = $bestelling['StockItemID'];
-                $productNaam = $bestelling['StockItemName'];
-                $productdails = $bestelling["SearchDetails"];
-                $aantal = $bestelling['aantal'];
-                $productPrijs = $aantal * $bestelling['RecommendedRetailPrice'];
-                ?>
-                <div class="cartrow flex-container">
-                    <div><h3>BestellingID: <?php print($bestellingID)?></h3></div>
-                    <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
-                        <img class="fancy-image-verlanglijst" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
-                    </div>
-                    <div class="cart_naam">
-                        <h3><?php print($productNaam); ?></h3><br>
-                        <h4 style="color: gray"><?php print($productdails); ?></h4>
-                    </div>
-                    <div class="cart_aantal_style">
-                        <h3><?php print("Aantal"); ?></h3><br>
-                        <h4 style="color: gray"><?php print($aantal); ?></h4>
-
-                    </div>
-                    <div class="cart_prijs">
-                        <div style="text-align: right">
-                            <h3><?php print("Prijs:"); ?></h3><br>
-                            <div style="color: #27ae60; font-size: 40px; font-weight: bold;">
-                                &euro; <?php print($productPrijs); ?>
-                            </div>
-                            <div>
-                                euro
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <hr>
+                $datum = $bestelling['datum'];
+                $producten = getBestellingLines($bestellingID);
+                $totaalAantal = $producten[0]['totaalAantal'];
+                $totaalPrijs = $producten[0]['totaalPrijs'];
+        ?>
+                <tr onclick="location.href='factuur.php?id=<?php print($bestellingID); ?>'">
+                    <td>#<?php print($bestellingID); ?></td>
+                    <td><?php print($totaalAantal); ?></td>
+                    <td>€<?php print($totaalPrijs); ?></td>
+                    <td><?php print($datum); ?></td>
+                </tr>
 
 
                 <?php
             }
+            ?>
+            </table><br><br>
 
+    <?php
         }
-        ?>
+    ?>
 
 
         <tr><td><input class="redbutton" type="submit" name="uitloggen" value="Uitloggen"</td></tr>
