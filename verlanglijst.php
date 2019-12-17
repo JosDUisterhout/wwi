@@ -6,7 +6,7 @@ include('include.php');
     </div>
     <hr>
 <?php
-if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
+if(isset($_SESSION["verlanglijst"]) && !empty($_SESSION["verlanglijst"])){
     foreach ($_SESSION["verlanglijst"] as $productId){
         $product = getOneProductById($productId);
         $productID = $product['StockItemID'];
