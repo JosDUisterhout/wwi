@@ -2,9 +2,9 @@
 include('include.php');
 
 $producten = productenLijst();
-$reproduct1= rand(1, count(productenLijst()));
-$reproduct2= rand(1, count(productenLijst()));
-$reproduct3= rand(1, count(productenLijst()));
+$reproduct1= rand(1, count(productenLijst())) -1;
+$reproduct2= rand(1, count(productenLijst())) -1;
+$reproduct3= rand(1, count(productenLijst())) -1;
 $rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
 $rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
 $rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
@@ -80,7 +80,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                 </div>
                 <?php
 
-                print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:215% !important;' onclick='openModal();currentSlide(1)' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                print("<img src='plaatjeswwi/id$productID.jpg' style='max-width:215% !important;' onclick='openModal();currentSlide(1)' class='productenpaginaplaatje' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                 ?>
 
             </div>
@@ -122,7 +122,7 @@ $vooraad = $product[0]['QuantityOnHand'];
 
 
             <?php
-            $default ="<img src='src=plaatjeswwi/default.jpg' style='width:150px' style='width:150px' class='hover-shadow cursor'>";
+            $default ="<img src='src=plaatjeswwi/default.jpg' style='width:150px' style='width:150px' class='productenpaginaplaatje'>";
             ?>
 
             <div class="grid-item">
@@ -143,7 +143,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                 ?>
 
                                 <?php
-                                print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                                print("<img src='plaatjeswwi/id$reproduct1.jpg' style='width:100px' style='width:150px' class='productenpaginaplaatje' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                                 ?>
                                 <div class="cartbtn">
                                     <form method="post" action="" class="productenpagina">
@@ -164,7 +164,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                 ?>
 
                                 <?php
-                                print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                                print("<img src='plaatjeswwi/id$reproduct2.jpg' style='width:100px' style='width:150px' class='productenpaginaplaatje' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                                 ?>
                                 <div class="cartbtn">
                                     <form method="post" action="" class="productenpagina">
@@ -185,7 +185,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                 ?>
 
                                 <?php
-                                print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:100px' style='width:150px' class='hover-shadow cursor' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
+                                print("<img src='plaatjeswwi/id$reproduct3.jpg' style='width:100px' style='width:150px' class='productenpaginaplaatje' onerror='this.src=\"plaatjeswwi/default.jpg\"'>")
                                 ?>
                                 <div class="cartbtn">
                                     <form method="post" action="" class="productenpagina">
@@ -223,7 +223,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                     <div class="mySlides">
                         <div class="numbertext">2 / 3</div>
                         <play>
-                            <video width="1600" height="900" autoplay controls>
+                            <video width="100%" height="720" autoplay controls>
                                 <source src="USBMissileLauncher.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>

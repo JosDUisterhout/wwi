@@ -323,26 +323,26 @@ function kortingGenerator($prijs) {
         case 4:
         case 5:
         case 6:
-            $kortingprijs = round($prijs * 0.75, 2);
+            $kortingprijs = number_format($prijs * 0.75, 2,'.', '');
             print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 25%!</div>");
             break;
         case 7:
         case 8:
-            $kortingprijs = round($prijs * 0.5,2);
+            $kortingprijs = number_format($prijs * 0.5, 2,'.', '');
             print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 50%!</div>");
             break;
         case 9:
-            $kortingprijs = round($prijs * 0.35,2);
+            $kortingprijs = number_format($prijs * 0.35, 2,'.', '');
             print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 65%!</div>");
             break;
         case 10:
-            $kortingprijs = round($prijs * 0.2,2);
+            $kortingprijs = number_format($prijs * 0.2, 2,'.', '');
             print("<i class='productenprijs'>€ $kortingprijs</i><br>");
             print("<div class='kortingtekst'>Adviesprijs: <strike>€$prijs</strike></div>");
             print("<div class='kortingtekstbottom'>Je bespaart 80%!</div>");
@@ -407,6 +407,10 @@ function bestellingbetalen(){
                     WHERE klantID = $klant AND stockItemID = $key";
             $conn = db_connect();
             mysqli_query($conn, $sql);
+            $sql = "UPDATE stockitemholdings
+                    SET QuantityOnHand = QuantityOnHand-$aantal
+                    WHERE stockItemID = $key";
+            mysqli_query($conn, $sql);
         }
         unset($_SESSION['cart']);
         header("location: index.php");
@@ -419,7 +423,7 @@ function getBestelling($id)
 
     $conn = db_connect();
 
-    $sql = "  SELECT B.aantal, S.StockItemName, S.StockItemID, S.SearchDetails, S.RecommendedRetailPrice 
+    $sql = "  SELECT B.bestellingID, B.aantal, S.StockItemName, S.StockItemID, S.SearchDetails, S.RecommendedRetailPrice 
               FROM bestellingen B JOIN stockitems S ON S.StockItemID = B.StockItemID 
               WHERE klantID = $id AND B.betaald = 1";
 

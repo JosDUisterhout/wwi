@@ -1,15 +1,18 @@
 <?php
 include('include.php');
-session_start();
+
+if(isset($_SESSION['gebruikersnaam'])){
+    header('Location: secure.php');
+}
 ?>
 <br><br><br>
     <form class="registreren" method="post" style="width:30%">
 <table align="center" ><form method="POST">
-<tr><td><label for="gebruikersnaam">gebruikersnaam<br></label><input class="registrerentext" type="text" name="gebruikersnaam" placeholder="gebruikersnaam"></td>
-<tr></tr><td><label for="wachtwoord">wachtwoord<br></label><input class="registrerentext" type="password" name="wachtwoord"placeholder="wachtwoord"></td>
-<tr></tr><td><input class="registreerbutton" type="submit" name="inloggen" value="Inloggen"></td>
+<tr><td><label for="gebruikersnaam">Gebruikersnaam<br></label><input class="registrerentext" type="text" name="gebruikersnaam" placeholder="gebruikersnaam"></td>
+<tr></tr><td><label for="wachtwoord">Wachtwoord<br></label><input class="registrerentext" type="password" name="wachtwoord"placeholder="wachtwoord"></td>
+<tr></tr><td><input class="button" type="submit" name="inloggen" value="Inloggen"></td>
 
-<tr></tr><td><input class="registreerbutton" type="submit" name="registreren" value="registreren"></td>
+<tr></tr><td><input class="button" type="submit" name="registreren" value="registreren"></td>
     </form>
 <?php
 if(isset($_POST['registreren'])){
@@ -27,7 +30,7 @@ if(isset($_POST['inloggen'])){
 
     }
      else {
-        print ("gebruikersnaam en/of wachtwoord zijn onjuist ingevuld <br> probeer het nog eens ");
+        print ("Gebruikersnaam en/of wachtwoord zijn onjuist ingevuld <br> probeer het nog eens ");
     }
 }
 

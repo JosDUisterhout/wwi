@@ -2,20 +2,31 @@
 
 include('include.php');
 
+if(isset($_POST['uitloggen'])){
+    unset($_SESSION['gebruikersnaam']);
+    header('Location: index.php');
+}
+elseif(!isset($_SESSION['gebruikersnaam'])){
+    header('Location: inlog.php');
+}
+if(isset($_POST['homepage'])){
+    header("location: index.php");
+}
+
 ?>
 <form method="post">
     <h1 class="registreren">
 <?php
-    if(isset($_SESSION['gebruikersnaam'])){
         print ("<br><br>u bent ingelogd als: <br> ". $_SESSION['gebruikersnaam'] . "<br> WELKOM" );
 ?>
     </h1>
-    <h2>Hieronder zijn al uw bestellingen:</h2>
+    <h2>Hieronder ziet uw al uw bestellingen:</h2>
         <hr>
         <?php
         $bestellingen = getBestelling($_SESSION['gebruikersID']);
         if($bestellingen){
             foreach ($bestellingen as $bestelling){
+                $bestellingID = $bestelling['bestellingID'];
                 $productID = $bestelling['StockItemID'];
                 $productNaam = $bestelling['StockItemName'];
                 $productdails = $bestelling["SearchDetails"];
@@ -23,6 +34,7 @@ include('include.php');
                 $productPrijs = $aantal * $bestelling['RecommendedRetailPrice'];
                 ?>
                 <div class="cartrow flex-container">
+                    <div><h3>BestellingID: <?php print($bestellingID)?></h3></div>
                     <div class="cursor" onclick="location.href='producten.php?id=<?php print($productID); ?>';">
                         <img class="fancy-image-verlanglijst" src="plaatjeswwi/id<?php print($productID)?>.jpg" onerror='this.src="plaatjeswwi/default.jpg"'>
                     </div>
@@ -53,24 +65,11 @@ include('include.php');
 
                 <?php
             }
-        }
 
+        }
         ?>
 
 
-        <tr><td><input class="uiloggenbutton" type="submit" name="uitloggen" value="Uitloggen"</td></tr>
-        <tr><td><input class="registreerbutton" type="submit" name="homepage" value="terug naar homepage"></td></tr>
+        <tr><td><input class="redbutton" type="submit" name="uitloggen" value="Uitloggen"</td></tr>
+        <tr><td><input class="button" type="submit" name="homepage" value="Terug naar homepage"></td></tr>
 </form>
-<?php
-if(isset($_POST['uitloggen'])){
-    unset($_SESSION['gebruikersnaam']);
-    header('Location: index.php');
-}
-
-}
-else{
-    header('Location: inlog.php');
-}
-if(isset($_POST['homepage'])){
-    header("location: index.php");
-}
