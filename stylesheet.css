@@ -953,3 +953,60 @@ img{
     display: inline-block;
     font-size: 16px;
 }
+
+#orders {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+#orders td, #orders th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#orders tr:nth-child(even){background-color: #f2f2f2;}
+
+#orders tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+#orders th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+
+}
+
+#orderProduct {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+#orderProduct td, #orderProduct th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#orderProduct tr:nth-child(even){background-color: #f2f2f2;}
+
+#orderProduct tr:hover {background-color: #ddd; cursor: pointer;}
+
+#orderProduct th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    border-bottom: 2px solid #4CAF50;
+    border-top: 2px solid #4CAF50;
+    background-color: white;
+}
+
+.factuur{
+    text-align: center;
+}
