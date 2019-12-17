@@ -10,9 +10,9 @@ if(isset($_SESSION['gebruikersnaam'])){
 <table align="center" ><form method="POST">
 <tr><td><label for="gebruikersnaam">Gebruikersnaam<br></label><input class="registrerentext" type="text" name="gebruikersnaam" placeholder="gebruikersnaam"></td>
 <tr></tr><td><label for="wachtwoord">Wachtwoord<br></label><input class="registrerentext" type="password" name="wachtwoord"placeholder="wachtwoord"></td>
-<tr></tr><td><input class="button" type="submit" name="Inloggen" value="Inloggen"></td>
+<tr></tr><td><input class="button" type="submit" name="inloggen" value="Inloggen"></td>
 
-<tr></tr><td><input class="button" type="submit" name="Registreren" value="registreren"></td>
+<tr></tr><td><input class="button" type="submit" name="registreren" value="registreren"></td>
     </form>
 <?php
 if(isset($_POST['registreren'])){
