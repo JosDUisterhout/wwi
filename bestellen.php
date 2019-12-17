@@ -18,22 +18,6 @@ if (isset($_SESSION['gebruikersnaam'])) {
     $tlf = $test[0]['telefoon'];
 }
     ?>
-
-
-<html>
-<a  href="afhalen.php" class="afhaal"><i<i class="button">Ophaalpunt</i></a>
-<form action="order.php" method="post" >
-<vradres>
-<br>
-        lever adres <br>
-        <label> <input type="text" name="voornaam"placeholder="Voornaam" required> </label><br>
-        <label> <input type="text" name="achternaam"placeholder="achternaam"  required></label><br>
-        <label> <input type="text" name="email"placeholder="Email" required  ></label><br>
-        <label> <input type="text" name="adres"placeholder="Adres" required  > </label><br>
-    <label> <input type="text" name="postcode"placeholder="Postcode" required > </label><br>
-        <label> <input type="text" name="woonplaats"placeholder="Woonplaats" required  ></label><br>
-        <label> <input type="text" name="tel"placeholder="Telefoon"  > </label><br>
-    <input type="hidden" name="form_submitted" value="1" />
     <br>
     <br>
     <br>
