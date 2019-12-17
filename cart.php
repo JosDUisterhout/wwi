@@ -5,7 +5,7 @@ include('include.php');
 ?>
 <br>
 <br>
-<br><a href="Bestellen.php" class="topnavright"><i class="button">Afrekenen</i></a>
+<br>
 
 
 <div>
@@ -103,6 +103,13 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
             print("Totaalprijs: € $totaalprijs euro");?></h2>
     </div>
 </div>
+<?php
+if($totaalprijs ==0){
+    echo" <a href='Bestellen.php' class='topnavright'><i class='button' style='display: none'>Afrekenen</i></a>";
+}else{
+    echo" <a href='Bestellen.php' class='topnavright'><i class='button'>Afrekenen</i></a>";
+}
+?>
 
 <script>
     function myFunction(id) {
