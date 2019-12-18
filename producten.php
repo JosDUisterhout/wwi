@@ -1,17 +1,5 @@
 <?php
 include('include.php');
-
-$producten = productenLijst();
-$reproduct1= rand(1, count(productenLijst())) -1;
-$reproduct2= rand(1, count(productenLijst())) -1;
-$reproduct3= rand(1, count(productenLijst())) -1;
-$rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
-$rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
-$rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
-$reNaam1 = $producten[$reproduct1]['StockItemName'];
-$reNaam2 = $producten[$reproduct2]['StockItemName'];
-$reNaam3 = $producten[$reproduct3]['StockItemName'];
-
 //huidig product
 $product = productenItem($_GET['id']);
 $productID = $product[0]['StockItemID'];
@@ -20,6 +8,27 @@ $productPrijs = $product[0]['RecommendedRetailPrice'];
 $productdails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
+
+
+
+$groepID = groepID($productID);
+sessieTest($groepID);
+
+
+
+$producten = productenLijst();
+
+$reproduct1= rand(1, count($groepID)) -1;
+$reproduct2= rand(1, count($groepID)) -1;
+$reproduct3= rand(1, count($groepID)) -1;
+$rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
+$rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
+$rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
+$reNaam1 = $producten[$reproduct1]['StockItemName'];
+$reNaam2 = $producten[$reproduct2]['StockItemName'];
+$reNaam3 = $producten[$reproduct3]['StockItemName'];
+
+
 $cel = $product[0]['IsChillerStock'];
 
 $temp = getTemp($_GET['id']);
@@ -28,6 +37,7 @@ if (count($temp)) {
 }else{
     $temperature = 0;
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -204,6 +214,7 @@ if (count($temp)) {
                                         <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
+
                                     </form>
                                     <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>

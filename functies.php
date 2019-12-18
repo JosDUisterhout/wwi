@@ -616,3 +616,25 @@ function bestelinlog($gebruiker)
 
     return $test;
 }
+
+
+function productenInGroep($groepID){
+
+}
+
+function groepID($productID){
+
+    $productID = intval($productID);
+
+    sessieTest($productID);
+
+    $conn = db_connect();
+
+    $sql= "select stockitemid from stockitemstockgroups where stockgroupid in 
+(select stockgroupid from stockitemstockgroups where stockgroupid in 
+(select stockitemid from stockitemstockgroups where stockitemid = '$productID'));";
+
+    $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
+    return $test;
+}
