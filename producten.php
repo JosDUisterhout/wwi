@@ -28,7 +28,7 @@ $reNaam1 = $producten[$reproduct1-1]['StockItemName'];
 $reNaam2 = $producten[$reproduct2-1]['StockItemName'];
 $reNaam3 = $producten[$reproduct3-1]['StockItemName'];
 
-<<<<<<< HEAD
+
 //huidig product
 $product = productenItem($_GET['id']);
 $productID = $product[0]['StockItemID'];
@@ -39,7 +39,7 @@ $productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0
 $productdetails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
-=======
+
 
 $cel = $product[0]['IsChillerStock'];
 
@@ -51,7 +51,7 @@ if (count($temp)) {
 }
 
 
->>>>>>> master
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -122,18 +122,18 @@ if (count($temp)) {
                     //kortingGenerator($productPrijs);
                     print($productdetails);
                     print('<br><br>');
-<<<<<<< HEAD
+
                     if($product[0]['DiscountAmount'] != 1) {
                         print("<i class='productenprijs'>€ $productPrijs</i><br>");
                         print("<div class='kortingtekst'>Adviesprijs: <strike>€ $prijsVoorKorting</strike></div>");
                         print("<div class='kortingtekstbottom'>Je bespaart $kortingTekst%!</div>");
                     } else {
                         print("<i class='productenprijs'>€ $productPrijs</i><br>");
-=======
-                    kortingGenerator($productPrijs);
+                    }
+
                     if($cel == 1) {
                         print("<button <i class=\"fa fa-snowflake-o\"></i> <span class='coolknop'> De temperatuur van dit product is: $temperature °C</span></button>");
->>>>>>> master
+
                     }
                     ?>
 
