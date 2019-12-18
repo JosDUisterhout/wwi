@@ -5,19 +5,21 @@ $producten = productenLijst();
 $reproduct1= rand(1, count(productenLijst())) -1;
 $reproduct2= rand(1, count(productenLijst())) -1;
 $reproduct3= rand(1, count(productenLijst())) -1;
-$rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
-$rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
-$rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
-$reNaam1 = $producten[$reproduct1]['StockItemName'];
-$reNaam2 = $producten[$reproduct2]['StockItemName'];
-$reNaam3 = $producten[$reproduct3]['StockItemName'];
+$rePrijs1 = number_format($producten[$reproduct1-1]['RecommendedRetailPrice'] * $producten[$reproduct1-1]['DiscountAmount'], 2, '.', '' );
+$rePrijs2 = number_format($producten[$reproduct2-1]['RecommendedRetailPrice'] * $producten[$reproduct2-1]['DiscountAmount'], 2, '.', '' );
+$rePrijs3 = number_format($producten[$reproduct3-1]['RecommendedRetailPrice'] * $producten[$reproduct3-1]['DiscountAmount'], 2, '.', '' );
+$reNaam1 = $producten[$reproduct1-1]['StockItemName'];
+$reNaam2 = $producten[$reproduct2-1]['StockItemName'];
+$reNaam3 = $producten[$reproduct3-1]['StockItemName'];
 
 //huidig product
 $product = productenItem($_GET['id']);
 $productID = $product[0]['StockItemID'];
 $productNaam = $product[0]['StockItemName'];
-$productPrijs = $product[0]['RecommendedRetailPrice'];
-$productdails = $product[0] ["SearchDetails"];
+$prijsVoorKorting = $product[0]['RecommendedRetailPrice'];
+$kortingTekst = 100 - ($product[0]['DiscountAmount'] * 100);
+$productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'], 2, '.', '' );
+$productdetails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
 ?>
@@ -87,9 +89,16 @@ $vooraad = $product[0]['QuantityOnHand'];
                 <div class="grid-item">
                     <?php
                     // print("€ ".round($productPrijs, 2). " euro" . "<br>");
-                    print($productdails);
+                    //kortingGenerator($productPrijs);
+                    print($productdetails);
                     print('<br><br>');
-                    kortingGenerator($productPrijs);
+                    if($product[0]['DiscountAmount'] != 1) {
+                        print("<i class='productenprijs'>€ $productPrijs</i><br>");
+                        print("<div class='kortingtekst'>Adviesprijs: <strike>€ $prijsVoorKorting</strike></div>");
+                        print("<div class='kortingtekstbottom'>Je bespaart $kortingTekst%!</div>");
+                    } else {
+                        print("<i class='productenprijs'>€ $productPrijs</i><br>");
+                    }
                     ?>
                     <div class="cartbtn">
                         <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php" class="productenpagina">
@@ -139,7 +148,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                         <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo $reNaam1?></a>
 
                                 <?php
-                                print("€ ".ceil($rePrijs1). " euro" . "<br>");
+                                print("€ ".$rePrijs1. " euro" . "<br>");
                                 ?>
 
                                 <?php
@@ -160,7 +169,7 @@ $vooraad = $product[0]['QuantityOnHand'];
             <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
 
                                 <?php
-                                print("€ ".ceil($rePrijs2). " euro" . "<br>");
+                                print("€ ".$rePrijs2. " euro" . "<br>");
                                 ?>
 
                                 <?php
@@ -181,7 +190,7 @@ $vooraad = $product[0]['QuantityOnHand'];
             <div class="grid-item"> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
 
                                 <?php
-                                print("€ ".ceil($rePrijs3). " euro" . "<br>");
+                                print("€ ".$rePrijs3. " euro" . "<br>");
                                 ?>
 
                                 <?php

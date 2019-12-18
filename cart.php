@@ -22,7 +22,7 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         $product = productenItem($key);
         $productID = $product[0]['StockItemID'];
         $productNaam = $product[0]['StockItemName'];
-        $productPrijs = $aantal * $product[0]['RecommendedRetailPrice'];
+        $productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'] * $aantal, 2, '.', '' );
         $productdails = $product[0]["SearchDetails"];
         $voorraad = $product[0]["QuantityOnHand"];
         $totaalprijs = $totaalprijs + $productPrijs

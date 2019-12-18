@@ -30,6 +30,7 @@ body {
 .container {
     margin-top: 20px;
     overflow: hidden;
+
 }
 
 .button {
@@ -1009,4 +1010,9 @@ img{
 
 .factuur{
     text-align: center;
+}
+
+.totaalPrijsBetalen {
+    font-size: 30px;
+    font-weight: bold;
 }

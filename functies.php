@@ -516,7 +516,7 @@ function getBestellingLines($orderID)
 {
     $conn = db_connect();
 
-    $sql = "  SELECT B.stockItemID, sum(aantal) AS totaalAantal, sum(RecommendedRetailPrice*aantal)  AS totaalPrijs
+    $sql = "  SELECT B.stockItemID, sum(aantal) AS totaalAantal, sum(RecommendedRetailPrice*aantal*DiscountAmount)  AS totaalPrijs
               FROM bestellinglines B JOIN stockitems S on S.stockItemID = B.stockItemID
               WHERE bestellingID = $orderID;";
 

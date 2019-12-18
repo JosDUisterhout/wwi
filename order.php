@@ -27,7 +27,7 @@ Dit factuur wordt naar <em></em> <?php echo $_POST["email"]?> verstuurd<br><br>
             $product = productenItem($key);
             $productID = $product[0]['StockItemID'];
             $productNaam = $product[0]['StockItemName'];
-            $productPrijs = $aantal * ceil($product[0]['RecommendedRetailPrice']);
+            $productPrijs = $aantal * ($productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'], 2, '.', ''));;
             $productdails = $product[0]["SearchDetails"];
             $voorraad = $product[0]["QuantityOnHand"];
             $totaalprijs = $totaalprijs + $productPrijs;
