@@ -66,7 +66,7 @@ font-size: 16px;
 
 /* Style the buttons */
 .btn {
-    border: 1px solid #9f9f9f;
+    border: 1px solid #E5E1E1;
 
     outline: none;
     padding: 12px 16px;
@@ -74,7 +74,7 @@ font-size: 16px;
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #9f9f9f;
+    color: #E5E1E1;
 }
 
 .btn:hover{
@@ -701,28 +701,29 @@ a:hover{
     margin-bottom: 40px;
 }
 .pagina-buttons{
-    background-color:transparent;
-    border: 1px solid #9f9f9f;;
+    background-color:#480f16;
+    border: 1px solid #D9CFCF;
     outline: none;
     padding: 12px 16px;
 
     cursor: pointer;
     -webkit-transition-duration: 0.1s;
     transition-delay: 0.1s;
-    color: #9f9f9f;
+    color: #D9CFCF;
 }
 .pagina-buttons:hover{
     text-decoration: underline;
     background-color: #9d1c36;
 }
 .pagina-opslaan{
+    border: black;
     margin-top:1px;
     outline: none;
     padding: 12px 16px;
-    background-color: transparent;
+    background-color: #480f16;
     cursor: pointer;
-    color:#9f9f9f ;
-    border: 1px solid #9f9f9f;
+    color:#C6BDBD ;
+    border: 1px solid #C6BDBD;
 }
 .pagina-opslaan:hover{
     text-decoration: underline;
@@ -1011,8 +1012,44 @@ img{
 .factuur{
     text-align: center;
 }
+<<<<<<< HEAD
 
 .totaalPrijsBetalen {
     font-size: 30px;
     font-weight: bold;
+=======
+.coolknop{
+    display: inline-block;
+    visibility: collapse;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+    overflow: hidden;
+}
+button:hover .coolknop {
+    visibility: visible;
+    width: 100%;
+    height: 20%;
+}
+.fa-snowflake-o{
+    background: #0a193a;
+    color: lightblue;
+    width: 20%;
+    height: 20%;
+
+}
+.snowlfake{
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.share-buttons {
+    margin-left: 50px ;
+    width: 35px;
+    padding: 5px;
+    border: 0;
+>>>>>>> master
 }

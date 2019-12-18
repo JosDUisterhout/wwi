@@ -1,7 +1,23 @@
 <?php
 include('include.php');
+//huidig product
+$product = productenItem($_GET['id']);
+$productID = $product[0]['StockItemID'];
+$productNaam = $product[0]['StockItemName'];
+$productPrijs = $product[0]['RecommendedRetailPrice'];
+$productdails = $product[0] ["SearchDetails"];
+$productid = $product[0]['StockItemID'];
+$vooraad = $product[0]['QuantityOnHand'];
+
+
+//
+//$groepID = groepID($productID);
+
+
+
 
 $producten = productenLijst();
+
 $reproduct1= rand(1, count(productenLijst())) -1;
 $reproduct2= rand(1, count(productenLijst())) -1;
 $reproduct3= rand(1, count(productenLijst())) -1;
@@ -12,6 +28,7 @@ $reNaam1 = $producten[$reproduct1-1]['StockItemName'];
 $reNaam2 = $producten[$reproduct2-1]['StockItemName'];
 $reNaam3 = $producten[$reproduct3-1]['StockItemName'];
 
+<<<<<<< HEAD
 //huidig product
 $product = productenItem($_GET['id']);
 $productID = $product[0]['StockItemID'];
@@ -22,6 +39,19 @@ $productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0
 $productdetails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
+=======
+
+$cel = $product[0]['IsChillerStock'];
+
+$temp = getTemp($_GET['id']);
+if (count($temp)) {
+    $temperature = $temp[0]['Temperature'];
+}else{
+    $temperature = 0;
+}
+
+
+>>>>>>> master
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,7 +107,7 @@ $vooraad = $product[0]['QuantityOnHand'];
             <div class="grid-item">
                 <div class="productNaam">
                     <?php
-                    print'<h4>' . $productNaam.'</h4><br>'.'<br>';
+                    print'<h4>' . $productNaam. '</h4><br>'.'<br>';
                     ?>
                 </div>
                 <?php
@@ -92,14 +122,21 @@ $vooraad = $product[0]['QuantityOnHand'];
                     //kortingGenerator($productPrijs);
                     print($productdetails);
                     print('<br><br>');
+<<<<<<< HEAD
                     if($product[0]['DiscountAmount'] != 1) {
                         print("<i class='productenprijs'>€ $productPrijs</i><br>");
                         print("<div class='kortingtekst'>Adviesprijs: <strike>€ $prijsVoorKorting</strike></div>");
                         print("<div class='kortingtekstbottom'>Je bespaart $kortingTekst%!</div>");
                     } else {
                         print("<i class='productenprijs'>€ $productPrijs</i><br>");
+=======
+                    kortingGenerator($productPrijs);
+                    if($cel == 1) {
+                        print("<button <i class=\"fa fa-snowflake-o\"></i> <span class='coolknop'> De temperatuur van dit product is: $temperature °C</span></button>");
+>>>>>>> master
                     }
                     ?>
+
                     <div class="cartbtn">
                         <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php" class="productenpagina">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>
@@ -201,6 +238,7 @@ $vooraad = $product[0]['QuantityOnHand'];
                                         <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
+
                                     </form>
                                     <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
