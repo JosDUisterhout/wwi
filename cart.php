@@ -125,4 +125,39 @@ if($totaalprijs ==0){
         location.reload();
     }
 </script>
+<table>
+<td><a href="http://www.facebook.com/sharer.php?u=http://localhost/WWI/Project/wwi/cart.php" target="_blank">
+    <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+</a>
+</td>
+<td><a href="https://twitter.com/share?url=http://localhost/WWI/Project/wwi/cart.php&amp;text=I%20saw%20this%20on%20WWI&amp;hashtags=WWI" target="_blank">
+    <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+</a>
+</td>
+    <td>
+        <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20on%20WWI http://localhost/WWI/Project/wwi/cart.php">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+        </a>
+    </td>
+</table>
 
+
+<script>
+Share = {
+    facebook: function (purl, ptitle, pimg, text) {
+        url = 'http://www.facebook.com/sharer.php?s=100';
+        url += '&p[title]=' + encodeURIComponent(ptitle);
+        url += '&p[summary]=' + encodeURIComponent(text);
+        url += '&p[url]=' + encodeURIComponent(purl);
+        url += '&p[images][0]=' + encodeURIComponent(pimg);
+        Share.popup(url);
+    },
+    twitter: function (purl, ptitle) {
+        url = 'http://twitter.com/share?';
+        url += 'text=' + encodeURIComponent(ptitle);
+        url += '&url=' + encodeURIComponent(purl);
+        url += '&counturl=' + encodeURIComponent(purl);
+        Share.popup(url);
+    },
+};
+</script>
