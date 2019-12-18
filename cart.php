@@ -130,17 +130,12 @@ if($totaalprijs ==0){
     <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
 </a>
 </td>
-<td><a href="https://twitter.com/share?url=http://localhost/WWI/Project/wwi/cart.php&amp;text=WWI&amp;hashtags=WWI" target="_blank">
+<td><a href="https://twitter.com/share?url=http://localhost/WWI/Project/wwi/cart.php&amp;text=I%20saw%20this%20on%20WWI&amp;hashtags=WWI" target="_blank">
     <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
 </a>
 </td>
     <td>
-        <a href="https://plus.google.com/share?url=http://localhost/WWI/Project/wwi/cart.php" target="_blank">
-            <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-        </a>
-    </td>
-    <td>
-        <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://localhost/WWI/Project/wwi/cart.php">
+        <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20on%20WWI http://localhost/WWI/Project/wwi/cart.php">
             <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
         </a>
     </td>
