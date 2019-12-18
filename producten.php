@@ -10,17 +10,17 @@ $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
 
 
+//
+//$groepID = groepID($productID);
 
-$groepID = groepID($productID);
-sessieTest($groepID);
 
 
 
 $producten = productenLijst();
 
-$reproduct1= rand(1, count($groepID)) -1;
-$reproduct2= rand(1, count($groepID)) -1;
-$reproduct3= rand(1, count($groepID)) -1;
+$reproduct1= rand(1, count(productenLijst())) -1;
+$reproduct2= rand(1, count(productenLijst())) -1;
+$reproduct3= rand(1, count(productenLijst())) -1;
 $rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
 $rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
 $rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
@@ -37,6 +37,7 @@ if (count($temp)) {
 }else{
     $temperature = 0;
 }
+
 
 ?>
 <!DOCTYPE html>
