@@ -1011,6 +1011,34 @@ img{
 .factuur{
     text-align: center;
 }
+.coolknop{
+    display: inline-block;
+    visibility: collapse;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+    overflow: hidden;
+}
+button:hover .coolknop {
+    visibility: visible;
+    width: 100%;
+    height: 20%;
+}
+.fa-snowflake-o{
+    background: #0a193a;
+    color: lightblue;
+    width: 20%;
+    height: 20%;
+
+}
+.snowlfake{
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
 .share-buttons {
     margin-left: 50px ;
     width: 35px;

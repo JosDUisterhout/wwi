@@ -20,6 +20,14 @@ $productPrijs = $product[0]['RecommendedRetailPrice'];
 $productdails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
+$cel = $product[0]['IsChillerStock'];
+
+$temp = getTemp($_GET['id']);
+if (count($temp)) {
+    $temperature = $temp[0]['Temperature'];
+}else{
+    $temperature = 0;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,7 +83,7 @@ $vooraad = $product[0]['QuantityOnHand'];
             <div class="grid-item">
                 <div class="productNaam">
                     <?php
-                    print'<h4>' . $productNaam.'</h4><br>'.'<br>';
+                    print'<h4>' . $productNaam. '</h4><br>'.'<br>';
                     ?>
                 </div>
                 <?php
@@ -90,7 +98,11 @@ $vooraad = $product[0]['QuantityOnHand'];
                     print($productdails);
                     print('<br><br>');
                     kortingGenerator($productPrijs);
+                    if($cel == 1) {
+                        print("<button <i class=\"fa fa-snowflake-o\"></i> <span class='coolknop'> De temperatuur van dit product is: $temperature °C</span></button>");
+                    }
                     ?>
+
                     <div class="cartbtn">
                         <form method="post" action="verlanglijstje/toevoegenAanWinkelmand.php" class="productenpagina">
                             <input type="hidden" name="productID" value='<?php print($productID);?>'>

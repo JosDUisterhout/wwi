@@ -106,7 +106,13 @@ function valideerZoeken($zoek)
 
     return $validate;
 }
+function getTemp($id){
+    $conn = db_connect();
 
+    $sql = "SELECT * FROM coldroomtemperatures join stockitems on ColdRoomSensorNumber = IsChillerStock WHERE stockItemID = $id ";
+
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+}
 function productenItem($id)
 {
     $conn = db_connect();
