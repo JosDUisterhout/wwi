@@ -522,7 +522,7 @@ function getBestellingLines($orderID)
 {
     $conn = db_connect();
 
-    $sql = "  SELECT B.stockItemID, sum(aantal) AS totaalAantal, sum(RecommendedRetailPrice*aantal)  AS totaalPrijs
+    $sql = "  SELECT B.stockItemID, sum(aantal) AS totaalAantal, sum(RecommendedRetailPrice*aantal*DiscountAmount)  AS totaalPrijs
               FROM bestellinglines B JOIN stockitems S on S.stockItemID = B.stockItemID
               WHERE bestellingID = $orderID;";
 
@@ -547,6 +547,28 @@ function bestelinlog($gebruiker)
     $conn = db_connect();
 
     $sql = "SELECT * FROM klanten where gebruikersnaam = '$gebruiker'";
+
+    $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
+    return $test;
+}
+
+
+function productenInGroep($groepID){
+
+}
+
+function groepID($productID){
+
+    $productID = intval($productID);
+
+    sessieTest($productID);
+
+    $conn = db_connect();
+
+    $sql= "select stockitemid from stockitemstockgroups where stockgroupid in 
+(select stockgroupid from stockitemstockgroups where stockgroupid in 
+(select stockitemid from stockitemstockgroups where stockitemid = '$productID'));";
 
     $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 

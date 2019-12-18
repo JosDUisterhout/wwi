@@ -30,6 +30,7 @@ body {
 .container {
     margin-top: 20px;
     overflow: hidden;
+
 }
 
 .button {
@@ -1011,6 +1012,12 @@ img{
 .factuur{
     text-align: center;
 }
+<<<<<<< HEAD
+
+.totaalPrijsBetalen {
+    font-size: 30px;
+    font-weight: bold;
+=======
 .coolknop{
     display: inline-block;
     visibility: collapse;
@@ -1044,4 +1051,5 @@ button:hover .coolknop {
     width: 35px;
     padding: 5px;
     border: 0;
+>>>>>>> master
 }

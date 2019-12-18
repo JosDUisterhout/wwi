@@ -1,17 +1,5 @@
 <?php
 include('include.php');
-
-$producten = productenLijst();
-$reproduct1= rand(1, count(productenLijst())) -1;
-$reproduct2= rand(1, count(productenLijst())) -1;
-$reproduct3= rand(1, count(productenLijst())) -1;
-$rePrijs1 = $producten[($reproduct1)]['RecommendedRetailPrice'];
-$rePrijs2 = $producten[$reproduct2]['RecommendedRetailPrice'];
-$rePrijs3 = $producten[$reproduct3]['RecommendedRetailPrice'];
-$reNaam1 = $producten[$reproduct1]['StockItemName'];
-$reNaam2 = $producten[$reproduct2]['StockItemName'];
-$reNaam3 = $producten[$reproduct3]['StockItemName'];
-
 //huidig product
 $product = productenItem($_GET['id']);
 $productID = $product[0]['StockItemID'];
@@ -20,6 +8,39 @@ $productPrijs = $product[0]['RecommendedRetailPrice'];
 $productdails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];
+
+
+//
+//$groepID = groepID($productID);
+
+
+
+
+$producten = productenLijst();
+
+$reproduct1= rand(1, count(productenLijst())) -1;
+$reproduct2= rand(1, count(productenLijst())) -1;
+$reproduct3= rand(1, count(productenLijst())) -1;
+$rePrijs1 = number_format($producten[$reproduct1-1]['RecommendedRetailPrice'] * $producten[$reproduct1-1]['DiscountAmount'], 2, '.', '' );
+$rePrijs2 = number_format($producten[$reproduct2-1]['RecommendedRetailPrice'] * $producten[$reproduct2-1]['DiscountAmount'], 2, '.', '' );
+$rePrijs3 = number_format($producten[$reproduct3-1]['RecommendedRetailPrice'] * $producten[$reproduct3-1]['DiscountAmount'], 2, '.', '' );
+$reNaam1 = $producten[$reproduct1-1]['StockItemName'];
+$reNaam2 = $producten[$reproduct2-1]['StockItemName'];
+$reNaam3 = $producten[$reproduct3-1]['StockItemName'];
+
+<<<<<<< HEAD
+//huidig product
+$product = productenItem($_GET['id']);
+$productID = $product[0]['StockItemID'];
+$productNaam = $product[0]['StockItemName'];
+$prijsVoorKorting = $product[0]['RecommendedRetailPrice'];
+$kortingTekst = 100 - ($product[0]['DiscountAmount'] * 100);
+$productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'], 2, '.', '' );
+$productdetails = $product[0] ["SearchDetails"];
+$productid = $product[0]['StockItemID'];
+$vooraad = $product[0]['QuantityOnHand'];
+=======
+
 $cel = $product[0]['IsChillerStock'];
 
 $temp = getTemp($_GET['id']);
@@ -28,6 +49,9 @@ if (count($temp)) {
 }else{
     $temperature = 0;
 }
+
+
+>>>>>>> master
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,11 +119,21 @@ if (count($temp)) {
                 <div class="grid-item">
                     <?php
                     // print("€ ".round($productPrijs, 2). " euro" . "<br>");
-                    print($productdails);
+                    //kortingGenerator($productPrijs);
+                    print($productdetails);
                     print('<br><br>');
+<<<<<<< HEAD
+                    if($product[0]['DiscountAmount'] != 1) {
+                        print("<i class='productenprijs'>€ $productPrijs</i><br>");
+                        print("<div class='kortingtekst'>Adviesprijs: <strike>€ $prijsVoorKorting</strike></div>");
+                        print("<div class='kortingtekstbottom'>Je bespaart $kortingTekst%!</div>");
+                    } else {
+                        print("<i class='productenprijs'>€ $productPrijs</i><br>");
+=======
                     kortingGenerator($productPrijs);
                     if($cel == 1) {
                         print("<button <i class=\"fa fa-snowflake-o\"></i> <span class='coolknop'> De temperatuur van dit product is: $temperature °C</span></button>");
+>>>>>>> master
                     }
                     ?>
 
@@ -151,7 +185,7 @@ if (count($temp)) {
                         <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct1 ?>" ><?php echo $reNaam1?></a>
 
                                 <?php
-                                print("€ ".ceil($rePrijs1). " euro" . "<br>");
+                                print("€ ".$rePrijs1. " euro" . "<br>");
                                 ?>
 
                                 <?php
@@ -172,7 +206,7 @@ if (count($temp)) {
             <div class="grid-item"><a href="producten.php?id=<?php echo $reproduct2 ?>" ><?php echo $reNaam2?></a>
 
                                 <?php
-                                print("€ ".ceil($rePrijs2). " euro" . "<br>");
+                                print("€ ".$rePrijs2. " euro" . "<br>");
                                 ?>
 
                                 <?php
@@ -193,7 +227,7 @@ if (count($temp)) {
             <div class="grid-item"> <a href="producten.php?id=<?php echo $reproduct3 ?>" ><?php echo $reNaam3?></a>
 
                                 <?php
-                                print("€ ".ceil($rePrijs3). " euro" . "<br>");
+                                print("€ ".$rePrijs3. " euro" . "<br>");
                                 ?>
 
                                 <?php
@@ -204,6 +238,7 @@ if (count($temp)) {
                                         <input type="hidden" name="productID" value='<?php print($reproduct3);?>'>
                                         <input type="hidden" name="productAantal" value='1'>
                                         <button type="submit" name="cart" class="button">In winkelmandje</button>
+
                                     </form>
                                     <form method="post" action="verlanglijstje/toevoegenAanVerlanglijst.php" class="productenpagina">
                                         <input type="hidden" name="productID" value='<?php print($productID);?>'>
