@@ -1011,3 +1011,9 @@ img{
 .factuur{
     text-align: center;
 }
+.share-buttons {
+    margin-left: 50px ;
+    width: 35px;
+    padding: 5px;
+    border: 0;
+}
