@@ -1,5 +1,9 @@
 <?php
 
+function geefkorting($bedrag, $korting){
+    return $bedrag * ((100-$korting)/100);
+}
+
 function db_connect()
 {
 
@@ -14,7 +18,6 @@ function db_connect()
     mysqli_set_charset($conn, 'utf8mb4');
 
     return $conn;
-
 
 }
 
@@ -32,14 +35,15 @@ function sessieTest($huidigeLijst)
 
 function db_exec($stmt, $conn)
 {
+    $test = mysqli_stmt_execute($stmt);
 
-    mysqli_stmt_execute($stmt);
+    sessieTest($test->error);
 
     $result = mysqli_stmt_get_result($stmt);
 
     mysqli_close($conn);
 
-    print_r(mysqli_fetch_all($result, MYSQLI_ASSOC));
+    return(mysqli_fetch_all($result, MYSQLI_ASSOC));
 
 }
 
@@ -56,32 +60,72 @@ function db_exec($stmt, $conn)
 //zoeken producten
 function zoekProduct($zoek)
 {
-
     $conn = db_connect();
-    $validate = valideerZoeken($zoek);
 
+    //haalt zoekwoorden uit zin door bij elke spatie een index aan de pieces array toe te voegen.
     $pieces = explode(" ", $zoek);
 
-    if ($validate)
+    //zoek leeg? terug naar het overzicht
+    if ($zoek != "")
     {
+    //maakt query op basis van array pieces, geeft parametertypes en maakt array van parameters
+        $a_param_type = array();
+        $a_bind_params = array();
         foreach ($pieces as $piece)
         {
-            $sqlnaam[] = "i.StockItemName LIKE '%" . $piece . "%'";
-            $sqldetails[] = "i.SearchDetails LIKE '%" . $piece . "%'";
-            $sqlid[] = "i.StockItemId LIKE '%" . $piece . "%'";
+            $param = "%" . $piece . "%";
+
+            array_push($a_bind_params, $param);
+            array_push($a_bind_params, $param);
+            array_push($a_bind_params, $param);
+            $sqlnaam[] = "i.StockItemName LIKE ?";
+            $sqldetails[] = "i.SearchDetails LIKE ?";
+            $sqlid[] = "i.StockItemId LIKE ?";
+            array_push($a_param_type, "s");
+            array_push($a_param_type, "s");
+            array_push($a_param_type, "i");
         }
 
-        $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID WHERE " . implode(" AND ", $sqlnaam) . " or " . implode(" AND ", $sqldetails) . " or " . implode(" OR ", $sqlid);
+        $param_type = '';
+        $n = count($a_param_type);
 
-        return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+        for($i = 0; $i < $n; $i++) {
+            $param_type .= $a_param_type[$i];
+        }
+        $a_params[] = & $param_type;
 
+        for($i = 0; $i < $n; $i++) {
+            /* with call_user_func_array, array params must be passed by reference */
+            $a_params[] = & $a_bind_params[$i];
+        }
+        $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID WHERE " . implode(" AND ", $sqlnaam) . " OR " . implode(" AND ", $sqldetails) . " or " . implode(" OR ", $sqlid);
+
+        $stmt = mysqli_prepare($conn, $sql);
+
+        call_user_func_array(array($stmt, 'bind_param'), $a_params);
+
+        mysqli_stmt_execute($stmt);
+
+        $res = mysqli_stmt_get_result($stmt);
+
+       $returnVal = mysqli_fetch_all($res,MYSQLI_ASSOC);
+
+       if(count($returnVal)!==0){
+           return $returnVal;
+       }
+        else{
+            $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID";
+
+            return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+        }
 
     } else
     {
-        $sql = "SELECT * FROM stockitems";
+        $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID";
 
         return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
     }
+
 }
 
 function productenLijst()
