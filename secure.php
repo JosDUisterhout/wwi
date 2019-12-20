@@ -43,7 +43,7 @@ if(isset($_POST['homepage'])){
                 $datum = $bestelling['datum'];
                 $producten = getBestellingLines($bestellingID);
                 $totaalAantal = $producten[0]['totaalAantal'];
-                $totaalPrijs = $producten[0]['totaalPrijs'];
+                $totaalPrijs = number_format($producten[0]['totaalPrijs'],2,'.', '');
         ?>
                 <tr onclick="location.href='factuur.php?id=<?php print($bestellingID); ?>'">
                     <td>#<?php print($bestellingID); ?></td>

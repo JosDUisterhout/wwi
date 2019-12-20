@@ -11,7 +11,7 @@ if(isset($_SESSION["verlanglijst"]) && !empty($_SESSION["verlanglijst"])){
         $product = getOneProductById($productId);
         $productID = $product['StockItemID'];
         $productNaam = $product['StockItemName'];
-        $productPrijs = $product['RecommendedRetailPrice'];
+        $productPrijs = number_format($product['RecommendedRetailPrice'] * $product['DiscountAmount'], 2, '.', '' );
         $productdails = $product["SearchDetails"];
         ?>
         <div class="cartrow flex-container">
@@ -25,7 +25,7 @@ if(isset($_SESSION["verlanglijst"]) && !empty($_SESSION["verlanglijst"])){
             <div class="verlanglijst_prijs">
                 <div style="text-align: right;">
                     <div style="color: #27ae60; font-size: 40px; font-weight: bold;">
-                    &euro; <?php print(ceil($productPrijs)); ?>
+                    &euro; <?php print($productPrijs); ?>
                     </div>
                     <div>
                     euro

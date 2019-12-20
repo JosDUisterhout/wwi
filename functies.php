@@ -1,4 +1,5 @@
 <?php
+
 function db_connect()
 {
 
@@ -52,6 +53,7 @@ function db_exec($stmt, $conn)
 //return db_exec($stmt, $conn);
 //}
 
+//zoeken producten
 function zoekProduct($zoek)
 {
 
@@ -93,7 +95,7 @@ function productenLijst()
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
-
+// valideert zoek aanvragen
 function valideerZoeken($zoek)
 {
 
@@ -105,6 +107,14 @@ function valideerZoeken($zoek)
     }
 
     return $validate;
+}
+// haalt de temperatuur data uit de db
+function getTemp($id){
+    $conn = db_connect();
+
+    $sql = "SELECT * FROM coldroomtemperatures join stockitems on ColdRoomSensorNumber = IsChillerStock WHERE stockItemID = $id ";
+
+    return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
 
 function productenItem($id)
@@ -123,7 +133,7 @@ function getOneProductById($id)
 
     return array_pop($rows);
 }
-
+// haalt de data voor de categoriëen filter uit de db
 function categorieLijst()
 {
 
@@ -134,7 +144,7 @@ function categorieLijst()
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
 }
-
+// haalt de data voor de categoriëen filter apart uit de db
 function categorieClothing($categorie)
 {
 
@@ -145,7 +155,7 @@ function categorieClothing($categorie)
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 }
-
+// zorgt voor aantal paginas die je kan zien
 function aantalPaginas($aantal, $perPagina)
 {
 
@@ -154,7 +164,7 @@ function aantalPaginas($aantal, $perPagina)
 
     return ceil($aantal / $perPagina);
 }
-
+// voegt product toe aan winkelmand
 function toevoegenProductWinkelmand($id, $aantal, $toevoegen)
 {
     if ($toevoegen)
@@ -164,7 +174,7 @@ function toevoegenProductWinkelmand($id, $aantal, $toevoegen)
 
     }
 }
-
+// verwijdert product uit de winkelmand
 function verwijdenProductWinkelwagen($id)
 {
     if (isset($_SESSION["cart"]))
@@ -172,7 +182,7 @@ function verwijdenProductWinkelwagen($id)
         unset($_SESSION["cart"][$id]);
     }
 }
-
+// voegt product toe aan verlanglijstje
 function toevoegenProductVerlanglijst($id, $toevoegen)
 {
 
@@ -192,7 +202,7 @@ function toevoegenProductVerlanglijst($id, $toevoegen)
         }
     }
 }
-
+// verwijdert product uit verlanglijst
 function verwijdenProductVerlanglijst($id)
 {
     if (isset($_SESSION["verlanglijst"]))
@@ -205,10 +215,6 @@ function verwijdenProductVerlanglijst($id)
     }
 }
 
-function utf8($text)
-{
-    return iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
-}
 
 function vooraad($ID)
 {
@@ -226,7 +232,7 @@ function alert($msg)
 {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
-
+// verwerkt de pagina nummers
 function verwerkPaginaNR()
 {
     if (isset($_GET['paginaNummer']))
@@ -239,7 +245,7 @@ function verwerkPaginaNR()
         }
     }
 }
-
+// haalt de producten voor de huidige pagina op
 function laadPagina($producten)
 {
 
@@ -260,7 +266,7 @@ function laadPagina($producten)
         return false;
     }
 }
-
+// haalt product per pagina op
 function perPagina($startPerPagina)
 {
 
@@ -275,7 +281,7 @@ function perPagina($startPerPagina)
         $_SESSION['perPagina'] = $startPerPagina;
     }
 }
-
+// stuurt je weer terug naar de gegeven url
 function redirect($url)
 {
     header("Location: $url");
@@ -283,7 +289,7 @@ function redirect($url)
 
 // inloggen
 
-
+// checkt de gegeven gebruikersnaam en wachtwoord of hij in de db staat
 function inlog($gebruikersnaam, $wachtwoord)
 {
 
@@ -333,7 +339,7 @@ function registreeremailadress($emailadres)
     }
 
 }
-
+// registreert de gegeven gegevens in de db
 function registreer($gebruikersnaam, $password, $emailadress, $voornaam, $achternaam, $postcode, $woonplaats, $adres, $telefoon)
 {
 
@@ -345,7 +351,7 @@ function registreer($gebruikersnaam, $password, $emailadress, $voornaam, $achter
 
     mysqli_query($conn, $sql);
 }
-
+// checkt de gegeven emailadres of het ook echt een emailadrdes is
 function emailvalidator($emailadress)
 {
     if (preg_match("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,4}$^", $emailadress))
@@ -358,7 +364,7 @@ function emailvalidator($emailadress)
 
     return $geldig;
 }
-
+// checkt de vooraad en sorteert deze
 function checkVooraad($vooraad)
 {
     if ($vooraad >= 100000)
@@ -377,7 +383,7 @@ function checkVooraad($vooraad)
         return ("Voorraad status: Op vooraad");
     }
 }
-
+// genereert de korting
 function kortingGenerator($prijs)
 {
     $kortinggenerator = rand(1, 10);
@@ -417,7 +423,7 @@ function kortingGenerator($prijs)
             break;
     }
 }
-
+// behandelt de bestelling doormiddel van de gegeven gegevens
 function bestelling($post)
 {
     $voornaam = $post["voornaam"];
@@ -453,7 +459,7 @@ function bestelling($post)
 
 }
 
-
+// maakt een order aan bij de bestelling
 function bestellingorder($klantID)
 {
 
@@ -475,7 +481,7 @@ function bestellingorder($klantID)
         }
     }
 }
-
+// zorgt voor de betalling bij de bestelling
 function bestellingbetalen()
 {
     if (isset($_SESSION["cart"]) && ! empty($_SESSION["cart"]))
@@ -500,7 +506,7 @@ function bestellingbetalen()
     }
 }
 
-
+// haalt de gemaakte bestelling uit de db
 function getBestelling($id)
 {
     $conn = db_connect();
@@ -511,12 +517,12 @@ function getBestelling($id)
 
     return ((mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
 }
-
+// geeft een lijst van de gemaakte bestellingen
 function getBestellingLines($orderID)
 {
     $conn = db_connect();
 
-    $sql = "  SELECT B.stockItemID, sum(aantal) AS totaalAantal, sum(RecommendedRetailPrice*aantal)  AS totaalPrijs
+    $sql = "  SELECT B.stockItemID, sum(aantal) AS totaalAantal, sum(RecommendedRetailPrice*aantal*DiscountAmount)  AS totaalPrijs
               FROM bestellinglines B JOIN stockitems S on S.stockItemID = B.stockItemID
               WHERE bestellingID = $orderID;";
 
@@ -535,76 +541,34 @@ function factuurItems($orderID)
 }
 
 
-// automatisch inloggen
-
-function bestelvoornaam($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT voornaam from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
-function bestelachternaam($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT achternaam from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
-function bestelemail($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT email from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
-function besteladres($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT adres from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
-function bestelpostcode($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT postcode from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
-function bestelwoonplaats($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT woonplaats from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
-function besteltelefoon($gebruiksersnaam)
-{
-    $conn = db_connect();
-
-    $sql = "SELECT telefoon from klanten where gebruikersnaam = $gebruiksersnaam ";
-
-    return mysqli_query($conn, $sql);
-}
-
+// automatisch inloggen met acount
 function bestelinlog($gebruiker)
 {
     $conn = db_connect();
 
     $sql = "SELECT * FROM klanten where gebruikersnaam = '$gebruiker'";
+
+    $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+
+    return $test;
+}
+
+
+function productenInGroep($groepID){
+
+}
+
+function groepID($productID){
+
+    $productID = intval($productID);
+
+    sessieTest($productID);
+
+    $conn = db_connect();
+
+    $sql= "select stockitemid from stockitemstockgroups where stockgroupid in 
+(select stockgroupid from stockitemstockgroups where stockgroupid in 
+(select stockitemid from stockitemstockgroups where stockitemid = '$productID'));";
 
     $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
