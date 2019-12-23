@@ -204,6 +204,7 @@ if(isset($_SESSION["cart"])) {
                         <label for="cvv">CVV</label>
                         <input type="text" id="cvv" name="cvv" placeholder="352">
 
+
                         <input type="submit" name="Pay" class="btn" onclick="alert('U heeft betaald')">
 
             </form>

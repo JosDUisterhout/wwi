@@ -460,7 +460,15 @@ function bestellingorder($klantID)
     if (isset($_SESSION["cart"]) && ! empty($_SESSION["cart"]))
     {
         $datum = date("Y/m/d");
-        $sql = "INSERT INTO bestellingen (klantID, datum) values ('" . $klantID . "','" . $datum . "')";
+print('<br><br><br>');
+print('<br><br><br>');
+        if(isset($_SESSION['coupon'])){
+            $coupon = $_SESSION['coupon'];
+            $sql = "INSERT INTO bestellingen (klantID, datum, couponKorting) values ('" . $klantID . "','" . $datum . "','" . $coupon . "')";
+        }else{
+            $sql = "INSERT INTO bestellingen (klantID, datum) values ('" . $klantID . "','" . $datum . "')";
+        }
+
         $conn = db_connect();
         mysqli_query($conn, $sql);
         $bestellingID = mysqli_insert_id($conn);
@@ -498,6 +506,30 @@ function bestellingbetalen()
         unset($_SESSION['cart']);
         header("location: index.php");
     }
+}
+
+function getCoupon($coupon){
+    $conn = db_connect();
+
+    $sql = "  SELECT korting, ingangsdatum, vervaldatum
+              FROM couponcodes
+              WHERE naam = '$coupon'";
+
+    $test = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
+    if(count($test)){
+        $Date = date('Y-m-d');
+        $begindatum = $test[0]['ingangsdatum'];
+        $vervaldatum = $test[0]['vervaldatum'];
+        if($Date >= $begindatum && $Date <= $vervaldatum){
+            $coupon = $test[0]['korting'];
+            return $coupon;
+        }
+
+    }else{
+        $coupon = null;
+        return $coupon;
+    }
+    die;
 }
 
 

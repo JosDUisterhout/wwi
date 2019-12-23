@@ -1,7 +1,7 @@
 <?php
 
 include('include.php');
-
+$coupon = '';
 ?>
 <br>
 <br>
@@ -97,20 +97,43 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
 <?php
 }
 ?>
-<div class="cartrow flex-container">
-    <div class="cart_totaalprijs">
-        <h2><?php
-            print("Totaalprijs: € $totaalprijs euro");?></h2>
-    </div>
-</div>
+
+<form method="post">
+    <label for="cvv">Couponcode</label>
+    <input type="text" id="cvv" name="coupon" value="<?php print($coupon) ?>" placeholder="couponcode">
 <?php
+
 if($totaalprijs ==0){
     echo" <a href='Bestellen.php' class='topnavright'><i class='button' style='display: none'>Afrekenen</i></a>";
 }else{
     echo" <a href='Bestellen.php' class='topnavright'><i class='button'>Afrekenen</i></a>";
 }
 ?>
+    <input type="submit" name="couponsubmit" class="btn" value="Ceck couponcode">
+</form>
+<?php
 
+if(isset($_POST['coupon'])){
+
+    $coupon = $_POST['coupon'];
+    $_SESSION['coupon'] = getCoupon($coupon);
+    if(empty($_SESSION['coupon'])){
+        print('Deze kortingscode werkt/bestaat niet');
+    }else{
+        $totaalprijs = $totaalprijs * ((100-$_SESSION['coupon'])/100);
+        //    20%100 = 0,2
+        //    1-0.2 = 0.8
+        //    eindprijs = eindprijs x 0.8
+        print('Deze kortingscode: ' . $coupon . ' is toegevoegd aan uw bestelling');
+    }
+}
+?>
+<div class="cartrow flex-container">
+    <div class="cart_totaalprijs">
+        <h2><?php
+            print("Totaalprijs: € $totaalprijs euro");?></h2>
+    </div>
+</div>
 <script>
     function myFunction(id) {
 
