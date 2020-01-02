@@ -11,7 +11,7 @@ if(isset($_SESSION["verlanglijst"]) && !empty($_SESSION["verlanglijst"])){
         $product = getOneProductById($productId);
         $productID = $product['StockItemID'];
         $productNaam = $product['StockItemName'];
-        $productPrijs = number_format($product['RecommendedRetailPrice'] * $product['DiscountAmount'], 2, '.', '' );
+        $productPrijs = number_format(geefkorting($product['RecommendedRetailPrice'], $product['DiscountAmount']), 2, '.', '' );
         $productdails = $product["SearchDetails"];
         ?>
         <div class="cartrow flex-container">

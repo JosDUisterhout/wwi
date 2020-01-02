@@ -92,7 +92,7 @@ $huidigeLijst = laadPagina($producten);
         $foto = $product["Photo"];
         $naam = $product['StockItemName'];
         $vooraad = $product["QuantityOnHand"];
-        $productPrijs = $product['RecommendedRetailPrice'] * $product['DiscountAmount'];
+        $productPrijs = geefkorting($product['RecommendedRetailPrice'] ,$product['DiscountAmount']);
         echo('<div class="grid-item" onclick="location.href=\'producten.php?id=' . $id . '\';"> ' .  $naam  . " 
                   <img class='fancy-image-index' src='plaatjeswwi/id$id.jpg' onerror='this.src=\"plaatjeswwi/default.jpg\"'>" .'<br>');
         print("<div class='grid-text'>");

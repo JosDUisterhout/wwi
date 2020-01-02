@@ -18,15 +18,15 @@ $vooraad = $product[0]['QuantityOnHand'];
 
 $producten = productenLijst();
 
-$reproduct1= rand(1, count(productenLijst())) -1;
-$reproduct2= rand(1, count(productenLijst())) -1;
-$reproduct3= rand(1, count(productenLijst())) -1;
-$rePrijs1 = number_format($producten[$reproduct1-1]['RecommendedRetailPrice'] * $producten[$reproduct1-1]['DiscountAmount'], 2, '.', '' );
-$rePrijs2 = number_format($producten[$reproduct2-1]['RecommendedRetailPrice'] * $producten[$reproduct2-1]['DiscountAmount'], 2, '.', '' );
-$rePrijs3 = number_format($producten[$reproduct3-1]['RecommendedRetailPrice'] * $producten[$reproduct3-1]['DiscountAmount'], 2, '.', '' );
-$reNaam1 = $producten[$reproduct1-1]['StockItemName'];
-$reNaam2 = $producten[$reproduct2-1]['StockItemName'];
-$reNaam3 = $producten[$reproduct3-1]['StockItemName'];
+$reproduct1= rand(1, count(productenLijst()));
+$reproduct2= rand(1, count(productenLijst()));
+$reproduct3= rand(1, count(productenLijst()));
+$rePrijs1 = geefkorting( $producten[$reproduct1]['RecommendedRetailPrice'], $producten[$reproduct1]['DiscountAmount']);
+$rePrijs2 = geefkorting( $producten[$reproduct2]['RecommendedRetailPrice'], $producten[$reproduct2]['DiscountAmount']);
+$rePrijs3 = geefkorting( $producten[$reproduct3]['RecommendedRetailPrice'], $producten[$reproduct3]['DiscountAmount']);
+$reNaam1 = $producten[$reproduct1]['StockItemName'];
+$reNaam2 = $producten[$reproduct2]['StockItemName'];
+$reNaam3 = $producten[$reproduct3]['StockItemName'];
 
 
 //huidig product
@@ -34,8 +34,8 @@ $product = productenItem($_GET['id']);
 $productID = $product[0]['StockItemID'];
 $productNaam = $product[0]['StockItemName'];
 $prijsVoorKorting = $product[0]['RecommendedRetailPrice'];
-$kortingTekst = 100 - ($product[0]['DiscountAmount'] * 100);
-$productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'], 2, '.', '' );
+$kortingTekst = $product[0]['DiscountAmount'];
+$productPrijs = number_format(geefkorting($product[0]['RecommendedRetailPrice'], $product[0]['DiscountAmount']), 2, '.', '' );
 $productdetails = $product[0] ["SearchDetails"];
 $productid = $product[0]['StockItemID'];
 $vooraad = $product[0]['QuantityOnHand'];

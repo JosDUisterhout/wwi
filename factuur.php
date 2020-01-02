@@ -45,7 +45,7 @@ if ( ! isset($_SESSION['gebruikersnaam']))
             $stockItemID = $item['stockItemID'];
             $naam = $item['StockItemName'];
             $aantal = $item['aantal'];
-            $productPrijs = number_format($item['RecommendedRetailPrice'] * $item['DiscountAmount'], 2, '.', '' );
+            $productPrijs = $productPrijs = number_format(geefkorting($product['RecommendedRetailPrice'], $product['DiscountAmount']), 2, '.', '' );
             $totaalprijs = $totaalprijs + ($productPrijs * $aantal);
             ?>
             <tr onclick="location.href='producten.php?id=<?php print($stockItemID); ?>'">

@@ -1,7 +1,13 @@
 <?php
 
+function round_up ( $value, $precision ) {
+    $pow = pow ( 10, $precision );
+    return ( ceil ( $pow * $value ) + ceil ( $pow * $value - ceil ( $pow * $value ) ) ) / $pow;
+}
+
+
 function geefkorting($bedrag, $korting){
-    return $bedrag * ((100-$korting)/100);
+    return round_up($bedrag * ((100-$korting)/100) ,2);
 }
 
 function db_connect()
@@ -134,7 +140,6 @@ function productenLijst()
     $conn = db_connect();
 
     $sql = "SELECT * FROM stockitems as i join stockitemholdings as h on i.StockItemID=h.StockItemID";
-
 
     return mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
 
@@ -341,9 +346,19 @@ function inlog($gebruikersnaam, $wachtwoord)
 
     $conn = db_connect();
 
-    $sql = "SELECT klantID, gebruikersnaam FROM klanten WHERE gebruikersnaam = '$gebruikersnaam' and wachtwoord = '$wachtwoord'";
+    $sql = "SELECT klantID, gebruikersnaam FROM klanten WHERE gebruikersnaam =? and wachtwoord =?";
 
-    return ((mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC)));
+    $stmt = mysqli_prepare($conn, $sql);
+
+    mysqli_stmt_bind_param($stmt, 'ss', $gebruikersnaam, $wachtwoord);
+
+    mysqli_stmt_execute($stmt);
+
+    $res = mysqli_stmt_get_result($stmt);
+
+    $returnVal = mysqli_fetch_all($res,MYSQLI_ASSOC);
+
+    return $returnVal;
 
 }
 
@@ -467,41 +482,6 @@ function kortingGenerator($prijs)
             break;
     }
 }
-// behandelt de bestelling doormiddel van de gegeven gegevens
-function bestelling($post)
-{
-    $voornaam = $post["voornaam"];
-    $achternaam = $post["achternaam"];
-    $email = $post["email"];
-    $tel = $post["tel"];
-    $adres = $post["adres"];
-    $postcode = $post["postcode"];
-    $woon = $post["woonplaats"];
-
-    if (isset($post['submit']))
-    {
-        $sql = "INSERT INTO klanten (voornaam,achternaam,email,adres,woonplaats,telefoon,postcode) values ('" . $voornaam . "','" . $achternaam . "','" . $email . "','" . $adres . "','" . $woon . "','" . $tel . "','" . $postcode . "')";
-        $conn = db_connect();
-        if (mysqli_query($conn, $sql))
-        {
-
-            $sql = "SELECT klantID FROM klanten WHERE email = '$email'";
-            $klantID = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
-            bestellingorder($klantID[0]['klantID']);
-
-            return true;
-        } else
-        {
-            $sql = "SELECT klantID FROM klanten WHERE email = '$email'";
-            $klantID = mysqli_fetch_all(mysqli_query($conn, $sql), MYSQLI_ASSOC);
-            bestellingorder($klantID[0]['klantID']);
-
-            return false;
-        }
-    }
-
-
-}
 
 // maakt een order aan bij de bestelling
 function bestellingorder($klantID)
@@ -525,6 +505,63 @@ function bestellingorder($klantID)
         }
     }
 }
+// behandelt de bestelling doormiddel van de gegeven gegevens
+function bestelling($post)
+{
+    $voornaam = $post["voornaam"];
+    $achternaam = $post["achternaam"];
+    $email = $post["email"];
+    $tel = $post["tel"];
+    $adres = $post["adres"];
+    $postcode = $post["postcode"];
+    $woon = $post["woonplaats"];
+
+    if (isset($post['submit']))
+    {
+
+        $conn = db_connect();
+
+        $sql = "INSERT INTO klanten (voornaam,achternaam,email,adres,woonplaats,telefoon,postcode) values ( ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = mysqli_prepare($conn, $sql);
+
+        mysqli_stmt_bind_param($stmt, 'sssssss', $voornaam, $achternaam, $email, $tel, $adres, $postcode, $woon);
+
+        mysqli_stmt_execute($stmt);
+
+        $res = mysqli_stmt_get_result($stmt);
+
+        $returnVal = mysqli_fetch_all($res,MYSQLI_ASSOC);
+
+        if (mysqli_query($conn, $sql))
+        {
+
+            $sql = "SELECT klantID FROM klanten WHERE email =?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, 's', $email);
+            mysqli_stmt_execute($stmt);
+            $res = mysqli_stmt_get_result($stmt);
+            $klantID = mysqli_fetch_all($res, MYSQLI_ASSOC);
+            bestellingorder($klantID[0]['klantID']);
+
+            return true;
+        } else
+        {
+            $sql = "SELECT klantID FROM klanten WHERE email =?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, 's', $email);
+            mysqli_stmt_execute($stmt);
+            $res = mysqli_stmt_get_result($stmt);
+            $klantID = mysqli_fetch_all($res, MYSQLI_ASSOC);
+            bestellingorder($klantID[0]['klantID']);
+
+            return false;
+        }
+    }
+
+}
+
+
 // zorgt voor de betalling bij de bestelling
 function bestellingbetalen()
 {

@@ -1,7 +1,7 @@
 <?php
 include('include.php');
 
-
+//TODO: aantal producten in prijs meenemen.
 ?>
 
 <?php
@@ -166,7 +166,7 @@ if(isset($_SESSION["cart"])) {
                                 $product = productenItem($key);
                                 $productID = $product[0]['StockItemID'];
                                 $productNaam = $product[0]['StockItemName'];
-                                $productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'] * $aantal, 2, '.', '' );
+                                $productPrijs = number_format(geefkorting($product[0]['RecommendedRetailPrice'], $product[0]['DiscountAmount']), 2, '.', '' );
                                 $productdails = $product[0]["SearchDetails"];
                                 $voorraad = $product[0]["QuantityOnHand"];
                                 $totaalprijs = $totaalprijs + $productPrijs;

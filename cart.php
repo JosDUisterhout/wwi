@@ -22,10 +22,10 @@ if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])){
         $product = productenItem($key);
         $productID = $product[0]['StockItemID'];
         $productNaam = $product[0]['StockItemName'];
-        $productPrijs = number_format($product[0]['RecommendedRetailPrice'] * $product[0]['DiscountAmount'] * $aantal, 2, '.', '' );
+        $productPrijs = geefkorting( $product[0]['RecommendedRetailPrice'], $product[0]['DiscountAmount']) * $aantal;
         $productdails = $product[0]["SearchDetails"];
         $voorraad = $product[0]["QuantityOnHand"];
-        $totaalprijs = $totaalprijs + $productPrijs
+        $totaalprijs = $totaalprijs + $productPrijs;
 ?>
 
 <div class="cartrow flex-container">
