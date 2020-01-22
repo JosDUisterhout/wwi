@@ -352,6 +352,9 @@ function inlog($gebruikersnaam, $wachtwoord)
 
     mysqli_stmt_bind_param($stmt, 'ss', $gebruikersnaam, $wachtwoord);
 
+
+    // test voor Broken authentication and session management
+
     mysqli_stmt_execute($stmt);
 
     $res = mysqli_stmt_get_result($stmt);
