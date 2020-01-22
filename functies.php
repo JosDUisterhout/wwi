@@ -358,8 +358,8 @@ function inlog($gebruikersnaam, $wachtwoord)
 
     $returnVal = mysqli_fetch_all($res,MYSQLI_ASSOC);
 
-    return $returnVal;
 
+    return $returnVal;
 }
 
 //staat naam in db?
