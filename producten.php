@@ -123,7 +123,7 @@ if (count($temp)) {
                     print($productdetails);
                     print('<br><br>');
 
-                    if($product[0]['DiscountAmount'] != 1) {
+                    if($product[0]['DiscountAmount'] != 0) {
                         print("<i class='productenprijs'>€ $productPrijs</i><br>");
                         print("<div class='kortingtekst'>Adviesprijs: <strike>€ $prijsVoorKorting</strike></div>");
                         print("<div class='kortingtekstbottom'>Je bespaart $kortingTekst%!</div>");
